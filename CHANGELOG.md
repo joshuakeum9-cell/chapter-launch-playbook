@@ -2,6 +2,12 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 8.0.2 - 2026-08-17
+
+The Substack formatting troubleshooting entry now walks through the actual
+steps: open the HTML file, click at the top, drag to the bottom, copy, paste,
+with the keyboard shortcuts, rather than describing the method in one sentence.
+
 ## 8.0.1 - 2026-08-17
 
 Moved to a clean repository, `chapter-launch-playbook`. Content is unchanged
