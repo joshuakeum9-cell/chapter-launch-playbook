@@ -2,6 +2,25 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 8.1.0 - 2026-08-17
+
+Restore the opportunities section, on the right cadence this time.
+
+`ctc-opportunities` is one of the five skills in the `ctc-newsletter` plugin
+and the page had stopped mentioning it at all. It is back, between Send and
+Partners, and it says monthly. The earlier removal came from treating it as a
+quarterly job, which it never was.
+
+The two cadences outside the weekly cycle are now stated against each other in
+both places they appear: opportunities monthly, source list every three months,
+and nothing else. The two week table carries a row for each.
+
+The section covers the four source tiers, the floor of fifteen open
+opportunities, the requirement that the queue is not all one type, local
+entries leading the file, the Closed sheet for passed deadlines, and adding
+Opportunities_[City].xlsx to the project as a context file each month. The
+opportunities question in Assemble now links to it.
+
 ## 8.0.2 - 2026-08-17
 
 The Substack formatting troubleshooting entry now walks through the actual

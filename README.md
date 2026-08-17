@@ -37,10 +37,11 @@ no backend, no account connection, and stores nothing.
 | 5 | Set up | `#setup` |
 | 6 | Build your source list | `#newsletter` |
 | 7 | The weekly cycle | `#cycle`, then `#collect` `#cut` `#write` `#sample` `#send` |
-| 8 | Partners | `#partners` |
-| 9 | Troubleshooting | `#help` |
-| 10 | Downloads | `#downloads` |
-| 11 | Footer | |
+| 8 | Refresh your opportunities, monthly | `#monthly` |
+| 9 | Partners | `#partners` |
+| 10 | Troubleshooting | `#help` |
+| 11 | Downloads | `#downloads` |
+| 12 | Footer | |
 
 ## Design
 

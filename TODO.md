@@ -50,10 +50,9 @@ that re-running `ctc-source-map` is the quarterly job and that nothing else in
 the toolkit runs on a quarterly cadence. The Refresh your opportunities section
 was removed and Build your source list carries the quarterly callout instead.
 
-The page no longer documents `ctc-opportunities` anywhere. It is still installed
-as part of the `ctc-newsletter` plugin, and `ctc-assemble` reads its queue when
-one is in the project. Worth deciding whether the monthly job deserves a mention
-somewhere, or whether leaving it to the skills is right.
+Resolved 2026-08-17: the section is back as a monthly job, between Send and
+Partners, and the two cadences are stated against each other wherever they
+appear.
 
 ## Superseded: the opportunities cadence conflict
 

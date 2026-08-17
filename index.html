@@ -474,6 +474,7 @@
           <tr><td>Week 1</td><td>Logo, made in ChatGPT, then Substack</td></tr>
           <tr><td>Week 2</td><td>Source list, subscriber list, first issue</td></tr>
           <tr><td>Every week</td><td>Harvest, cut, draft, send</td></tr>
+          <tr><td>Every month</td><td>Refresh your opportunities</td></tr>
           <tr><td>Every three months</td><td>Refresh your source list</td></tr>
           <tr><td>Later</td><td>Partners</td></tr>
         </tbody>
@@ -846,7 +847,7 @@
         </li>
         <li>
           <strong>Any opportunities this week?</strong>
-          <span>If your opportunities file is in the project, Claude offers from it, favouring the nearest deadlines. Otherwise give a name, a link and a deadline, or say none and the block is left out rather than padded.</span>
+          <span>If your <a href="#monthly">opportunities file</a> is in the project, Claude offers from it, favouring the nearest deadlines. Otherwise give a name, a link and a deadline, or say none and the block is left out rather than padded.</span>
         </li>
         <li>
           <strong>Anything the sheet cannot know?</strong>
@@ -992,8 +993,33 @@
 </div>
 
 
+<!-- EVERY MONTH -->
+<div class="band band-canvas" id="monthly">
+  <div class="wrap">
+    <p class="eyebrow">Every month</p>
+    <h2>Refresh your opportunities</h2>
+    <p class="desc">Grants, fellowships, accelerators, and open calls, kept in one file your issues draw from. Run this monthly. Your source list is the quarterly one, and they are the only two jobs outside the weekly cycle.</p>
+
+    <div class="prompt-card">
+      <div class="head"><span class="label">Opportunities <span class="hint">&middot; monthly</span></span><button class="copy-btn" onclick="copyPrompt('p-monthly', this)">Copy</button></div>
+      <pre class="prompt" id="p-monthly"></pre>
+    </div>
+
+    <p class="desc">Claude sweeps program pages and public funders, aggregators, LinkedIn through your browser if you say yes, and the local organizations in your partner map.</p>
+    <ul class="checks" style="max-width:34em;">
+      <li>Minimum 15 open opportunities</li>
+      <li>A mix of accelerators, grants, and fellowships, never all of one kind</li>
+      <li>Local opportunities lead the file, national ones sit below</li>
+      <li>Anything past its deadline moves to a Closed sheet</li>
+      <li>Rolling programs count, and are listed as Rolling</li>
+    </ul>
+
+    <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> Claude reads it when it builds each issue, so one run covers every issue that month. Without it the opportunities block has nothing to draw on.</div>
+  </div>
+</div>
+
 <!-- 9. PARTNERS -->
-<div class="band band-canvas" id="partners">
+<div class="band band-surface" id="partners">
   <div class="wrap">
     <p class="eyebrow">Later</p>
     <h2>Partners</h2>
@@ -1037,7 +1063,7 @@
 </div>
 
 <!-- 10. TROUBLESHOOTING -->
-<div class="band band-surface" id="help">
+<div class="band band-canvas" id="help">
   <div class="wrap">
     <p class="eyebrow">Troubleshooting</p>
     <h2>When something breaks</h2>
@@ -1065,7 +1091,7 @@
 </div>
 
 <!-- 11. DOWNLOADS -->
-<div class="band band-canvas" id="downloads">
+<div class="band band-surface" id="downloads">
   <div class="wrap">
     <p class="eyebrow">Everything in one place</p>
     <h2>Downloads</h2>
@@ -1174,6 +1200,7 @@ var PROMPTS = {
   "p-cycle2":     function (c) { return "run the newsletter for " + c; },
   "p-harvest":    function (c) { return "/ctc-harvest Harvest this week's events for " + c + "."; },
   "p-assemble":   function (c) { return "/ctc-assemble Assemble the " + c + " issue from this sheet. Rows marked PICK are my picks."; },
+  "p-monthly":    function (c) { return "run the monthly opportunities for " + c; },
   "p-partnermap": function (c) { return "build the partner map for " + c; },
   "p-logo":       function (c) { return LOGO_PROMPT.split("{CITY}").join(c); }
 };
