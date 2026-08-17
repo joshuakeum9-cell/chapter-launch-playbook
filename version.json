@@ -1,0 +1,22 @@
+{
+  "version": "8.0.1",
+  "date": "2026-08-17",
+  "toolkit": {
+    "packages": {
+      "ctc-chapter-setup": "1.4.3",
+      "ctc-newsletter": "1.18.1",
+      "ctc-partner-map": "1.3.0"
+    },
+    "skills": [
+      "ctc-chapter-setup",
+      "ctc-newsletter-cycle",
+      "ctc-source-map",
+      "ctc-harvest",
+      "ctc-opportunities",
+      "ctc-assemble",
+      "ctc-city-resources",
+      "ctc-partner-list",
+      "ctc-partner-outreach"
+    ]
+  }
+}

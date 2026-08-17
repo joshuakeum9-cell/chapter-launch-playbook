@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Mintlify palette */
+    --primary: #0a0a0a;
+    --on-primary: #ffffff;
+    --green: #00d4a4;
+    --green-deep: #00b48a;
+    --green-soft: #7cebcb;
+    --green-tint: rgba(0, 212, 164, 0.10);
+    --sky-from: #87a8c8;
+    --sky-to: #f5e9d8;
+    --dark-from: #1a3d4a;
+    --dark-to: #2d5a4f;
+    --orange: #f55a3c;
+    --orange-deep: #cc3a1f;
+    --orange-tint: rgba(245, 90, 60, 0.13);
+    --orange-line: rgba(245, 90, 60, 0.35);
+    --canvas: #ffffff;
+    --surface: #f7f7f7;
+    --surface-soft: #fafafa;
+    --surface-code: #1c1c1e;
+    --hairline: #e5e5e5;
+    --hairline-soft: #ededed;
+    --hairline-dark: #1f1f1f;
+    --ink: #0a0a0a;
+    --charcoal: #1c1c1e;
+    --slate: #3a3a3c;
+    --steel: #5a5a5c;
+    --stone: #888888;
+    --muted: #a8a8aa;
+    --on-dark: #ffffff;
+    --on-dark-muted: #b3b3b3;
+    /* type */
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, Consolas, monospace;
+    /* radius */
+    --r-xs: 4px; --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-full: 9999px;
+    /* depth */
+    --shadow-card: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+    --shadow-mockup: rgba(0, 0, 0, 0.12) 0px 24px 48px -8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px; line-height: 1.5; color: var(--ink);
+    background: var(--canvas);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.028em; }
+  h2 { font-size: clamp(1.7rem, 3.4vw, 2.25rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.014em; margin-bottom: 12px; }
+  h3 { font-size: 22px; font-weight: 600; line-height: 1.3; margin: 32px 0 8px; }
+  h3:first-child { margin-top: 0; }
+  .h5, .card-title { font-size: 18px; font-weight: 600; line-height: 1.4; margin: 0 0 8px; }
+  p { max-width: 40em; }
+  .desc { margin: 12px 0; color: var(--slate); }
+  .desc.dim, .small { font-size: 14px; line-height: 1.5; color: var(--steel); }
+  a { color: inherit; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--steel); margin-bottom: 12px;
+  }
+
+  .band { width: 100%; }
+  .band-canvas { background: var(--canvas); }
+  .band-surface { background: var(--surface-soft); border-top: 1px solid var(--hairline-soft); border-bottom: 1px solid var(--hairline-soft); }
+  .band-hero { background: linear-gradient(180deg, var(--sky-from) 0%, var(--sky-to) 100%); }
+  .band-teal { background: linear-gradient(135deg, var(--dark-from) 0%, var(--dark-to) 100%); color: var(--on-dark); }
+  .band-teal h2, .band-teal h3 { color: var(--on-dark); }
+  .band-teal .eyebrow { color: var(--on-dark-muted); }
+  .band-teal .desc { color: var(--on-dark-muted); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 96px 32px; }
+  .wrap.tight { padding: 64px 32px; }
+
+  /* ---------- nav ---------- */
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--canvas); border-bottom: 1px solid var(--hairline-soft); }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 64px;
+    display: flex; align-items: center; gap: 32px;
+  }
+  .nav-brand { font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none; white-space: nowrap; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 24px; margin-left: auto; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--steel); text-decoration: none; white-space: nowrap; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 860px) {
+    .nav-inner { height: auto; flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
+    .nav-brand { padding: 12px 16px 6px; white-space: normal; }
+    .nav-links { margin-left: 0; overflow-x: auto; padding: 0 16px 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    html { scroll-padding-top: 96px; }
+  }
+
+  /* ---------- buttons: pills ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500; line-height: 1.3;
+    padding: 10px 20px; border-radius: var(--r-full); border: 1px solid var(--primary);
+    background: var(--primary); color: var(--on-primary); cursor: pointer; text-decoration: none;
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .btn:hover { background: var(--charcoal); border-color: var(--charcoal); }
+  .btn.green { background: var(--green); border-color: var(--green); color: var(--primary); }
+  .btn.green:hover { background: var(--green-deep); border-color: var(--green-deep); }
+  .btn.outline { background: transparent; border-color: var(--hairline); color: var(--ink); }
+  .btn.outline:hover { border-color: var(--stone); background: var(--surface); }
+  .btn.on-dark { background: var(--on-dark); border-color: var(--on-dark); color: var(--primary); }
+  .btn.on-dark:hover { background: #ededed; border-color: #ededed; }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--canvas); border: 1px solid var(--hairline);
+    border-radius: var(--r-lg); padding: 24px;
+  }
+  .grid { display: grid; gap: 16px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 1023px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 767px) { .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+  a.stepcard { display: block; text-decoration: none; color: inherit; transition: box-shadow 150ms ease, transform 150ms ease; }
+  a.stepcard:hover { box-shadow: var(--shadow-card); transform: translateY(-1px); }
+  .stepcard p { font-size: 14px; line-height: 1.5; color: var(--steel); margin-top: 8px; }
+
+  /* check list (mint checkmarks) */
+  ul.checks { list-style: none; margin-top: 4px; }
+  ul.checks li {
+    position: relative; padding-left: 26px; margin-bottom: 8px;
+    font-size: 14px; line-height: 1.5; color: var(--slate);
+  }
+  ul.checks li::before {
+    content: ""; position: absolute; left: 0; top: 3px; width: 16px; height: 16px;
+    border-radius: var(--r-full); background: var(--green-tint);
+  }
+  ul.checks li::after {
+    content: ""; position: absolute; left: 4.5px; top: 7px; width: 7px; height: 4px;
+    border-left: 1.6px solid var(--green-deep); border-bottom: 1.6px solid var(--green-deep);
+    transform: rotate(-45deg);
+  }
+
+  /* ---------- who badges ---------- */
+  .who {
+    display: inline-flex; align-items: center; font-size: 12px; font-weight: 500;
+    padding: 2px 10px; border-radius: var(--r-full); white-space: nowrap; vertical-align: middle;
+  }
+  /* Claude is orange, you are white, both is the two blended */
+  .who.claude { background: var(--orange-deep); color: var(--on-dark); }
+  .who.you { background: var(--canvas); color: var(--steel); border: 1px solid var(--hairline); }
+  .who.both { background: var(--orange-tint); color: var(--orange-deep); border: 1px solid var(--orange-line); }
+
+  /* type badges (mono chips) */
+  .tag {
+    font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--steel);
+    background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: var(--r-sm); padding: 2px 6px; white-space: nowrap;
+  }
+
+  /* ---------- lists ---------- */
+  ul.plain, ol.plain { margin: 12px 0 0 20px; max-width: 40em; }
+  ul.plain li, ol.plain li { margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: var(--slate); }
+  ul.plain strong, ol.plain strong { font-weight: 600; color: var(--ink); }
+
+  /* numbered steps */
+  .steps { counter-reset: s; list-style: none; margin-top: 12px; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 46px; margin-bottom: 32px; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0;
+    width: 28px; height: 28px; border-radius: var(--r-full);
+    background: var(--primary); color: var(--on-primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+  }
+  .steps > li > h3 { margin-top: 0; font-size: 18px; }
+
+  /* callout */
+  .note {
+    background: var(--surface); border: 1px solid var(--hairline);
+    border-left: 3px solid var(--green); border-radius: var(--r-md);
+    padding: 14px 18px; margin-top: 16px;
+    font-size: 14px; line-height: 1.55; color: var(--slate); max-width: 44em;
+  }
+  .note strong { font-weight: 600; color: var(--ink); }
+  .note.quiet { border-left-color: var(--hairline); }
+
+  /* ---------- prompt blocks: dark code blocks ---------- */
+  .prompt-card {
+    background: var(--surface-code); border-radius: var(--r-md);
+    margin-top: 16px; max-width: 46em; overflow: hidden;
+  }
+  .prompt-card .head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 8px 16px; border-bottom: 1px solid var(--hairline-dark);
+    font-size: 13px; color: var(--on-dark-muted);
+  }
+  .prompt-card .head .label { display: flex; gap: 12px; }
+  .prompt-card .head .hint { color: var(--stone); }
+  .copy-btn {
+    font-family: var(--sans); font-size: 13px; color: var(--on-dark-muted);
+    background: transparent; border: 1px solid var(--hairline-dark); border-radius: var(--r-sm);
+    padding: 4px 10px; cursor: pointer; transition: color 150ms ease, border-color 150ms ease;
+  }
+  .copy-btn:hover { color: var(--on-dark); border-color: var(--stone); }
+  pre.prompt {
+    padding: 16px; font-family: var(--mono); font-size: 14px; line-height: 1.5;
+    color: var(--on-dark); white-space: pre-wrap; word-break: break-word;
+  }
+  pre.prompt .slash { color: var(--green); font-weight: 500; }
+  pre.prompt.tall { max-height: 320px; overflow-y: auto; }
+
+  /* ---------- plan table ---------- */
+  .tablewrap { overflow-x: auto; margin-top: 24px; }
+  table.plan {
+    border-collapse: separate; border-spacing: 0; width: 100%; min-width: 440px;
+    background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  table.plan td {
+    text-align: left; padding: 14px 20px; font-size: 14px; color: var(--slate);
+    border-bottom: 1px solid var(--hairline-soft); vertical-align: top;
+  }
+  table.plan td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; width: 10rem; }
+  table.plan tr:last-child td { border-bottom: none; }
+
+  /* ---------- install / download rows ---------- */
+  .dl { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--hairline-soft); flex-wrap: wrap; }
+  .dl:last-child { border-bottom: none; }
+  .dl .name { font-size: 15px; font-weight: 500; color: var(--ink); }
+  .dl .what { font-size: 14px; color: var(--steel); flex: 1 1 16em; line-height: 1.5; }
+  .dl .ver { font-family: var(--mono); font-size: 12px; color: var(--stone); white-space: nowrap; }
+
+  ul.dl-list { list-style: none; margin-top: 12px; max-width: 46em; }
+  ul.dl-list li {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    padding: 10px 0; border-bottom: 1px solid var(--hairline-soft);
+    font-size: 14px; color: var(--steel);
+  }
+  ul.dl-list li:last-child { border-bottom: none; }
+  ul.dl-list li > span:first-child { flex: 1 1 16em; }
+  ul.dl-list a { color: var(--ink); font-weight: 500; }
+
+  /* ---------- hero ---------- */
+  .hero-wrap { max-width: 1280px; margin: 0 auto; padding: 110px 32px 96px; text-align: center; }
+  .hero-wrap h1 { max-width: 16em; margin: 0 auto; }
+  .hero-sub { font-size: 18px; line-height: 1.5; color: var(--slate); max-width: 36em; margin: 20px auto 0; }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+  .hero-city {
+    background: var(--canvas); border: 1px solid var(--hairline-soft); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-mockup); padding: 24px;
+    max-width: 620px; margin: 56px auto 0; text-align: left;
+    display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap;
+  }
+  .hero-city label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--steel); margin-bottom: 6px; }
+  .hero-city input {
+    width: 14rem; max-width: 100%; height: 40px; padding: 12px 16px;
+    border: 1px solid var(--hairline); border-radius: var(--r-md);
+    background: var(--canvas); color: var(--ink);
+    font-family: var(--sans); font-size: 16px;
+  }
+  .hero-city input::placeholder { color: var(--muted); }
+  .hero-city input:focus { outline: none; border: 2px solid var(--green); padding: 11px 15px; }
+  .hero-city p { font-size: 13px; line-height: 1.5; color: var(--steel); flex: 1 1 15em; margin: 0; }
+
+  /* ---------- orange statement card ---------- */
+  .statement {
+    background: var(--orange); color: var(--on-dark);
+    border-radius: var(--r-lg); padding: clamp(32px, 6vw, 64px);
+    max-width: 1280px; margin: 0 auto;
+  }
+  .statement h2 { color: var(--on-dark); font-size: clamp(1.6rem, 3.2vw, 2.1rem); max-width: 22em; margin-bottom: 0; }
+  .statement p { color: rgba(255, 255, 255, 0.92); font-size: 16px; max-width: 40em; margin-top: 12px; }
+
+  /* ---------- workflow diagram ---------- */
+  .diagram { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 24px; margin-top: 32px; }
+  .diagram-scroll { overflow-x: auto; }
+  .diagram-scroll svg { min-width: 680px; width: 100%; height: auto; display: block; }
+  .diagram-text { font-size: 14px; color: var(--steel); margin-top: 14px; max-width: 46em; line-height: 1.55; }
+
+  /* ---------- legend ---------- */
+  .legend-row { display: flex; gap: 24px; flex-wrap: wrap; margin: 12px 0 20px; }
+  .legend-row span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--slate); }
+  .swatch { width: 22px; height: 13px; border-radius: var(--r-xs); flex: 0 0 auto; }
+  .swatch.auto { background: var(--orange-tint); border: 1px solid var(--orange-line); }
+  .swatch.human { background: var(--canvas); border: 1px solid var(--hairline); }
+  .swatch.both { background: var(--orange-tint); border: 1px solid var(--orange-line); border-left: 3px solid var(--orange); }
+  .swatch.claude-box { background: var(--orange-deep); }
+  .swatch.you-box { background: var(--canvas); border: 1px solid var(--stone); }
+
+  /* ---------- sample issue ---------- */
+  .issue {
+    background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg);
+    padding: 32px; max-width: 46em; font-size: 14px; line-height: 1.55;
+  }
+  .issue p { max-width: none; }
+  .issue .blk { border-radius: var(--r-md); padding: 12px 14px; margin-bottom: 12px; }
+  .issue .blk.auto { background: var(--orange-tint); border: 1px solid var(--orange-line); }
+  .issue .blk.human { background: var(--surface); border: 1px solid var(--hairline); }
+  .issue .blk.both { background: var(--orange-tint); border: 1px solid var(--orange-line); border-left: 3px solid var(--orange); }
+  .issue .tag2 { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; display: block; margin-bottom: 7px; color: var(--orange-deep); }
+  .issue .blk.human .tag2 { color: var(--steel); }
+  .issue .who2 { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: 0.85; }
+  .issue .title { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+  .issue .sub { font-size: 13px; color: var(--steel); margin-top: 3px; }
+  .issue p { margin-bottom: 9px; }
+  .issue p:last-child { margin-bottom: 0; }
+  .issue ul { margin: 0 0 0 18px; }
+  .issue li { margin-bottom: 7px; }
+  .issue .dayhead { font-weight: 600; font-size: 13px; margin: 10px 0 5px; }
+  .issue .dayhead:first-child { margin-top: 0; }
+  .issue .lnk { color: var(--orange-deep); text-decoration: underline; text-underline-offset: 2px; }
+  .issue .foot-h { font-weight: 600; margin-bottom: 6px; }
+
+  /* ---------- ask comparison ---------- */
+  .ask { border-radius: var(--r-md); padding: 16px 20px; font-size: 15px; line-height: 1.5; border: 1px solid var(--hairline); }
+  .ask.good { background: var(--green-tint); border-color: rgba(0, 212, 164, 0.3); }
+  .ask.bad { background: var(--surface); }
+  .ask .verdict { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; color: var(--green-deep); }
+  .ask.bad .verdict { color: var(--steel); }
+  .ask q { font-weight: 500; font-style: normal; color: var(--ink); }
+
+  /* ---------- interview question list ---------- */
+  .qcard { margin-top: 20px; max-width: 46em; }
+  .qlist { counter-reset: q; list-style: none; margin-top: 12px; }
+  .qlist > li { counter-increment: q; position: relative; padding-left: 38px; margin-bottom: 14px; }
+  .qlist > li:last-child { margin-bottom: 0; }
+  .qlist > li::before {
+    content: counter(q); position: absolute; left: 0; top: 1px;
+    width: 24px; height: 24px; border-radius: var(--r-full);
+    background: var(--green); color: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600;
+  }
+  .qlist > li strong { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .qlist > li span { display: block; font-size: 14px; line-height: 1.5; color: var(--steel); }
+  .optlist { counter-reset: o; }
+  .optlist > li { counter-increment: o; }
+  .optlist > li::before { content: counter(o, upper-alpha); }
+
+  /* ---------- faq ---------- */
+  .faq-stack { margin-top: 24px; max-width: 52em; display: grid; gap: 10px; }
+  details.faq { background: var(--canvas); border: 1px solid var(--hairline-soft); border-radius: var(--r-md); padding: 0 24px; }
+  details.faq summary {
+    cursor: pointer; list-style: none; padding: 18px 0; font-size: 16px; font-weight: 600;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after { content: "+"; font-size: 20px; font-weight: 400; color: var(--steel); flex: 0 0 auto; }
+  details.faq[open] summary::after { content: "\2013"; }
+  details.faq .body { padding: 0 0 18px; font-size: 15px; color: var(--steel); line-height: 1.6; max-width: 40em; }
+
+  /* ---------- footer ---------- */
+  .footer { background: var(--canvas); border-top: 1px solid var(--hairline); padding: 64px 32px; }
+  .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+  @media (max-width: 767px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .footer .head5 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 16px; }
+  .footer p { font-size: 14px; line-height: 1.6; color: var(--steel); }
+  .footer ul { list-style: none; }
+  .footer li { padding: 4px 0; }
+  .footer a { font-size: 14px; color: var(--steel); text-decoration: none; }
+  .footer a:hover { color: var(--ink); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--green); outline-offset: 2px; border-radius: var(--r-xs);
+  }
+
+  @media (max-width: 767px) {
+    .wrap { padding: 56px 16px; }
+    .wrap.tight { padding: 40px 16px; }
+    .hero-wrap { padding: 64px 16px 56px; }
+    .issue { padding: 20px; }
+    .statement { border-radius: 0; }
+    .steps > li { padding-left: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">Climate Tech Cities · Chapter Launch Playbook</a>
+    <div class="nav-links">
+      <a href="#apply">Apply</a>
+      <a href="#plan">Two weeks</a>
+      <a href="#logo">Logo</a>
+      <a href="#install">Install</a>
+      <a href="#setup">Set up</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#partners">Partners</a>
+      <a href="#help">Help</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 0. HERO -->
+<div class="band band-hero" id="top">
+  <div class="hero-wrap">
+    <h1>Start a Climate Tech chapter in your city.</h1>
+    <p class="hero-sub">A logo that belongs to the Climate Tech Cities family, a weekly events newsletter, and a partner list worth working. Two weeks of setup, then about one sitting a week.</p>
+    <div class="hero-ctas">
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply to lead a chapter</a>
+      <a class="btn outline" href="#plan">See how it works</a>
+    </div>
+    <div class="hero-city">
+      <div>
+        <label for="city">Your city</label>
+        <input type="text" id="city" placeholder="Boston" autocomplete="off" />
+      </div>
+      <p>Type it once and every prompt on this page fills in, ready to copy. Nothing is saved: this page stores nothing and has no connection to your Claude or ChatGPT account.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 1. IS THIS YOU? -->
+<div class="band band-canvas" id="apply">
+  <div class="wrap">
+    <p class="eyebrow">Before you apply</p>
+    <h2>Is this you?</h2>
+    <div class="grid grid-3" style="margin-top:32px;">
+      <div class="card">
+        <p class="card-title">What you are signing up for</p>
+        <ul class="checks">
+          <li>Two weeks to set up</li>
+          <li>About one sitting a week after that</li>
+          <li>A newsletter your city does not currently have</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">What you get</p>
+        <ul class="checks">
+          <li>The toolkit, free</li>
+          <li>The brand system and sign off on your logo</li>
+          <li>The ten city network</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">What success looks like</p>
+        <ul class="checks">
+          <li>Logo approved</li>
+          <li>Newsletter sending on a fixed day</li>
+          <li>25 or more event sources registered</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="statement" style="margin-top:48px;">
+      <h2>Chapters fail by not sending, not by sending badly.</h2>
+    </div>
+  </div>
+</div>
+
+<!-- 2. YOUR FIRST TWO WEEKS -->
+<div class="band band-surface" id="plan">
+  <div class="wrap">
+    <p class="eyebrow">The map</p>
+    <h2>Your first two weeks</h2>
+    <div class="tablewrap">
+      <table class="plan">
+        <tbody>
+          <tr><td>Week 1</td><td>Logo, made in ChatGPT, then Substack</td></tr>
+          <tr><td>Week 2</td><td>Source list, subscriber list, first issue</td></tr>
+          <tr><td>Every week</td><td>Harvest, cut, draft, send</td></tr>
+          <tr><td>Every three months</td><td>Refresh your source list</td></tr>
+          <tr><td>Later</td><td>Partners</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="desc dim" style="margin-top:20px;">Everything except the logo runs inside your own Claude account.</p>
+  </div>
+</div>
+
+<!-- 5. YOUR CHAPTER LOGO -->
+<div class="band band-canvas" id="logo">
+  <div class="wrap">
+    <p class="eyebrow">Week one · in ChatGPT</p>
+    <h2>Your chapter logo</h2>
+    <div class="note"><strong>This is the one step that does not run in Claude.</strong> The logo is made in ChatGPT, because it generates the images. Everything else on this page happens in your Claude project.</div>
+    <p class="desc">Every chapter logo is the same lockup: a square icon on the left, and <strong>Climate Tech [your city]</strong> stacked on three lines to the right. Only the building silhouette changes from city to city. That consistency is what makes ten chapters look like one organisation.</p>
+
+    <div class="grid grid-2" style="margin-top:24px;">
+      <figure class="card">
+        <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-chicago.png" alt="Climate Tech Chicago logo: a square lavender icon with an abstracted Willis Tower silhouette in light and dark green over an orange horizon, beside the words Climate Tech Chicago stacked on three lines." loading="lazy" />
+        <figcaption class="small" style="margin-top:10px;">Climate Tech Chicago</figcaption>
+      </figure>
+      <figure class="card">
+        <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-london.png" alt="Climate Tech London logo: the same square lavender icon format with an abstracted clock tower silhouette, beside the words Climate Tech London stacked on three lines." loading="lazy" />
+        <figcaption class="small" style="margin-top:10px;">Climate Tech London</figcaption>
+      </figure>
+    </div>
+    <p class="desc">Same lavender field, same orange horizon, same two greens, same wordmark, same proportions. Chicago gets the Willis Tower, London gets the clock tower, New York gets the Empire State. <strong>Only the silhouette moves.</strong> That is the whole system, and matching it is the entire job.</p>
+
+    <h3>The icon on its own</h3>
+    <p class="desc dim">The square is where all the work happens. These are the same three chapters with the wordmark cropped away, which is the clearest way to see how far the abstraction goes.</p>
+    <div class="grid grid-3" style="margin-top:12px;">
+      <figure class="card">
+        <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-chicago-icon.png" alt="Climate Tech Chicago icon: an abstracted Willis Tower in light and dark green planes with twin antennas, on lavender above an orange horizon." loading="lazy" />
+        <figcaption class="small" style="margin-top:10px;">Chicago · Willis Tower</figcaption>
+      </figure>
+      <figure class="card">
+        <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-london-icon.png" alt="Climate Tech London icon: an abstracted clock tower in light and dark green planes, on lavender above an orange horizon." loading="lazy" />
+        <figcaption class="small" style="margin-top:10px;">London · the clock tower</figcaption>
+      </figure>
+      <figure class="card">
+        <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-new-york-icon.png" alt="Climate Tech New York icon: an abstracted Empire State Building in light and dark green planes, on lavender above an orange horizon." loading="lazy" />
+        <figcaption class="small" style="margin-top:10px;">New York · the Empire State</figcaption>
+      </figure>
+    </div>
+    <p class="desc">Notice how little detail survives. Two planes, a light side and a dark side, and a handful of steps. If your city's landmark still has windows or a spire made of several pieces, it is not abstracted far enough yet.</p>
+
+    <ol class="steps" style="margin-top:40px;">
+      <li>
+        <h3>Copy the prompt</h3>
+        <p class="desc dim">This is the house prompt, with your city already filled in. Paste it into ChatGPT and ask for images.</p>
+        <div class="prompt-card">
+          <div class="head"><span class="label">Logo prompt for ChatGPT <span class="hint">· image generation</span></span><button class="copy-btn" onclick="copyPrompt('p-logo', this)">Copy</button></div>
+          <pre class="prompt tall" id="p-logo"></pre>
+        </div>
+      </li>
+      <li>
+        <h3>Attach the reference logos</h3>
+        <p class="desc dim">Attach these to the same ChatGPT message. The prompt describes the house style in words, but the references are what actually hold it: without them you get something in the right colours and the wrong proportions.</p>
+        <p class="desc dim" style="margin-bottom:4px;"><strong style="color:var(--ink);">Attach all five.</strong> The lockups set the proportions and the wordmark; the icons show how far to abstract the landmark.</p>
+        <ul class="dl-list">
+          <li><span><a href="downloads/brand/ctc-chicago.png" download>ctc-chicago.png</a> · Chicago lockup, icon and wordmark</span><span class="tag">lockup</span></li>
+          <li><span><a href="downloads/brand/ctc-london.png" download>ctc-london.png</a> · London lockup, icon and wordmark</span><span class="tag">lockup</span></li>
+          <li><span><a href="downloads/brand/ctc-chicago-icon.png" download>ctc-chicago-icon.png</a> · Chicago icon</span><span class="tag">icon</span></li>
+          <li><span><a href="downloads/brand/ctc-london-icon.png" download>ctc-london-icon.png</a> · London icon</span><span class="tag">icon</span></li>
+          <li><span><a href="downloads/brand/ctc-new-york-icon.png" download>ctc-new-york-icon.png</a> · New York icon</span><span class="tag">icon</span></li>
+        </ul>
+      </li>
+      <li>
+        <h3>Ask for ten concepts, then pick one</h3>
+        <p class="desc dim">The prompt asks for up to ten. Look for a silhouette a local would name in a second, built from a handful of flat planes. If everything comes back too detailed, say "simpler, fewer planes, more abstract" and run it again. Detail is the usual failure, not the palette.</p>
+      </li>
+      <li>
+        <h3>Confirm with the CTC founders before using it</h3>
+        <p class="desc dim">Send your chosen concept to the founders and wait for a yes. This is the one step you cannot skip: the logo goes on the newsletter, the Luma calendar and everything else the chapter publishes, and changing it later means changing it everywhere.</p>
+        <div class="note"><strong>Do not publish anything with the logo until it is signed off.</strong> Getting the confirmation takes a day. Re-doing a launch does not.</div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<!-- WHAT YOU INSTALL -->
+<div class="band band-surface" id="install">
+  <div class="wrap">
+    <p class="eyebrow">Do this once</p>
+    <h2>What you install</h2>
+    <p class="desc">Three packages and a browser extension. You need a paid Claude account. You do not need to know how to code.</p>
+
+    <div class="card" style="margin-top:24px;max-width:52em;">
+      <div class="dl">
+        <a class="name" href="downloads/ctc-chapter-setup-v1.4.3.zip" download>ctc-chapter-setup</a>
+        <span class="what">Asks you eight questions, writes your settings file and plan.</span>
+        <span class="tag">Skill</span>
+      </div>
+      <div class="dl">
+        <a class="name" href="downloads/ctc-newsletter-v1.18.1.zip" download>ctc-newsletter</a>
+        <span class="what">Finds your sources, collects events, builds the issue.</span>
+        <span class="tag">Plugin · 5 skills</span>
+      </div>
+      <div class="dl">
+        <a class="name" href="downloads/ctc-partner-map-v1.3.0.zip" download>ctc-partner-map</a>
+        <span class="what">Researches your city, tells you who to approach, drafts the emails.</span>
+        <span class="tag">Plugin · 3 skills</span>
+      </div>
+      <div class="dl">
+        <span class="name">Claude for Chrome</span>
+        <span class="what">Some event sites need a real browser.</span>
+        <span class="tag">Extension</span>
+      </div>
+    </div>
+
+    <div class="note"><strong>A skill does one job.</strong> A plugin is a few skills that work together, and installing it gives you all of them.</div>
+
+    <ol class="steps" style="margin-top:40px;">
+      <li>
+        <h3>Install the packages</h3>
+        <p class="desc dim">In Claude: Settings, then Capabilities, then Skills. Upload the skill. Install the two plugins through the plugin interface. Turn on code execution in the same panel.</p>
+      </li>
+      <li>
+        <h3>Install Claude for Chrome</h3>
+        <p class="desc dim">Sign in with the same account.</p>
+      </li>
+      <li>
+        <h3>Create a project in Claude</h3>
+        <p class="desc dim">Named for your chapter. Everything happens inside it.</p>
+      </li>
+      <li>
+        <h3>Check the install worked</h3>
+        <div class="prompt-card">
+          <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
+          <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
+        </div>
+        <div class="note">Claude should name ctc-chapter-setup plus the skills inside both plugins. If not, reinstall, confirm code execution is on, and start a fresh conversation. Skills do not appear mid conversation.</div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<!-- 4. SET UP -->
+<div class="band band-canvas" id="setup">
+  <div class="wrap">
+    <p class="eyebrow">Start here</p>
+    <h2>Set up</h2>
+    <p class="desc">The first thing you run, and the reason you never answer the same question twice.</p>
+
+    <div class="prompt-card">
+      <div class="head"><span class="label">Chapter setup <span class="hint">· once</span></span><button class="copy-btn" onclick="copyPrompt('p-setup', this)">Copy</button></div>
+      <pre class="prompt" id="p-setup"></pre>
+    </div>
+
+    <h3>Eight questions</h3>
+    <p class="desc dim">One at a time, plain language, each with a default you can accept. Reply "default" to any of them and move on. The last one is optional.</p>
+    <div class="card qcard">
+      <ol class="qlist">
+        <li><strong>Which city is your chapter in?</strong><span>Becomes your chapter name, Climate Tech [City], everywhere it appears.</span></li>
+        <li><strong>What is your name?</strong><span>Goes on every issue as the sender, because email from a person gets opened more often than email from an organization.</span></li>
+        <li><strong>Which day of the week do you want to send?</strong><span>Pick one and never move it.</span></li>
+        <li><strong>Which events count as local for your chapter?</strong><span>The answer that does the most work: every week a skill decides whether an event belongs in your issue, and this sentence is the only instruction it gets.</span></li>
+        <li><strong>What web address should the newsletter use?</strong><span>Chapters use two patterns and there is no published rule. It records your preference and flags it to confirm with the Climate Tech Cities team.</span></li>
+        <li><strong>How do you want to close each issue?</strong><span>Default: [your first name] and the Climate Tech [City] team.</span></li>
+        <li><strong>What timezone are you in?</strong><span>It offers the obvious one and you confirm.</span></li>
+        <li><strong>Anything unusual about your city?</strong><span>A second cluster somewhere, a university that dominates the calendar, a season when everything stops. Skippable: say no and it goes straight to building.</span></li>
+      </ol>
+    </div>
+
+    <h3>Two documents come back</h3>
+    <ul class="plain">
+      <li><strong>Chapter_Settings_[City].docx</strong>, your settings</li>
+      <li><strong>Chapter_Plan_[City].docx</strong>, your launch plan with real dates in it</li>
+    </ul>
+
+    <div class="note"><strong>Add the settings file to your project as a context file.</strong> Project settings, then add files. Not attached to a chat: a file attached to one conversation is not available in the next one. Every skill reads this file, so nothing else works until you add it.</div>
+
+
+  </div>
+</div>
+
+
+<!-- BUILD YOUR SOURCE LIST -->
+<div class="band band-surface" id="newsletter">
+  <div class="wrap">
+    <p class="eyebrow">Week two</p>
+    <h2>Build your source list</h2>
+    <p class="desc">Everywhere events get announced in your city. Every harvest only finds what this list points at.</p>
+
+    <div class="prompt-card">
+      <div class="head"><span class="label">Newsletter <span class="hint">· start here</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle1', this)">Copy</button></div>
+      <pre class="prompt" id="p-cycle1"></pre>
+    </div>
+    <p class="desc dim">With no source list yet, Claude starts here.</p>
+
+    <div class="card qcard">
+      <h3 style="margin-top:0;font-size:18px;">Claude asks first whether you have your own links</h3>
+      <p class="desc dim" style="margin-top:4px;">You probably already check five or ten calendars by hand. Those are the best rows in the registry, because a real person has already vouched for them. Claude lays out three ways to go and waits for your answer.</p>
+      <ol class="qlist optlist">
+        <li><strong>Paste your links, then Claude researches too</strong><span>It verifies yours, follows their cross-links, and works the full nine-category search on top. Best coverage, and the recommended option for a new chapter.</span></li>
+        <li><strong>Paste your links only</strong><span>It verifies what you give it and stops. Fastest, and a fair choice if you already know your city's scene and just want the registry file built.</span></li>
+        <li><strong>Claude researches from scratch</strong><span>No links needed. It goes and finds them, then brings back a verified list for you to review.</span></li>
+      </ol>
+      <p class="desc dim" style="margin-bottom:0;">Paste links straight into your first message and Claude takes that as your answer rather than making you pick from a menu.</p>
+    </div>
+
+    <p class="desc">Claude searches Luma, Eventbrite, universities, incubators, city government, professional groups and arts venues. Every source it finds, and every link you paste, gets five checks:</p>
+    <ul class="checks" style="max-width:34em;">
+      <li>It loads</li>
+      <li>It ran something in the last 90 days</li>
+      <li>It repeats on a pattern</li>
+      <li>It is a real, climate-relevant organization</li>
+      <li>Its web address is stable</li>
+    </ul>
+    <p class="desc dim">If a source fails a check, Claude names the check instead of dropping it quietly, so you decide.</p>
+    <p class="desc">Read the list before you approve it. You live there and Claude does not, so add the meetup everyone goes to if it is missing.</p>
+    <div class="note"><strong>Claude keeps researching until it reaches at least 25 sources</strong>, rather than handing you a short list. The finished registry comes back as a spreadsheet named CTC_Source_Registry_[City].xlsx.</div>
+    <div class="note"><strong>Once you have approved the list, add CTC_Source_Registry_[City].xlsx to your project as a context file.</strong> Same place as your settings file: project settings, then add files. The weekly harvest reads it from there.</div>
+    <div class="note"><strong>Re-run this once every three months.</strong> Calendars die quietly, and the quarterly refresh is what catches a dead one before your issues go thin. Nothing else in the toolkit runs quarterly.</div>
+  </div>
+</div>
+
+
+<!-- 7. THE WEEKLY CYCLE -->
+<div class="band band-teal">
+  <div class="wrap tight">
+    <p class="eyebrow">Every week</p>
+    <h2 style="max-width:22em;">Claude does the lists. You write the words.</h2>
+    <p class="desc">The tools collect, verify, and format. They never choose what makes the issue and they never write the note.</p>
+  </div>
+</div>
+
+<div class="band band-canvas" id="cycle">
+  <div class="wrap">
+    <h2>The weekly cycle</h2>
+    <div class="prompt-card">
+      <div class="head"><span class="label">The whole week, one prompt <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle2', this)">Copy</button></div>
+      <pre class="prompt" id="p-cycle2"></pre>
+    </div>
+    <p class="desc dim">The same prompt every week. It works out where you are, runs the right skill, and stops when it needs you. If you would rather drive each step yourself, the prompts below still work.</p>
+
+    <div class="diagram">
+      <div class="legend-row">
+        <span><span class="swatch claude-box" aria-hidden="true"></span> Claude does this</span>
+        <span><span class="swatch you-box" aria-hidden="true"></span> You do this</span>
+      </div>
+      <div class="diagram-scroll">
+        <svg viewBox="0 0 900 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The weekly cycle in two lanes with four steps. Claude harvests events into a spreadsheet. You cut the sheet and upload it back. Both of you assemble and write the issue. You send it.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#0a0a0a"/>
+            </marker>
+          </defs>
+          <g font-family="Inter, sans-serif">
+            <text x="4" y="58" font-size="12" font-weight="600" fill="#5a5a5c" letter-spacing="0.5">CLAUDE</text>
+            <text x="4" y="182" font-size="12" font-weight="600" fill="#5a5a5c" letter-spacing="0.5">YOU</text>
+            <line x1="0" y1="116" x2="900" y2="116" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="3 5"/>
+
+            <path d="M 250 88 L 292 148" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+            <path d="M 436 148 L 478 122" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+            <path d="M 664 116 L 706 152" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+
+            <rect x="106" y="30" width="144" height="60" rx="12" fill="#cc3a1f"/>
+            <text x="178" y="56" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Harvest</text>
+            <text x="178" y="76" font-size="11" fill="#ffffff" fill-opacity="0.85" text-anchor="middle">every source, one sweep</text>
+
+            <rect x="292" y="146" width="144" height="60" rx="12" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+            <text x="364" y="170" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Cut</text>
+            <text x="364" y="188" font-size="11" fill="#5a5a5c" text-anchor="middle">delete rows, flag picks,</text>
+            <text x="364" y="201" font-size="11" fill="#5a5a5c" text-anchor="middle">upload it back</text>
+
+            <rect x="478" y="86" width="144" height="60" rx="12" fill="#fde1dc" stroke="#f55a3c" stroke-width="1.5"/>
+            <text x="550" y="112" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Assemble</text>
+            <text x="550" y="132" font-size="11" fill="#5a5a5c" text-anchor="middle">both of you</text>
+
+            <rect x="706" y="146" width="144" height="60" rx="12" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+            <text x="778" y="172" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Send</text>
+            <text x="778" y="192" font-size="11" fill="#5a5a5c" text-anchor="middle">check, paste, send</text>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-text">In words: Claude harvests everything from your source list into a spreadsheet. You cut the sheet and upload it back. Claude assembles the issue from your edited file and you write the words. You send it.</p>
+    </div>
+
+    <div class="grid grid-4" style="margin-top:32px;" id="stepcards">
+      <a class="card stepcard" href="#collect">
+        <span class="who claude">Claude</span>
+        <p class="card-title" style="margin-top:10px;">Collect</p>
+        <p>Claude sweeps every source in your registry and hands back a spreadsheet of everything happening.</p>
+      </a>
+      <a class="card stepcard" href="#cut">
+        <span class="who you">You</span>
+        <p class="card-title" style="margin-top:10px;">Cut</p>
+        <p>You open the sheet, delete rows, and upload it back. This is the decision that sets the shape of the issue.</p>
+      </a>
+      <a class="card stepcard" href="#write">
+        <span class="who both">Both</span>
+        <p class="card-title" style="margin-top:10px;">Assemble and write</p>
+        <p>Claude lays out the whole issue. You fill the gaps it deliberately leaves blank.</p>
+      </a>
+      <a class="card stepcard" href="#send">
+        <span class="who you">You</span>
+        <p class="card-title" style="margin-top:10px;">Send</p>
+        <p>Check it over, paste into Substack, read it once end to end, and hit send.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- COLLECT -->
+<div class="band band-surface" id="collect">
+  <div class="wrap">
+    <p class="eyebrow">Step one</p>
+    <h2>Collect <span class="who claude" style="margin-left:8px;">Claude</span></h2>
+    <p class="desc">Paste the prompt into your project. Claude sweeps every source in your registry and hands back a spreadsheet. It collects everything without filtering, on purpose: collecting and judging are separate jobs, and mixing them turns a short task into a long one.</p>
+    <div class="prompt-card">
+      <div class="head"><span class="label">Harvest <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-harvest', this)">Copy</button></div>
+      <pre class="prompt" id="p-harvest"></pre>
+    </div>
+    <p class="desc">The spreadsheet marks anything incomplete: the empty cell is shaded red and named in a Missing Info column, so you can see at a glance what needs a second look.</p>
+    <div class="note">If Claude asks to use your Chrome browser, say yes. Some event sites hide their listings from simple requests, so Claude reads those pages in your browser instead. It is reading, not clicking. Save the spreadsheet when it finishes.</div>
+  </div>
+</div>
+
+<!-- CUT -->
+<div class="band band-canvas" id="cut">
+  <div class="wrap">
+    <p class="eyebrow">Step two</p>
+    <h2>Cut <span class="who you" style="margin-left:8px;">You</span></h2>
+    <p class="desc">Open the spreadsheet and delete rows. There is no prompt for this one, because it is judgment. How many events end up in the newsletter is decided here, and there is no target number: a good week is however many good events your city actually has.</p>
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <p class="card-title">Delete</p>
+        <ul class="plain">
+          <li>Anything outside your scope rule, which is written in your settings file for exactly this moment</li>
+          <li>Anything not really climate</li>
+          <li>Anything with a dead link or no date</li>
+          <li>Duplicates. If the same event came from two calendars, keep the one with the better registration link</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">Flag</p>
+        <ul class="plain">
+          <li>Note <strong>four to six</strong> events worth featuring, roughly one per day that has events</li>
+          <li>Type <strong>PICK</strong> in a spare column next to each one</li>
+          <li>Favour events that are free, easy for a newcomer, in person, or hard to find elsewhere</li>
+          <li>What is left in the file is your issue. At the next step Claude lists this week's events numbered and asks which are the picks, so having them marked makes that a one line answer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><strong>Upload the edited spreadsheet back when you are done.</strong> The issue gets built from that file, not the one Claude handed you, so check you are attaching the version you just edited.</div>
+  </div>
+</div>
+
+<!-- ASSEMBLE -->
+<div class="band band-surface" id="write">
+  <div class="wrap">
+    <p class="eyebrow">Step three</p>
+    <h2>Assemble and write <span class="who both" style="margin-left:8px;">Both</span></h2>
+    <p class="desc">Paste the prompt and attach your edited spreadsheet. Claude reads the sheet, asks you three questions, and builds the issue.</p>
+    <div class="prompt-card">
+      <div class="head"><span class="label">Assemble <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-assemble', this)">Copy</button></div>
+      <pre class="prompt" id="p-assemble"></pre>
+    </div>
+    <p class="desc">You get two files back, a Word document and an HTML file. <strong>Use the HTML file</strong> when you go to send: it is the one that holds its formatting in Substack.</p>
+
+    <div class="card qcard">
+      <h3 style="margin-top:0;font-size:18px;">Claude asks three questions first</h3>
+      <p class="desc dim" style="margin-top:4px;">It will not start building until you answer. Have these ready.</p>
+      <ol class="qlist">
+        <li>
+          <strong>Which events are the picks?</strong>
+          <span>Claude lists this week's events numbered, in date order, and suggests four to six. Reply with just the numbers, name your own, or say its list is fine.</span>
+        </li>
+        <li>
+          <strong>Any opportunities this week?</strong>
+          <span>If your opportunities file is in the project, Claude offers from it, favouring the nearest deadlines. Otherwise give a name, a link and a deadline, or say none and the block is left out rather than padded.</span>
+        </li>
+        <li>
+          <strong>Anything the sheet cannot know?</strong>
+          <span>Your chapter's own event, a postponement, something that happened in the city this week. This is what the opening note and housekeeping get built from. If you have nothing, say so and those blocks come back as marked scaffolds.</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:32px;">
+      <div class="card" style="background:var(--orange-tint);border-color:var(--orange-line);">
+        <span class="who claude">Claude finishes these</span>
+        <ul class="plain" style="margin-top:12px;">
+          <li>Title and subtitle</li>
+          <li>This Week's Events, grouped by day</li>
+          <li>Upcoming Events, the next six to eight weeks</li>
+          <li>Events in Detail, when you want it</li>
+          <li>The standing footer</li>
+        </ul>
+        <p class="desc dim" style="margin-bottom:0;">Every link, emoji and day header already in place.</p>
+      </div>
+      <div class="card">
+        <span class="who you">You write these</span>
+        <ul class="plain" style="margin-top:12px;">
+          <li>The opening note</li>
+          <li>The picks</li>
+          <li>The opportunities</li>
+        </ul>
+        <p class="desc dim" style="margin-bottom:0;">Claude builds these from your answers and leaves what it cannot know as a scaffold with the gap marked in [square brackets]. Those gaps are yours, and the opening note is yours entirely.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SAMPLE ISSUE -->
+<div class="band band-canvas" id="sample">
+  <div class="wrap">
+    <p class="eyebrow">What you end up with</p>
+    <h2>A finished issue</h2>
+    <p class="desc">A real New York issue, shortened to fit. The shading shows who wrote what.</p>
+    <div class="legend-row">
+      <span><span class="swatch auto" aria-hidden="true"></span> Built by Claude from your spreadsheet</span>
+      <span><span class="swatch both" aria-hidden="true"></span> You choose, Claude writes around it</span>
+      <span><span class="swatch human" aria-hidden="true"></span> Written by you</span>
+    </div>
+
+    <div class="issue">
+      <div class="blk auto">
+        <span class="tag2">Automated · title and subtitle</span>
+        <div class="title">NY Climate Tech: July 21 - July 28</div>
+        <div class="sub">Offshore wind, hours of action, sustainable investment in the park, climate conversations, City of Water Day, and more upcoming events</div>
+      </div>
+
+      <div class="blk human">
+        <span class="tag2">Yours · opening note <span class="who2">Claude leaves the greeting and the closing line, the middle is yours</span></span>
+        <p>Hi all,</p>
+        <p>Last week we pulled out our N95s once again as wildfire smoke subsumed the summer. The brown-orange skies, torrential rain, and tornado warnings have been stark reminders that climate change is here and now.</p>
+        <p>For such a global problem, we continually find hope and inspiration in local community. While the summer is a lot quieter, there's still plenty of ways to connect. Here are our picks for the week:</p>
+      </div>
+
+      <div class="blk both">
+        <span class="tag2">Both · picks of the week <span class="who2">you choose the events and add the asides, Claude writes the framing</span></span>
+        <ul>
+          <li><strong>Tomorrow</strong> embrace the tides at the <span class="lnk">🌊 2026 Offshore Wind Innovator Program</span> or make calls (and friends!) at the <span class="lnk">⏳ Manhattan Climate Changemakers Hour of Action</span></li>
+          <li><strong>Thursday</strong> talk sustainable finance in Sheep's Meadow at the <span class="lnk">🧺 BASIC NY Summer Social</span> or join Climatebase in Midtown for <span class="lnk">💬 Climate Conversations NYC</span></li>
+          <li><strong>Saturday</strong> is <span class="lnk">💧 City of Water Day</span> with events throughout the five boroughs</li>
+        </ul>
+      </div>
+
+      <div class="blk human">
+        <span class="tag2">Yours · housekeeping and sign-off <span class="who2">sign-off comes from your settings file</span></span>
+        <p>We've postponed Wednesday's <strong>Other Intelligence</strong> summit until later this year (too many people were out of town!) but are still looking forward to it in the Fall.</p>
+        <p>Til next week!<br/>Alec, Sonam, and the Climate Tech Cities team</p>
+      </div>
+
+      <div class="blk both">
+        <span class="tag2">Both · opportunities <span class="who2">you supply the name, link and deadline, Claude drafts the description</span></span>
+        <p><strong>💡 New York Climate Exchange Climate Tech Fellowship</strong><br/>A six-month hybrid program combining expert-led curriculum, mentorship, and non-dilutive funding. <strong>Applications due August 1.</strong></p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · this week's events</span>
+        <div class="dayhead">Wednesday, Jul 22</div>
+        <ul>
+          <li><span class="lnk">🌊 2026 Offshore Wind Innovator Program: Q&amp;A Social Hour</span></li>
+          <li><span class="lnk">☀️ Solarpunk, Communes, &amp; Co-Living Dinner Series: NYC Edition</span></li>
+          <li><span class="lnk">🌱 Brooklyn Hour of Action</span></li>
+        </ul>
+        <div class="dayhead">Thursday, Jul 23</div>
+        <ul>
+          <li><span class="lnk">📊 Summer 2026 Lecture in Climate Data Science</span></li>
+          <li><span class="lnk">🧺 BASIC NY Summer Social</span></li>
+          <li><span class="lnk">💬 Climate Conversations NYC</span></li>
+        </ul>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · upcoming events</span>
+        <ul>
+          <li><span class="lnk">♻️ The Circular Economists Meet-up: New York City</span>: Jul 29</li>
+          <li><span class="lnk">⚡ [INFRASTRUCTOURS] Midtown East / LIC</span>: Aug 1</li>
+          <li><span class="lnk">🦪 Volunteering Untapped NYC: Billion Oyster Project</span>: Aug 8</li>
+        </ul>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · standing footer</span>
+        <p class="foot-h">🌎 Climate Tech Cities and Streetlife Ventures Startup and Talent Platforms</p>
+        <p>Climate Tech Cities and Streetlife Ventures are launching new platforms to support climate founders, funders, and career transitioners. We can't wait to hear from you!</p>
+      </div>
+    </div>
+
+    <div class="note" style="max-width:46em;">The split is rarely all or nothing. The listings are entirely Claude's and the opening note is entirely yours, but the <strong>picks sit in between</strong>: you decide which events make the cut and you add the asides that make it sound like a person, while Claude writes the day, the verb and the venue around them. Across the whole issue about eighty words are truly yours. Note too that the sign-off sits in the <strong>middle</strong>, not at the end: note, picks, housekeeping, "Til next week", and then the listings.</div>
+  </div>
+</div>
+
+<!-- SEND -->
+<div class="band band-surface" id="send">
+  <div class="wrap">
+    <p class="eyebrow">Step four</p>
+    <h2>Send <span class="who you" style="margin-left:8px;">You</span></h2>
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <p class="card-title">Check first</p>
+        <ul class="plain">
+          <li>Search the document for a square bracket. Nothing in brackets ships</li>
+          <li>Scan the dates. Nothing in the past, and this week's events actually this week</li>
+          <li>Click a couple of links, from Upcoming rather than This Week. If one is dead, check its neighbours from the same source</li>
+          <li>Look for the same event listed twice</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">Then send</p>
+        <ol class="plain">
+          <li><strong>Open the HTML file</strong>, not the Word document. The HTML is the one that keeps the formatting when it lands in Substack</li>
+          <li><strong>Select it by clicking and dragging</strong>, from the top of the issue to the bottom. Drag to select rather than using a copy button, because that is what carries the formatting and the links across</li>
+          <li>Copy, then paste into a new Substack post</li>
+          <li>Read the whole issue once, top to bottom. You are checking voice and picks, not links</li>
+          <li>Send</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 9. PARTNERS -->
+<div class="band band-canvas" id="partners">
+  <div class="wrap">
+    <p class="eyebrow">Later</p>
+    <h2>Partners</h2>
+    <p class="desc">Partners are where venues, audiences, and speakers come from. A lead with no partners hosts events in bars for their own friends.</p>
+
+    <div class="prompt-card">
+      <div class="head"><span class="label">Partner map <span class="hint">· once, then quarterly</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
+      <pre class="prompt" id="p-partnermap"></pre>
+    </div>
+
+    <ol class="steps" style="margin-top:40px;">
+      <li>
+        <h3>Claude researches your city</h3>
+        <p class="desc dim">Universities, incubators and accelerators, startup programs, industry partners, and capital partners. Every organization is verified before it goes in. You get a workbook.</p>
+      </li>
+      <li>
+        <h3>You edit it, then Claude builds the outreach list</h3>
+        <p class="desc dim">Cut anything that quietly closed. Add anything obvious it missed. Then Claude adds the categories a resource page leaves out and returns a tiered list: who to approach, in what order, and what to ask each one for first. Anything you add by hand is never dropped silently.</p>
+        <div class="note">You know your city better than the research does. If you would rather not edit it, say <strong>"use it as is"</strong> and it carries on.</div>
+      </li>
+      <li>
+        <h3>Claude drafts the emails</h3>
+        <p class="desc dim">In your voice, one at a time, after asking you seven questions. It asks for a recent email you have written so it can match how you actually write, and it never sends anything.</p>
+      </li>
+    </ol>
+
+    <h3>What a good ask looks like</h3>
+    <div class="grid grid-2" style="margin-top:12px;max-width:46em;">
+      <div class="ask good">
+        <span class="verdict">Works</span>
+        <q>Host our first event in your space on a weeknight in October</q>
+      </div>
+      <div class="ask bad">
+        <span class="verdict">Does not work</span>
+        <q>Explore ways to collaborate</q>
+      </div>
+    </div>
+    <p class="desc dim">The test is whether someone could say yes in a single email reply.</p>
+    <div class="note"><strong>These are drafts.</strong> Read them and put them in your own words before sending.</div>
+  </div>
+</div>
+
+<!-- 10. TROUBLESHOOTING -->
+<div class="band band-surface" id="help">
+  <div class="wrap">
+    <p class="eyebrow">Troubleshooting</p>
+    <h2>When something breaks</h2>
+    <div class="faq-stack">
+      <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero, then check those by hand. Do not assume the city went quiet.</div></details>
+      <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
+      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal, and expected on Eventbrite. Say yes. It is reading pages, not clicking anything.</div></details>
+      <details class="faq"><summary>A page is asking me to prove I am human</summary><div class="body">Claude will stop and tell you. Open the page yourself and paste what you see. Claude will not solve these.</div></details>
+      <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The bracketed blocks were skipped. They are the whole point, and they are the only part readers remember.</div></details>
+      <details class="faq"><summary>Formatting broke when I pasted into Substack</summary><div class="body">Check you used the HTML file rather than the Word document, and that you selected it by clicking and dragging from the top of the issue to the bottom. That combination is what carries the formatting and the links across.</div></details>
+      <details class="faq"><summary>Claude does not know my chapter settings</summary><div class="body">Check the settings file is on the project, not a chat, then start a fresh conversation.</div></details>
+      <details class="faq"><summary>I do not have a paid Claude account</summary><div class="body">The skills need one. Every step can also be done by hand: the source list, the weekly sweep, the cut, and the write-up are ordinary work, and chapters did them manually before the toolkit existed. It takes longer, not worse.</div></details>
+      <details class="faq"><summary>I missed a week</summary><div class="body">Send the next one. No apology and no explanation. The target is weeks covered over a quarter.</div></details>
+      <details class="faq"><summary>My chapter has a co lead</summary><div class="body">Everything works the same. Decide who owns the send.</div></details>
+    </div>
+  </div>
+</div>
+
+<!-- 11. DOWNLOADS -->
+<div class="band band-canvas" id="downloads">
+  <div class="wrap">
+    <p class="eyebrow">Everything in one place</p>
+    <h2>Downloads</h2>
+    <p class="desc dim">Install instructions are in <a href="#install" style="color:var(--ink);font-weight:500;">What you install</a>.</p>
+    <div class="card" style="margin-top:24px;max-width:52em;">
+      <div class="dl">
+        <a class="name" href="downloads/ctc-chapter-setup-v1.4.3.zip" download>ctc-chapter-setup</a>
+        <span class="what">Asks you eight questions, writes your settings file and plan.</span>
+        <span class="ver">v1.4.3</span>
+        <span class="tag">Skill</span>
+      </div>
+      <div class="dl">
+        <a class="name" href="downloads/ctc-newsletter-v1.18.1.zip" download>ctc-newsletter</a>
+        <span class="what">Finds your sources, collects events, builds the issue.</span>
+        <span class="ver">v1.18.1</span>
+        <span class="tag">Plugin · 5 skills</span>
+      </div>
+      <div class="dl">
+        <a class="name" href="downloads/ctc-partner-map-v1.3.0.zip" download>ctc-partner-map</a>
+        <span class="what">Researches your city, tells you who to approach, drafts the emails.</span>
+        <span class="ver">v1.3.0</span>
+        <span class="tag">Plugin · 3 skills</span>
+      </div>
+
+    </div>
+    <!-- TODO: the brief lists "the written guide" here, but no current written guide
+         was supplied. The old guide documented the superseded workflow and was removed.
+         Nothing links to a guide until a rewritten one exists.
+         TODO: no release dates exist in the zips or plugin manifests; versions only. -->
+  </div>
+</div>
+
+<!-- 12. FOOTER -->
+<div class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="head5">Climate Tech Cities · Chapter Launch Playbook</p>
+      <p>The skills run in your own Claude account. This page is a static guide: no backend, no accounts, no analytics, no cookies, and nothing saved.</p>
+    </div>
+    <div>
+      <p class="head5">Start</p>
+      <ul>
+        <li><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply to lead a chapter</a></li>
+        <li><a href="#plan">Your first two weeks</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="head5">Keep going</p>
+      <ul>
+        <li><a href="#cycle">The weekly cycle</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#help">Troubleshooting</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+function cityName() {
+  var el = document.getElementById("city");
+  var v = el ? el.value.trim() : "";
+  return v || "[your city]";
+}
+var LOGO_PROMPT = [
+  'Create a professional vector logo for "Climate Tech {CITY}" that is part of the existing Climate Tech Cities (CTC) brand family. The logo must closely match the visual style, proportions, and design language of the existing Climate Tech Cities, CTC SF, and CTC New York logos.',
+  '',
+  'Layout:',
+  'Square icon on the left',
+  'Three-line wordmark on the right',
+  'Text stacked: Climate Tech {CITY}',
+  '',
+  'Icon requirements:',
+  'Use the same flat geometric construction as the existing CTC logos.',
+  'Maintain the same square format and overall proportions.',
+  'Background should be a soft lavender rectangle.',
+  'Include the same orange landscape/horizon shape across the lower portion of the icon.',
+  'Use the same light green and dark green color planes for the building form.',
+  'No outlines, gradients, shadows, textures, or effects. Pure vector appearance.',
+  '',
+  'City representation:',
+  'Replace the generic building silhouette with a simplified geometric silhouette inspired by iconic buildings in {CITY}. Icons should be abstracted into clean angular shapes rather than a literal illustration. Use only a few flat planes and sharp edges. The landmark should feel immediately recognizable while remaining minimalist.',
+  '',
+  'Typography:',
+  'Match the existing wordmark style. Modern sans-serif font. Thin to medium weight. Dark olive green text. Same spacing and alignment as the existing logos.',
+  '',
+  'Brand personality:',
+  'Climate innovation. Urban sustainability. Professional. Modern. Global city network. Clean and trustworthy.',
+  '',
+  'Avoid:',
+  'Detailed skylines. {CITY} Eye illustrations. Union Jack motifs. Photorealism. 3D effects. Excessive detail. Multiple buildings.',
+  '',
+  'Design the final logo to align seamlessly with the existing CTC, CTC SF, and CTC New York logos, as if all were created by the same designer within the same brand system.',
+  '',
+  'Develop up to 10 concepts using simplified silhouettes of iconic {CITY} architecture and skyline elements. Focus on clean, minimalist forms that are instantly recognizable yet highly abstracted, ensuring the logo remains modern, scalable, and consistent with the existing Climate Tech visual identity.',
+  '',
+  'Use the exact same icon dimensions, color palette, text sizing, spacing, and visual weight as the reference Climate Tech Cities and Climate Tech New York logos. Only the building silhouette should change. Everything else should remain consistent.',
+  '',
+  'Do this for {CITY}.'
+].join("\n");
+
+var PROMPTS = {
+  "p-setup":      function (c) { return "/ctc-chapter-setup I want to start a Climate Tech Cities chapter in " + c + "."; },
+  "p-cycle1":     function (c) { return "run the newsletter for " + c; },
+  "p-cycle2":     function (c) { return "run the newsletter for " + c; },
+  "p-harvest":    function (c) { return "/ctc-harvest Harvest this week's events for " + c + "."; },
+  "p-assemble":   function (c) { return "/ctc-assemble Assemble the " + c + " issue from this sheet. Rows marked PICK are my picks."; },
+  "p-partnermap": function (c) { return "build the partner map for " + c; },
+  "p-logo":       function (c) { return LOGO_PROMPT.split("{CITY}").join(c); }
+};
+function renderPrompt(el, text) {
+  el.textContent = "";
+  if (text.charAt(0) === "/") {
+    // highlight the skill reference so it reads as one copy-paste unit
+    var slash = text.slice(0, text.indexOf(" "));
+    var span = document.createElement("span");
+    span.className = "slash";
+    span.textContent = slash;
+    el.appendChild(span);
+    el.appendChild(document.createTextNode(text.slice(slash.length)));
+  } else {
+    el.appendChild(document.createTextNode(text));
+  }
+}
+function buildPrompts() {
+  var c = cityName();
+  Object.keys(PROMPTS).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) renderPrompt(el, PROMPTS[id](c));
+  });
+}
+function copyPrompt(id, btn) {
+  var text = document.getElementById(id).textContent;
+  function done() {
+    var t = btn.textContent;
+    btn.textContent = "Copied";
+    setTimeout(function () { btn.textContent = t; }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  var ta = document.createElement("textarea");
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); }
+  catch (e) { alert("Copy failed. Select the prompt text and copy it manually."); }
+  document.body.removeChild(ta);
+}
+window.addEventListener("DOMContentLoaded", function () {
+  // Delete-only: earlier versions of this page saved a workspace in the browser.
+  try {
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf("ctcnw:") === 0) localStorage.removeItem(k);
+    }
+  } catch (e) {}
+  document.getElementById("city").addEventListener("input", buildPrompts);
+  buildPrompts();
+  document.querySelectorAll("details.faq > summary").forEach(function (s) {
+    s.setAttribute("role", "button");
+    s.setAttribute("aria-expanded", s.parentElement.open ? "true" : "false");
+    s.parentElement.addEventListener("toggle", function () {
+      s.setAttribute("aria-expanded", s.parentElement.open ? "true" : "false");
+    });
+  });
+});
+</script>
+</body>
+</html>

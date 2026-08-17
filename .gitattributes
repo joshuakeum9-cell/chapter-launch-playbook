@@ -1,0 +1,13 @@
+# Binary assets: never apply line-ending conversion, it corrupts them.
+*.pdf   binary
+*.docx  binary
+*.zip   binary
+*.skill binary
+*.png   binary
+*.jpg   binary
+
+# Text
+*.html  text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.py    text eol=lf
