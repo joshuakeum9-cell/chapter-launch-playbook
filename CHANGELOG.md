@@ -2,6 +2,17 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 9.2.0 - 2026-09-10
+
+The snapshot beside each sample is now the file open in its own application
+rather than a clean export. Excel and Word were opened on the real shipped
+files and their windows captured, so each shows what a lead sees after
+downloading: the row numbers and column letters, the sheet tabs along the
+bottom (Open and Closed, Alderport and City Narratives, Partners and Not
+approaching), the page and word count in Word's status bar, and the read-only
+filename in the title bar. The clean print render is kept and linked from each
+label as the print view.
+
 ## 9.1.0 - 2026-09-10
 
 Every What you get back card now carries a snapshot of the real file beside its
