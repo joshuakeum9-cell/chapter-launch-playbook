@@ -218,6 +218,23 @@
   pre.prompt .slash { color: var(--green); font-weight: 500; }
   pre.prompt.tall { max-height: 320px; overflow-y: auto; }
 
+  /* ---------- what you get back card ---------- */
+  .getback { margin-top: 24px; max-width: 52em; }
+  .getback .eyebrow { margin-bottom: 8px; }
+  .getback .fname { font-size: 15px; font-weight: 500; color: var(--ink); }
+  .getback .fname a { color: var(--ink); }
+  .getback .scroll { overflow-x: auto; margin: 14px 0 10px; -webkit-overflow-scrolling: touch; }
+  table.excerpt { border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+  table.excerpt th, table.excerpt td {
+    text-align: left; padding: 7px 14px 7px 0; border-bottom: 1px solid var(--hairline-soft); vertical-align: top;
+  }
+  table.excerpt th { font-weight: 500; color: var(--steel); font-size: 12px; }
+  table.excerpt td { color: var(--slate); }
+  table.excerpt td.mono { font-family: var(--mono); font-size: 12px; color: var(--steel); }
+  table.excerpt tr:last-child td { border-bottom: none; }
+  .getback .cap { font-size: 13px; line-height: 1.5; color: var(--steel); margin: 0; }
+  .getback .files { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 4px; }
+
   /* ---------- plan table ---------- */
   .tablewrap { overflow-x: auto; margin-top: 24px; }
   table.plan {
@@ -231,6 +248,8 @@
   }
   table.plan td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; width: 10rem; }
   table.plan tr:last-child td { border-bottom: none; }
+  .plan-note { font-size: 13px; line-height: 1.55; color: var(--steel); margin-top: 14px; max-width: 46em; }
+  .plan-note sup { color: var(--ink); font-weight: 600; }
 
   /* ---------- install / download rows ---------- */
   .dl { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--hairline-soft); flex-wrap: wrap; }
@@ -319,6 +338,7 @@
   .issue .dayhead:first-child { margin-top: 0; }
   .issue .lnk { color: var(--orange-deep); text-decoration: underline; text-underline-offset: 2px; }
   .issue .foot-h { font-weight: 600; margin-bottom: 6px; }
+  .issue .blkcap { font-size: 12px; line-height: 1.5; color: var(--steel); margin: 10px 0 0; font-style: normal; }
 
   /* ---------- ask comparison ---------- */
   .ask { border-radius: var(--r-md); padding: 16px 20px; font-size: 15px; line-height: 1.5; border: 1px solid var(--hairline); }
@@ -471,15 +491,16 @@
     <div class="tablewrap">
       <table class="plan">
         <tbody>
-          <tr><td>Week 1</td><td>Logo, made in ChatGPT, then Substack</td></tr>
+          <tr><td>Week 1</td><td>Logo, made in ChatGPT; Substack set up by the CTC founders</td></tr>
           <tr><td>Week 2</td><td>Source list, subscriber list, first issue</td></tr>
-          <tr><td>Every week</td><td>Harvest, cut, draft, send</td></tr>
+          <tr><td>Every week</td><td>Harvest, cut, draft, send<sup>*</sup></td></tr>
           <tr><td>Every month</td><td>Refresh your opportunities</td></tr>
           <tr><td>Every three months</td><td>Refresh your source list</td></tr>
           <tr><td>Later</td><td>Partners</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="plan-note"><sup>*</sup> Weekly is the standard for every chapter and the default. If your first two or three harvests come back with fewer than about five events a week after the cut, the toolkit offers every two weeks. That is decided on your city's volume after the evidence is in, never on a busy week.</p>
     <p class="desc dim" style="margin-top:20px;">Everything except the logo runs inside your own Claude account.</p>
   </div>
 </div>
@@ -550,7 +571,11 @@
       <li>
         <h3>Confirm with the CTC founders before using it</h3>
         <p class="desc dim">Send your chosen concept to the founders and wait for a yes. This is the one step you cannot skip: the logo goes on the newsletter, the Luma calendar and everything else the chapter publishes, and changing it later means changing it everywhere.</p>
-        <div class="note"><strong>Do not publish anything with the logo until it is signed off.</strong> Getting the confirmation takes a day. Re-doing a launch does not.</div>
+        <div class="note"><strong>Do not publish anything with the logo until it is signed off.</strong></div>
+      </li>
+      <li>
+        <h3>Ask for your Substack</h3>
+        <p class="desc dim">Your chapter's Substack page is created centrally by Sonam Velani or Alec Turnbull once the logo is signed off. Send them the approved logo and your chapter name, and they send back the page and the login. You do not create a Substack yourself.</p>
       </li>
     </ol>
   </div>
@@ -565,28 +590,28 @@
 
     <div class="card" style="margin-top:24px;max-width:52em;">
       <div class="dl">
-        <a class="name" href="downloads/ctc-chapter-setup-v1.4.3.zip" download>ctc-chapter-setup</a>
-        <span class="what">Asks you eight questions, writes your settings file and plan.</span>
+        <a class="name" href="downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a>
+        <span class="what">Asks you nine questions, writes your settings file and plan.</span>
         <span class="tag">Skill</span>
       </div>
       <div class="dl">
-        <a class="name" href="downloads/ctc-newsletter-v1.18.1.zip" download>ctc-newsletter</a>
-        <span class="what">Finds your sources, collects events, builds the issue.</span>
+        <a class="name" href="downloads/ctc-newsletter-v2.0.0.zip" download>ctc-newsletter</a>
+        <span class="what">Finds your sources, collects events and reader submissions, builds the issue.</span>
         <span class="tag">Plugin · 5 skills</span>
       </div>
       <div class="dl">
-        <a class="name" href="downloads/ctc-partner-map-v1.3.0.zip" download>ctc-partner-map</a>
+        <a class="name" href="downloads/ctc-partner-map-v2.0.0.zip" download>ctc-partner-map</a>
         <span class="what">Researches your city, tells you who to approach, drafts the emails.</span>
         <span class="tag">Plugin · 3 skills</span>
       </div>
       <div class="dl">
         <span class="name">Claude for Chrome</span>
-        <span class="what">Some event sites need a real browser.</span>
+        <span class="what">Luma, Eventbrite, and the event submission form need a real browser.</span>
         <span class="tag">Extension</span>
       </div>
     </div>
 
-    <div class="note"><strong>A skill does one job.</strong> A plugin is a few skills that work together, and installing it gives you all of them.</div>
+    <div class="note"><strong>A skill does one job.</strong> A plugin is a few skills that work together, and installing it gives you all of them. <strong>Claude for Chrome is required for the weekly harvest, not just helpful.</strong></div>
 
     <ol class="steps" style="margin-top:40px;">
       <li>
@@ -625,13 +650,14 @@
       <pre class="prompt" id="p-setup"></pre>
     </div>
 
-    <h3>Eight questions</h3>
+    <h3>Nine questions</h3>
     <p class="desc dim">One at a time, plain language, each with a default you can accept. Reply "default" to any of them and move on. The last one is optional.</p>
     <div class="card qcard">
       <ol class="qlist">
         <li><strong>Which city is your chapter in?</strong><span>Becomes your chapter name, Climate Tech [City], everywhere it appears.</span></li>
         <li><strong>What is your name?</strong><span>Goes on every issue as the sender, because email from a person gets opened more often than email from an organization.</span></li>
         <li><strong>Which day of the week do you want to send?</strong><span>Pick one and never move it.</span></li>
+        <li><strong>How often will you send?</strong><span>Weekly is the standard for every chapter, and the default. If your city turns out to have too few events, the weekly cycle offers every two weeks after your first harvests; you do not decide that on day one.</span></li>
         <li><strong>Which events count as local for your chapter?</strong><span>The answer that does the most work: every week a skill decides whether an event belongs in your issue, and this sentence is the only instruction it gets.</span></li>
         <li><strong>What web address should the newsletter use?</strong><span>Chapters use two patterns and there is no published rule. It records your preference and flags it to confirm with the Climate Tech Cities team.</span></li>
         <li><strong>How do you want to close each issue?</strong><span>Default: [your first name] and the Climate Tech [City] team.</span></li>
@@ -645,6 +671,15 @@
       <li><strong>Chapter_Settings_[City].docx</strong>, your settings</li>
       <li><strong>Chapter_Plan_[City].docx</strong>, your launch plan with real dates in it</li>
     </ul>
+
+    <div class="card getback">
+      <p class="eyebrow">What you get back</p>
+      <div class="files">
+        <span class="fname"><a href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a></span>
+        <span class="fname"><a href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a></span>
+      </div>
+      <p class="cap">The settings file is the one every other skill reads. The plan is the one you read. Both from a fictional Denver chapter.</p>
+    </div>
 
     <div class="note"><strong>Add the settings file to your project as a context file.</strong> Project settings, then add files. Not attached to a chat: a file attached to one conversation is not available in the next one. Every skill reads this file, so nothing else works until you add it.</div>
 
@@ -687,9 +722,29 @@
     </ul>
     <p class="desc dim">If a source fails a check, Claude names the check instead of dropping it quietly, so you decide.</p>
     <p class="desc">Read the list before you approve it. You live there and Claude does not, so add the meetup everyone goes to if it is missing.</p>
-    <div class="note"><strong>Claude keeps researching until it reaches at least 25 sources</strong>, rather than handing you a short list. The finished registry comes back as a spreadsheet named CTC_Source_Registry_[City].xlsx.</div>
+    <div class="note"><strong>The target for a new chapter is 25 to 30 sources.</strong> Claude works all nine categories and follows every cross-link before it stops; if that comes to fewer than 25, it hands you the list anyway and tells you which categories came up empty. It never pads. The finished registry comes back as a spreadsheet named CTC_Source_Registry_[City].xlsx.</div>
     <div class="note"><strong>Once you have approved the list, add CTC_Source_Registry_[City].xlsx to your project as a context file.</strong> Same place as your settings file: project settings, then add files. The weekly harvest reads it from there.</div>
+    <p class="desc">One row is the same in every chapter's list: the Climate Tech Cities event submission form. Readers of your newsletter send you events through it, and the harvest reads your city's submissions every week alongside your calendars.</p>
     <div class="note"><strong>Re-run this once every three months.</strong> Calendars die quietly, and the quarterly refresh is what catches a dead one before your issues go thin. Nothing else in the toolkit runs quarterly.</div>
+
+    <div class="card getback">
+      <p class="eyebrow">What you get back</p>
+      <p class="fname"><a href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>CTC_Source_Registry_SAMPLE.xlsx</a></p>
+      <div class="scroll">
+        <table class="excerpt">
+          <thead><tr>
+            <th>Source Name</th><th>URL</th><th>Platform</th><th>Method</th><th>Tier</th>
+            <th>Category</th><th>Cadence</th><th>Last Event</th><th>Confidence</th><th>Origin</th><th>Notes</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every registry</td></tr>
+            <tr><td>Portland Climate Tech Collective</td><td class="mono">luma.com/&hellip;</td><td class="mono">luma</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">luma</td><td>2 to 4 events a month</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">user</td><td>Lead already followed this</td></tr>
+            <tr><td>PSU Institute for Sustainable Solutions</td><td class="mono">example.edu/&hellip;</td><td class="mono">web</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">university</td><td>weekly Sep to Jun</td><td class="mono">2026-06-11</td><td class="mono">verified</td><td class="mono">research</td><td>Empty in July and August. Term break, not death</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
+    </div>
   </div>
 </div>
 
@@ -699,7 +754,8 @@
   <div class="wrap tight">
     <p class="eyebrow">Every week</p>
     <h2 style="max-width:22em;">Claude does the lists. You write the words.</h2>
-    <p class="desc">The tools collect, verify, and format. They never choose what makes the issue and they never write the note.</p>
+    <p class="desc">The tools collect, verify, format, and draft. You choose what makes the issue and rewrite the note, the picks, and the housekeeping in your own words.</p>
+    <p class="desc">Every Claude stage runs a second-pass check on its own output (links re-opened, claims checked against pages, prose checked against the voice file) before it hands the file to you.</p>
   </div>
 </div>
 
@@ -790,8 +846,29 @@
       <div class="head"><span class="label">Harvest <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-harvest', this)">Copy</button></div>
       <pre class="prompt" id="p-harvest"></pre>
     </div>
+    <p class="desc">It also reads the Climate Tech Cities event submission form and pulls in anything a reader sent in for your city, marked <code>submitted</code> in a Source column so you can see where each row came from. Every submitted link gets opened and checked like any other.</p>
+    <p class="desc">Before it sweeps, Claude asks whether you already know about anything that will not be on a calendar. Paste it in and it goes into the sheet as <code>lead</code>. Every row says where it came from: <code>registry</code>, <code>submitted</code>, or <code>lead</code>.</p>
     <p class="desc">The spreadsheet marks anything incomplete: the empty cell is shaded red and named in a Missing Info column, so you can see at a glance what needs a second look.</p>
     <div class="note">If Claude asks to use your Chrome browser, say yes. Some event sites hide their listings from simple requests, so Claude reads those pages in your browser instead. It is reading, not clicking. Save the spreadsheet when it finishes.</div>
+
+    <div class="card getback">
+      <p class="eyebrow">What you get back</p>
+      <p class="fname"><a href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>CTC_Events_SAMPLE.xlsx</a></p>
+      <div class="scroll">
+        <table class="excerpt">
+          <thead><tr>
+            <th>Event Name</th><th>Date</th><th>Start Time (PDT)</th><th>Registration Link</th>
+            <th>Event Type</th><th>Access</th><th>Location</th><th>Block</th><th>Source</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Grid Interconnection 101</td><td class="mono">2026-08-12</td><td class="mono">17:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>Ecotrust Building, 721 NW 9th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+            <tr><td>Repair Cafe: Small Appliances</td><td class="mono">2026-08-13</td><td class="mono">10:00</td><td class="mono">example.org/&hellip;</td><td>In-person</td><td>Not stated</td><td>St. Johns Community Center, 8427 N Central St</td><td class="mono">this_week</td><td class="mono">submitted</td></tr>
+            <tr><td>Cascadia Climate Data Meetup</td><td class="mono">2026-08-13</td><td class="mono">18:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>WeWork Custom House, 220 NW 8th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
+    </div>
   </div>
 </div>
 
@@ -809,6 +886,7 @@
           <li>Anything not really climate</li>
           <li>Anything with a dead link or no date</li>
           <li>Duplicates. If the same event came from two calendars, keep the one with the better registration link</li>
+          <li>Rows marked <code>submitted</code> were sent in by a reader. Treat them like any other row; if you cut one, it is worth a reply to whoever sent it</li>
         </ul>
       </div>
       <div class="card">
@@ -817,7 +895,7 @@
           <li>Note <strong>four to six</strong> events worth featuring, roughly one per day that has events</li>
           <li>Type <strong>PICK</strong> in a spare column next to each one</li>
           <li>Favour events that are free, easy for a newcomer, in person, or hard to find elsewhere</li>
-          <li>What is left in the file is your issue. At the next step Claude lists this week's events numbered and asks which are the picks, so having them marked makes that a one line answer</li>
+          <li>Claude reads the PICK column at the next step, so the picks question is a one-line confirmation</li>
         </ul>
       </div>
     </div>
@@ -843,7 +921,7 @@
       <ol class="qlist">
         <li>
           <strong>Which events are the picks?</strong>
-          <span>Claude lists this week's events numbered, in date order, and suggests four to six. Reply with just the numbers, name your own, or say its list is fine.</span>
+          <span>If you typed PICK in a column, Claude reads it and confirms. Otherwise it lists this week's events numbered and suggests four to six.</span>
         </li>
         <li>
           <strong>Any opportunities this week?</strong>
@@ -856,28 +934,25 @@
       </ol>
     </div>
 
-    <div class="grid grid-2" style="margin-top:32px;">
-      <div class="card" style="background:var(--orange-tint);border-color:var(--orange-line);">
-        <span class="who claude">Claude finishes these</span>
-        <ul class="plain" style="margin-top:12px;">
-          <li>Title and subtitle</li>
-          <li>This Week's Events, grouped by day</li>
-          <li>Upcoming Events, the next six to eight weeks</li>
-          <li>Events in Detail, when you want it</li>
-          <li>The standing footer</li>
-        </ul>
-        <p class="desc dim" style="margin-bottom:0;">Every link, emoji and day header already in place.</p>
-      </div>
-      <div class="card">
-        <span class="who you">You write these</span>
-        <ul class="plain" style="margin-top:12px;">
-          <li>The opening note</li>
-          <li>The picks</li>
-          <li>The opportunities</li>
-        </ul>
-        <p class="desc dim" style="margin-bottom:0;">Claude builds these from your answers and leaves what it cannot know as a scaffold with the gap marked in [square brackets]. Those gaps are yours, and the opening note is yours entirely.</p>
-      </div>
+    <h3>The ten blocks, in order</h3>
+    <div class="tablewrap">
+      <table class="plan" style="min-width:520px;">
+        <thead><tr><td style="width:auto;font-weight:500;">Block</td><td style="font-weight:500;">Who finishes it</td></tr></thead>
+        <tbody>
+          <tr><td>1. Title and subtitle</td><td>Claude</td></tr>
+          <tr><td>2. Opening note</td><td>Claude drafts, you rewrite</td></tr>
+          <tr><td>3. Picks of the week</td><td>Claude drafts from your picks, you add the asides</td></tr>
+          <tr><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you tell it, you rewrite</td></tr>
+          <tr><td>5. Climate Tech Cities and Streetlife Ventures platforms block</td><td>Fixed, never changes</td></tr>
+          <tr><td>6. Opportunities</td><td>Claude drafts from your queue, you confirm</td></tr>
+          <tr><td>7. This Week's Events</td><td>Claude, complete</td></tr>
+          <tr><td>8. Upcoming Events</td><td>Claude, complete</td></tr>
+          <tr><td>9. This Week in Detail</td><td>Claude, complete, one entry for every event in This Week's Events</td></tr>
+          <tr><td>10. Join the fun (submit events, volunteer)</td><td>Fixed, never changes</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="desc">Blocks 2, 3, and 4 come back fully drafted with a yellow line above each reading <code>[REWRITE IN YOUR OWN WORDS, then delete this line]</code>. Rewrite the block, delete the line. Nothing in square brackets ships. Claude does not leave these blank and does not refuse to draft them; it drafts from what you told it and never invents news, weather, or a verdict on an event nobody went to.</p>
   </div>
 </div>
 
@@ -901,7 +976,7 @@
       </div>
 
       <div class="blk human">
-        <span class="tag2">Yours · opening note <span class="who2">Claude leaves the greeting and the closing line, the middle is yours</span></span>
+        <span class="tag2">Yours · opening note <span class="who2">Claude drafts this from what you tell it and marks it; you rewrite it</span></span>
         <p>Hi all,</p>
         <p>Last week we pulled out our N95s once again as wildfire smoke subsumed the summer. The brown-orange skies, torrential rain, and tornado warnings have been stark reminders that climate change is here and now.</p>
         <p>For such a global problem, we continually find hope and inspiration in local community. While the summer is a lot quieter, there's still plenty of ways to connect. Here are our picks for the week:</p>
@@ -920,6 +995,17 @@
         <span class="tag2">Yours · housekeeping and sign-off <span class="who2">sign-off comes from your settings file</span></span>
         <p>We've postponed Wednesday's <strong>Other Intelligence</strong> summit until later this year (too many people were out of town!) but are still looking forward to it in the Fall.</p>
         <p>Til next week!<br/>Alec, Sonam, and the Climate Tech Cities team</p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · platforms block <span class="who2">fixed text and fixed links, the same in every chapter</span></span>
+        <p class="foot-h">🌎 Climate Tech Cities and Streetlife Ventures Startup and Talent Platforms</p>
+        <p>Climate Tech Cities and Streetlife Ventures are launching new platforms to support climate founders, funders, and career transitioners. We can't wait to hear from you!</p>
+        <ul>
+          <li><a class="lnk" href="https://gccht82e8mz.typeform.com/to/fLp65vtz?typeform-source=www.climatetechcities.com" target="_blank" rel="noopener">Climate startups looking to raise</a></li>
+          <li><a class="lnk" href="https://gccht82e8mz.typeform.com/to/Rk2roZac?typeform-source=www.climatetechcities.com" target="_blank" rel="noopener">Climate talent looking to transition</a></li>
+        </ul>
+        <p class="blkcap">Fixed text and fixed links, the same in every chapter. It sits here, right after the sign-off.</p>
       </div>
 
       <div class="blk both">
@@ -953,13 +1039,35 @@
       </div>
 
       <div class="blk auto">
-        <span class="tag2">Automated · standing footer</span>
-        <p class="foot-h">🌎 Climate Tech Cities and Streetlife Ventures Startup and Talent Platforms</p>
-        <p>Climate Tech Cities and Streetlife Ventures are launching new platforms to support climate founders, funders, and career transitioners. We can't wait to hear from you!</p>
+        <span class="tag2">Automated · this week in detail</span>
+        <p class="foot-h">🔌 WISE-NYC: August Lunch on AI in Sustainability</p>
+        <p><strong>When:</strong> Tuesday, Aug 18<br/><strong>Where:</strong> New York, NY</p>
+        <p>This lunch discussion explores the paradox of AI adoption in sustainability work, examining both its practical benefits and environmental costs. Hosted by Parichat Wrolstad, the event brings together WISE Community members to share experiences with AI implementation and discuss responsible usage strategies.</p>
+        <p class="foot-h" style="margin-top:14px;">🌿 A Community Reading Of Black Eco-Poetry Feat. Keenyn Omari</p>
+        <p><strong>When:</strong> Wednesday, Aug 19<br/><strong>Where:</strong> New York, NY</p>
+        <p>Black Forest School presents a community reading of 40+ Black eco-poems from a collection spanning over 1,000 works in 20+ languages by 300+ poets. The event features live jazz accompaniment by flautist Keenyn Omari, an interactive poetry relay, and a temporary installation within Project EATS' urban farm setting.</p>
+        <p class="blkcap">One entry for every event in This Week's Events, written from each event's own page. Readers use this so they do not have to click into every event.</p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · join the fun <span class="who2">the last block of every issue</span></span>
+        <p class="foot-h">Join the Fun!</p>
+        <p><strong>Submit Events.</strong> Running something climate-related in the city? Tell us about it and it goes into next week's list. <a class="lnk" href="https://airtable.com/appunzUZg6b8fe83m/pagmLLAnynXZxEtmL/form" target="_blank" rel="noopener">Submit an event</a></p>
+        <p><strong>Volunteer.</strong> Climate Tech Cities runs on volunteers. If you want to help with events, the newsletter, or the chapter itself, say hello. <a class="lnk" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Volunteer with Climate Tech Cities</a></p>
+        <p class="blkcap">The last block of every issue. Two fixed links: the event submission form and the volunteer form.</p>
       </div>
     </div>
 
-    <div class="note" style="max-width:46em;">The split is rarely all or nothing. The listings are entirely Claude's and the opening note is entirely yours, but the <strong>picks sit in between</strong>: you decide which events make the cut and you add the asides that make it sound like a person, while Claude writes the day, the verb and the venue around them. Across the whole issue about eighty words are truly yours. Note too that the sign-off sits in the <strong>middle</strong>, not at the end: note, picks, housekeeping, "Til next week", and then the listings.</div>
+    <div class="note" style="max-width:46em;">The sign-off still sits in the <strong>middle</strong>, not at the end. The platforms block follows it, then the opportunities and the listings, and the last thing on the page is Join the fun. Claude drafts all ten blocks; the words that are truly yours are the three you rewrite, the opening note, the picks, and the housekeeping.</div>
+
+    <div class="card getback">
+      <p class="eyebrow">What you get back</p>
+      <div class="files">
+        <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a></span>
+        <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a></span>
+      </div>
+      <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
+    </div>
   </div>
 </div>
 
@@ -976,6 +1084,8 @@
           <li>Scan the dates. Nothing in the past, and this week's events actually this week</li>
           <li>Click a couple of links, from Upcoming rather than This Week. If one is dead, check its neighbours from the same source</li>
           <li>Look for the same event listed twice</li>
+          <li>This Week in Detail has an entry for every event in This Week's Events</li>
+          <li>The platforms block sits after your sign-off, and Join the fun is the last thing on the page</li>
         </ul>
       </div>
       <div class="card">
@@ -1007,7 +1117,7 @@
 
     <p class="desc">Claude sweeps program pages and public funders, aggregators, LinkedIn through your browser if you say yes, and the local organizations in your partner map.</p>
     <ul class="checks" style="max-width:34em;">
-      <li>Minimum 15 open opportunities</li>
+      <li>At least 15 open opportunities in the file after every run, carried ones included</li>
       <li>A mix of accelerators, grants, and fellowships, never all of one kind</li>
       <li>Local opportunities lead the file, national ones sit below</li>
       <li>Anything past its deadline moves to a Closed sheet</li>
@@ -1015,6 +1125,24 @@
     </ul>
 
     <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> Claude reads it when it builds each issue, so one run covers every issue that month. Without it the opportunities block has nothing to draw on.</div>
+
+    <div class="card getback">
+      <p class="eyebrow">What you get back</p>
+      <p class="fname"><a href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Opportunities_SAMPLE.xlsx</a></p>
+      <div class="scroll">
+        <table class="excerpt">
+          <thead><tr>
+            <th>Opportunity</th><th>Organization</th><th>Type</th><th>Deadline</th><th>Who it is for</th><th>Scope</th><th>Status</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>PSU Climate Venture Studio</td><td>Portland State University</td><td>Accelerator</td><td class="mono">2026-09-30</td><td>Student and alumni founders</td><td>Portland</td><td class="mono">Not used</td></tr>
+            <tr><td>Portland Clean Energy Fund Community Grants</td><td>Portland Clean Energy Community Benefits Fund</td><td>Grant</td><td class="mono">2026-10-01</td><td>Nonprofits and community groups in Portland</td><td>Portland</td><td class="mono">Not used</td></tr>
+            <tr><td>Oregon BEST Early Commercialization Grant</td><td>Oregon BEST</td><td>Grant</td><td class="mono">2026-09-15</td><td>Hardware climate startups with a physical presence</td><td>Oregon</td><td class="mono">Not used</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">The Open sheet, with a Closed sheet beside it. Fictional Portland chapter.</p>
+    </div>
   </div>
 </div>
 
@@ -1023,7 +1151,7 @@
   <div class="wrap">
     <p class="eyebrow">Later</p>
     <h2>Partners</h2>
-    <p class="desc">Partners are where venues, audiences, and speakers come from. A lead with no partners hosts events in bars for their own friends.</p>
+    <p class="desc">Partners are where venues, audiences, and speakers come from. A lead with no partners hosts events in bars for their own friends. The partner map is also what the monthly opportunities run reads for local programs, so it pays off in the newsletter too.</p>
 
     <div class="prompt-card">
       <div class="head"><span class="label">Partner map <span class="hint">· once, then quarterly</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
@@ -1034,11 +1162,40 @@
       <li>
         <h3>Claude researches your city</h3>
         <p class="desc dim">Universities, incubators and accelerators, startup programs, industry partners, and capital partners. Every organization is verified before it goes in. You get a workbook.</p>
+        <div class="card getback">
+          <p class="eyebrow">What you get back</p>
+          <p class="fname"><a href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>CTC_City_Resources_SAMPLE.xlsx</a></p>
+          <div class="scroll">
+            <table class="excerpt">
+              <thead><tr><th>Organization</th><th>Type</th><th>Focus Area</th><th>Description</th><th>Website</th></tr></thead>
+              <tbody>
+                <tr><td>Tidewater Climate Labs</td><td>Incubator</td><td>Hardware climate startups</td><td>Tidewater Climate Labs is a climate hardware incubator&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
+                <tr><td>Kiln Accelerator</td><td>Accelerator</td><td>Pre-seed climate software and services</td><td>Kiln is a twelve week accelerator in downtown&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cap">The workbook has the five-block city tab plus a City Narratives sheet. The city, Alderport, and every organization in it are fictional.</p>
+        </div>
       </li>
       <li>
         <h3>You edit it, then Claude builds the outreach list</h3>
         <p class="desc dim">Cut anything that quietly closed. Add anything obvious it missed. Then Claude adds the categories a resource page leaves out and returns a tiered list: who to approach, in what order, and what to ask each one for first. Anything you add by hand is never dropped silently.</p>
         <div class="note">You know your city better than the research does. If you would rather not edit it, say <strong>"use it as is"</strong> and it carries on.</div>
+        <div class="card getback">
+          <p class="eyebrow">What you get back</p>
+          <p class="fname"><a href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>CTC_Partner_Map_SAMPLE.xlsx</a></p>
+          <div class="scroll">
+            <table class="excerpt">
+              <thead><tr><th>Organization</th><th>Category</th><th>Why them</th><th>Ask for first</th><th>Contact route</th></tr></thead>
+              <tbody>
+                <tr><td>Greentown Labs Houston</td><td>Accelerators and incubators</td><td>Their member companies are the founders we want&hellip;</td><td>Co-host our launch mixer in your event space&hellip;</td><td>Community or events team, via the contact form</td></tr>
+                <tr><td>Ion District</td><td>Coworking and innovation districts</td><td>They publish a public events calendar with an&hellip;</td><td>Add our monthly meetup to the Ion events calendar</td><td>Calendar submission form on the events page</td></tr>
+                <tr><td>Rice Alliance for Technology and Entrepreneurship</td><td>Universities and research centers</td><td>They convene the founder and investor side&hellip;</td><td>Put our chapter lead on a panel at your next event</td><td>Named program director listed on the Rice Alliance site</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cap">Three rows from the Tier 1 band; the tier is the band header above each group, not a column. The map is a separate internal file with a Not approaching sheet. The organizations are real Houston ones, but every line written about them here is illustrative and unverified.</p>
+        </div>
       </li>
       <li>
         <h3>Claude drafts the emails</h3>
@@ -1070,9 +1227,11 @@
     <div class="faq-stack">
       <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero, then check those by hand. Do not assume the city went quiet.</div></details>
       <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
-      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal, and expected on Eventbrite. Say yes. It is reading pages, not clicking anything.</div></details>
+      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal, and expected on Luma, Eventbrite, and the submission form. Say yes. It is reading pages, not clicking anything.</div></details>
       <details class="faq"><summary>A page is asking me to prove I am human</summary><div class="body">Claude will stop and tell you. Open the page yourself and paste what you see. Claude will not solve these.</div></details>
-      <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The bracketed blocks were skipped. They are the whole point, and they are the only part readers remember.</div></details>
+      <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The yellow rewrite lines were deleted without rewriting the blocks above them. Those three blocks are the only part readers remember; put them in your own words.</div></details>
+      <details class="faq"><summary>A reader emailed me an event</summary><div class="body">Send them the submission form link at the bottom of any issue. Anything submitted for your city shows up in the next harvest, marked submitted.</div></details>
+      <details class="faq"><summary>Assembly stopped and said the fixed links are not ready</summary><div class="body">The plugin refuses to build an issue with a placeholder in the platforms block or the Join the fun block. Remove those two blocks from the JSON and the standard text is inserted with the real links; you never type them.</div></details>
       <details class="faq"><summary>Formatting broke when I pasted into Substack</summary><div class="body">Almost always the Word document, or a copy button. Do it this way instead:
         <ol class="plain">
           <li>Open the <strong>HTML file</strong> in your browser. Not the Word document</li>
@@ -1098,24 +1257,37 @@
     <p class="desc dim">Install instructions are in <a href="#install" style="color:var(--ink);font-weight:500;">What you install</a>.</p>
     <div class="card" style="margin-top:24px;max-width:52em;">
       <div class="dl">
-        <a class="name" href="downloads/ctc-chapter-setup-v1.4.3.zip" download>ctc-chapter-setup</a>
-        <span class="what">Asks you eight questions, writes your settings file and plan.</span>
-        <span class="ver">v1.4.3</span>
+        <a class="name" href="downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a>
+        <span class="what">Asks you nine questions, writes your settings file and plan.</span>
+        <span class="ver">v1.5.0</span>
         <span class="tag">Skill</span>
       </div>
       <div class="dl">
-        <a class="name" href="downloads/ctc-newsletter-v1.18.1.zip" download>ctc-newsletter</a>
-        <span class="what">Finds your sources, collects events, builds the issue.</span>
-        <span class="ver">v1.18.1</span>
+        <a class="name" href="downloads/ctc-newsletter-v2.0.0.zip" download>ctc-newsletter</a>
+        <span class="what">Finds your sources, collects events and reader submissions, builds the issue.</span>
+        <span class="ver">v2.0.0</span>
         <span class="tag">Plugin · 5 skills</span>
       </div>
       <div class="dl">
-        <a class="name" href="downloads/ctc-partner-map-v1.3.0.zip" download>ctc-partner-map</a>
+        <a class="name" href="downloads/ctc-partner-map-v2.0.0.zip" download>ctc-partner-map</a>
         <span class="what">Researches your city, tells you who to approach, drafts the emails.</span>
-        <span class="ver">v1.3.0</span>
+        <span class="ver">v2.0.0</span>
         <span class="tag">Plugin · 3 skills</span>
       </div>
+    </div>
 
+    <div class="card" style="margin-top:20px;max-width:52em;">
+      <p class="eyebrow">Samples</p>
+      <p class="desc dim" style="margin-top:0;">Every file the toolkit produces, so you can see one before you run anything. All fictional.</p>
+      <div class="dl"><a class="name" href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a><span class="what">The settings file every other skill reads.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a><span class="what">The launch plan, with real dates in it.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>CTC_Source_Registry_SAMPLE.xlsx</a><span class="what">The source list the weekly harvest reads.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>CTC_Events_SAMPLE.xlsx</a><span class="what">A week of harvested events, before the cut.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Opportunities_SAMPLE.xlsx</a><span class="what">The monthly opportunities queue, Open and Closed.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a><span class="what">A finished issue, the file you paste into Substack.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a><span class="what">The same issue as a Word document.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>CTC_City_Resources_SAMPLE.xlsx</a><span class="what">The city resource workbook, stage one of the partner map.</span></div>
+      <div class="dl"><a class="name" href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>CTC_Partner_Map_SAMPLE.xlsx</a><span class="what">The tiered outreach list, stage two.</span></div>
     </div>
     <!-- TODO: the brief lists "the written guide" here, but no current written guide
          was supplied. The old guide documented the superseded workflow and was removed.

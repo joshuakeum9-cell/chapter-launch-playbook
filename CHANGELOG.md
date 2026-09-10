@@ -2,6 +2,39 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 9.0.0 - 2026-09-10
+
+Rewritten against toolkit v2.0.0, after the review with the organization's
+co-founder on 20 August 2026. Two plugins were rebuilt to match that review and
+the page now describes what they actually do.
+
+Cadence is weekly, stated plainly everywhere, with one footnote in the two week
+table: if the first harvests come back with fewer than about five events a week
+after the cut, the toolkit offers every two weeks, decided on the city's volume
+rather than on a busy week. Week one now reads logo first, then a Substack
+requested from the founders, because chapter pages are created centrally by
+Sonam Velani or Alec Turnbull once a logo is signed off rather than by the lead.
+
+Setup asks nine questions, the ninth optional, with cadence added as the fourth.
+Claude for Chrome moved from helpful to required, because Luma, Eventbrite, and
+the event submission form all need a real browser. The source list target is now
+25 to 30 rather than a floor of 25, and the page says what happens when a city
+comes up short: the file is delivered anyway with the empty categories named,
+and nothing is padded. Every registry carries one standing row, the Climate Tech
+Cities event submission form, and the harvest reads a chapter's submissions each
+week alongside its calendars, marked submitted in a Source column.
+
+The issue is ten blocks, not nine. The platforms block moved out of the footer
+to sit directly after the sign-off, This Week in Detail was added with one entry
+per event in This Week's Events, and Join the fun closes every issue with the
+submission and volunteer forms. Blocks two, three, and four come back fully
+drafted under a yellow rewrite line rather than blank, so the page no longer
+describes them as scaffolds. The sample issue was rebuilt to that order.
+
+Every section that produces a file now carries a What you get back card built
+from the real sample in downloads/samples/, nine files in all, and Downloads
+lists them.
+
 ## 8.1.0 - 2026-08-17
 
 Restore the opportunities section, on the right cadence this time.

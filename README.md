@@ -16,8 +16,8 @@ packages, nine skills, covering a new chapter lead's launch.
 | Package | Kind | Contains |
 |---|---|---|
 | `ctc-chapter-setup` v1.4.3 | Skill | Eight-question setup interview, writes the settings file and launch plan |
-| `ctc-newsletter` v1.18.1 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
-| `ctc-partner-map` v1.3.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
+| `ctc-newsletter` v2.0.0 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
+| `ctc-partner-map` v2.0.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
 The logo phase runs in ChatGPT rather than Claude, and the page carries the
 house prompt and the reference artwork for it.
@@ -62,6 +62,8 @@ micro labels as eyebrows.
 - Static: no backend, no accounts, no cookies, no localStorage, no analytics.
 - Nothing invented: every claim about what a skill does traces to that skill's
   own `SKILL.md`. Gaps are marked TODO in the source rather than papered over.
+- Every section that produces a file shows a What you get back card built from
+  the real sample in `downloads/samples/`.
 - US English, no em dashes, no time estimates, no day names in the weekly
   cycle. The one allowed framing is "two weeks of setup, then about one
   sitting a week".
@@ -69,7 +71,7 @@ micro labels as eyebrows.
 ## Contents
 
 - `index.html`, the whole site. No framework, no build step
-- `downloads/`, the three package zips and the five brand PNGs
+- `downloads/`, the three package zips, the five brand PNGs, and `samples/` with the nine sample files
 - `version.json`, version and date
 - `playbook/newsletter-chapter.md`, Chapter 8 draft for the CTC Operational Playbook
 - `TODO.md`, open items
