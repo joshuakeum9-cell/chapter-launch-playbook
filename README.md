@@ -71,7 +71,7 @@ micro labels as eyebrows.
 ## Contents
 
 - `index.html`, the whole site. No framework, no build step
-- `downloads/`, the three package zips, the five brand PNGs, and `samples/` with the nine sample files
+- `downloads/`, the three package zips, the five brand PNGs, and `samples/` with the nine sample files plus `samples/previews/` with a rendered snapshot of each
 - `version.json`, version and date
 - `playbook/newsletter-chapter.md`, Chapter 8 draft for the CTC Operational Playbook
 - `TODO.md`, open items

@@ -2,6 +2,15 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 9.1.0 - 2026-09-10
+
+Every What you get back card now carries a snapshot of the real file beside its
+excerpt. The images are genuine renders, not mock-ups: Excel and Word opened
+each shipped sample and exported it, so the teal and green header bands, the
+shaded unverified row, the band headers above each tier, and the three yellow
+rewrite lines in the issue are all the real thing. Each one links to the
+full-size image. On a phone the snapshot drops below the excerpt.
+
 ## 9.0.0 - 2026-09-10
 
 Rewritten against toolkit v2.0.0, after the review with the organization's

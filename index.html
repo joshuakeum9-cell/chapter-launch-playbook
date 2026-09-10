@@ -220,6 +220,17 @@
 
   /* ---------- what you get back card ---------- */
   .getback { margin-top: 24px; max-width: 52em; }
+  .getback .split { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 24px; align-items: start; }
+  .getback .split > div { min-width: 0; }
+  .shot { display: block; border: 1px solid var(--hairline); border-radius: var(--r-md); overflow: hidden; background: var(--canvas); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot:hover { border-color: var(--stone); }
+  .shotlabel { display: block; font-size: 12px; color: var(--stone); margin-top: 6px; }
+  .shotpair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 900px) {
+    .getback .split { grid-template-columns: 1fr; }
+    .getback .split > div:last-child { max-width: 320px; }
+  }
   .getback .eyebrow { margin-bottom: 8px; }
   .getback .fname { font-size: 15px; font-weight: 500; color: var(--ink); }
   .getback .fname a { color: var(--ink); }
@@ -674,11 +685,22 @@
 
     <div class="card getback">
       <p class="eyebrow">What you get back</p>
-      <div class="files">
-        <span class="fname"><a href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a></span>
-        <span class="fname"><a href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a></span>
+      <div class="split">
+        <div>
+          <div class="files">
+            <span class="fname"><a href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a></span>
+            <span class="fname"><a href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a></span>
+          </div>
+          <p class="cap">The settings file is the one every other skill reads. The plan is the one you read. Both from a fictional Denver chapter.</p>
+        </div>
+        <div>
+          <div class="shotpair">
+            <a class="shot" href="downloads/samples/previews/chapter-settings.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/chapter-settings.png" alt="First page of the sample chapter settings document, showing the identity and newsletter sections as labelled rows." loading="lazy" /></a>
+            <a class="shot" href="downloads/samples/previews/chapter-plan.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/chapter-plan.png" alt="First page of the sample two week launch plan, showing dated phases." loading="lazy" /></a>
+          </div>
+          <span class="shotlabel">Page one of each. Click to enlarge.</span>
+        </div>
       </div>
-      <p class="cap">The settings file is the one every other skill reads. The plan is the one you read. Both from a fictional Denver chapter.</p>
     </div>
 
     <div class="note"><strong>Add the settings file to your project as a context file.</strong> Project settings, then add files. Not attached to a chat: a file attached to one conversation is not available in the next one. Every skill reads this file, so nothing else works until you add it.</div>
@@ -730,6 +752,8 @@
     <div class="card getback">
       <p class="eyebrow">What you get back</p>
       <p class="fname"><a href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>CTC_Source_Registry_SAMPLE.xlsx</a></p>
+      <div class="split">
+        <div>
       <div class="scroll">
         <table class="excerpt">
           <thead><tr>
@@ -744,6 +768,12 @@
         </table>
       </div>
       <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
+        </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/registry.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/registry.png" alt="The sample source registry open in a spreadsheet, teal header row, one shaded unverified row at the bottom." loading="lazy" /></a>
+          <span class="shotlabel">The real file. Click to enlarge.</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -854,6 +884,8 @@
     <div class="card getback">
       <p class="eyebrow">What you get back</p>
       <p class="fname"><a href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>CTC_Events_SAMPLE.xlsx</a></p>
+      <div class="split">
+        <div>
       <div class="scroll">
         <table class="excerpt">
           <thead><tr>
@@ -868,6 +900,12 @@
         </table>
       </div>
       <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
+        </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/events.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/events.png" alt="The sample events sheet open in a spreadsheet, green header row, one row per event with a Source column." loading="lazy" /></a>
+          <span class="shotlabel">The real file. Click to enlarge.</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1062,11 +1100,19 @@
 
     <div class="card getback">
       <p class="eyebrow">What you get back</p>
-      <div class="files">
-        <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a></span>
-        <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a></span>
+      <div class="split">
+        <div>
+          <div class="files">
+            <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a></span>
+            <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a></span>
+          </div>
+          <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
+        </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/issue.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/issue.png" alt="The first page of the sample Portland issue, with three yellow rewrite lines above the opening note, the picks, and the housekeeping." loading="lazy" /></a>
+          <span class="shotlabel">Page one of six. The yellow lines are the rewrite markers. Click to enlarge.</span>
+        </div>
       </div>
-      <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
     </div>
   </div>
 </div>
@@ -1129,6 +1175,8 @@
     <div class="card getback">
       <p class="eyebrow">What you get back</p>
       <p class="fname"><a href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Opportunities_SAMPLE.xlsx</a></p>
+      <div class="split">
+        <div>
       <div class="scroll">
         <table class="excerpt">
           <thead><tr>
@@ -1142,6 +1190,12 @@
         </table>
       </div>
       <p class="cap">The Open sheet, with a Closed sheet beside it. Fictional Portland chapter.</p>
+        </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/opportunities.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/opportunities.png" alt="The sample opportunities queue open in a spreadsheet, showing the Open sheet with deadlines and scope." loading="lazy" /></a>
+          <span class="shotlabel">The real file. Click to enlarge.</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1165,6 +1219,8 @@
         <div class="card getback">
           <p class="eyebrow">What you get back</p>
           <p class="fname"><a href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>CTC_City_Resources_SAMPLE.xlsx</a></p>
+      <div class="split">
+        <div>
           <div class="scroll">
             <table class="excerpt">
               <thead><tr><th>Organization</th><th>Type</th><th>Focus Area</th><th>Description</th><th>Website</th></tr></thead>
@@ -1176,6 +1232,12 @@
           </div>
           <p class="cap">The workbook has the five-block city tab plus a City Narratives sheet. The city, Alderport, and every organization in it are fictional.</p>
         </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/city-resources.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/city-resources.png" alt="The sample city resources workbook, showing the five blocks with a header band above each." loading="lazy" /></a>
+          <span class="shotlabel">The real file. Click to enlarge.</span>
+        </div>
+      </div>
+        </div>
       </li>
       <li>
         <h3>You edit it, then Claude builds the outreach list</h3>
@@ -1184,6 +1246,8 @@
         <div class="card getback">
           <p class="eyebrow">What you get back</p>
           <p class="fname"><a href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>CTC_Partner_Map_SAMPLE.xlsx</a></p>
+      <div class="split">
+        <div>
           <div class="scroll">
             <table class="excerpt">
               <thead><tr><th>Organization</th><th>Category</th><th>Why them</th><th>Ask for first</th><th>Contact route</th></tr></thead>
@@ -1195,6 +1259,12 @@
             </table>
           </div>
           <p class="cap">Three rows from the Tier 1 band; the tier is the band header above each group, not a column. The map is a separate internal file with a Not approaching sheet. The organizations are real Houston ones, but every line written about them here is illustrative and unverified.</p>
+        </div>
+        <div>
+          <a class="shot" href="downloads/samples/previews/partner-map.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/partner-map.png" alt="The sample partner map, showing the Tier 1 band header above a group of organizations." loading="lazy" /></a>
+          <span class="shotlabel">The real file. Click to enlarge.</span>
+        </div>
+      </div>
         </div>
       </li>
       <li>
