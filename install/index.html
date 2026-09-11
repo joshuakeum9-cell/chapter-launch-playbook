@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Install · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a href="../logo/"><span class="n">03</span>Logo</a>
+    <a class="here" href="../install/"><span class="n">04</span>Install</a>
+    <a href="../set-up/"><span class="n">05</span>Set up</a>
+    <a href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Step 04 of 08</b> &middot; Once</p>
+    <h1>What you install</h1>
+    <p class="lede">Three packages and a browser extension. A paid Claude account. No code.</p>
+
+    <div class="card hoverable reveal" style="margin-top:24px;max-width:44em;">
+      <div class="dl"><a class="name" href="../downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a><span class="what">Nine questions, then your settings file and plan.</span><span class="tag">Skill</span></div>
+      <div class="dl"><a class="name" href="../downloads/ctc-newsletter-v2.0.0.zip" download>ctc-newsletter</a><span class="what">Finds sources, collects events and reader submissions, builds the issue.</span><span class="tag">Plugin &middot; 5 skills</span></div>
+      <div class="dl"><a class="name" href="../downloads/ctc-partner-map-v2.0.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails.</span><span class="tag">Plugin &middot; 3 skills</span></div>
+      <div class="dl"><span class="name">Claude for Chrome</span><span class="what">Luma, Eventbrite and the submission form need a real browser.</span><span class="tag">Extension</span></div>
+    </div>
+    <div class="note"><strong>A skill does one job. A plugin is several skills installed together.</strong> Claude for Chrome is required for the weekly harvest.</div>
+
+    <ol class="steps" style="margin-top:36px;">
+      <li>
+        <h2 class="sub">Install the packages</h2>
+        <p class="desc dim">Claude: Settings, then Capabilities, then Skills. Upload the skill. Install the two plugins. Turn on code execution in the same panel.</p>
+      </li>
+      <li>
+        <h2 class="sub">Install Claude for Chrome</h2>
+        <p class="desc dim">Same account.</p>
+      </li>
+      <li>
+        <h2 class="sub">Create a project in Claude</h2>
+        <p class="desc dim">Named for your chapter. Everything happens inside it.</p>
+      </li>
+      <li>
+        <h2 class="sub">Check it worked</h2>
+        <div class="prompt-card reveal">
+          <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
+          <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
+        </div>
+        <div class="note">Claude should name ctc-chapter-setup and the skills in both plugins. If not: reinstall, confirm code execution is on, start a fresh conversation. Skills do not appear mid-conversation.</div>
+      </li>
+    </ol>
+    <nav class="pager" aria-label="Previous and next step">
+      <a class="prev" href="../logo/"><span class="k">Previous</span><span class="t"><span class="n">03</span>Logo</span></a>
+      <a class="next" href="../set-up/"><span class="k">Next</span><span class="t"><span class="n">05</span>Set up</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

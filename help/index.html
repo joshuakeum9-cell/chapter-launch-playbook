@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Help · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a href="../logo/"><span class="n">03</span>Logo</a>
+    <a href="../install/"><span class="n">04</span>Install</a>
+    <a href="../set-up/"><span class="n">05</span>Set up</a>
+    <a href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a class="here" href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Reference</b> &middot; Troubleshooting</p>
+    <h1>When something breaks</h1>
+    <div class="faq-stack reveal">
+      <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero and check those by hand. Do not assume the city went quiet.</div></details>
+      <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
+      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal on Luma, Eventbrite and the submission form. Say yes. It reads pages; it does not click.</div></details>
+      <details class="faq"><summary>A page is asking me to prove I am human</summary><div class="body">Claude stops and tells you. Open the page yourself and paste what you see. Claude will not solve these.</div></details>
+      <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The yellow rewrite lines were deleted without rewriting the blocks above them. Those three blocks are the only part readers remember.</div></details>
+      <details class="faq"><summary>A reader emailed me an event</summary><div class="body">Send them the submission form link at the bottom of any issue. It shows up in the next harvest, marked submitted.</div></details>
+      <details class="faq"><summary>Assembly stopped and said the fixed links are not ready</summary><div class="body">The plugin refuses to build an issue with a placeholder in the platforms block or the Join the fun block. Remove those two blocks from the JSON and the standard text is inserted with the real links. You never type them.</div></details>
+      <details class="faq"><summary>Formatting broke when I pasted into Substack</summary><div class="body">Almost always the Word document, or a copy button. Instead:
+        <ol class="plain">
+          <li>Open the <strong>HTML file</strong> in your browser</li>
+          <li>Click just before the first word at the top</li>
+          <li>Hold the mouse down and drag to the bottom, past the last line</li>
+          <li>Copy. Ctrl+C on Windows, Cmd+C on a Mac</li>
+          <li>Open a new Substack post and paste</li>
+        </ol>
+        Dragging is what carries the formatting and links. A copy button does not.</div></details>
+      <details class="faq"><summary>Claude does not know my chapter settings</summary><div class="body">Check the settings file is on the project, not a chat. Start a fresh conversation.</div></details>
+      <details class="faq"><summary>I do not have a paid Claude account</summary><div class="body">The skills need one. Every step can be done by hand: the source list, the weekly sweep, the cut, the write-up. Chapters did it that way before the toolkit. Longer, not worse.</div></details>
+      <details class="faq"><summary>I missed a week</summary><div class="body">Send the next one. No apology, no explanation. The target is weeks covered over a quarter.</div></details>
+      <details class="faq"><summary>My chapter has a co-lead</summary><div class="body">Everything works the same. Decide who owns the send.</div></details>
+    </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

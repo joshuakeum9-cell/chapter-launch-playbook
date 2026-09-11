@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Newsletter · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="cityfield">
+      <label for="city">Your city</label>
+      <input type="text" id="city" placeholder="Boston" autocomplete="off" />
+      <p>Fills every prompt on the site. Carried in the link, never saved.</p>
+    </div>
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a href="../logo/"><span class="n">03</span>Logo</a>
+    <a href="../install/"><span class="n">04</span>Install</a>
+    <a href="../set-up/"><span class="n">05</span>Set up</a>
+    <a class="here" href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Step 06 of 08</b> &middot; Week two</p>
+    <h1>Newsletter</h1>
+    <p class="lede">Two files your issues draw from. The source list: once, then every three months. The opportunities queue: every month.</p>
+
+    <h2 id="sources" style="margin-top:40px;">Build your source list</h2>
+    <p class="desc">Everywhere events get announced in your city. Every harvest only finds what this list points at.</p>
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">Newsletter <span class="hint">&middot; start here</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle1', this)">Copy</button></div>
+      <pre class="prompt" id="p-cycle1"></pre>
+    </div>
+
+    <p class="desc dim">With no source list yet, Claude starts here.</p>
+
+    <div class="card qcard reveal">
+      <h3>Claude asks first whether you have your own links</h3>
+      <p class="desc dim" style="margin-top:4px;">The calendars you already check by hand are the best rows: a real person vouched for them. Three ways to go:</p>
+      <ol class="qlist optlist">
+        <li><strong>Paste your links, then Claude researches too</strong><span>Verifies yours, follows their cross-links, runs the full nine-category search. Best coverage. Recommended.</span></li>
+        <li><strong>Paste your links only</strong><span>Verifies them and stops. Fastest.</span></li>
+        <li><strong>Claude researches from scratch</strong><span>No links needed.</span></li>
+      </ol>
+      <p class="desc dim" style="margin-bottom:0;">Paste links in your first message and Claude takes that as your answer.</p>
+    </div>
+
+    <p class="desc">Claude searches Luma, Eventbrite, universities, incubators, city government, professional groups and arts venues. Every source gets five checks:</p>
+    <ul class="checks">
+      <li>It loads</li>
+      <li>It ran something in the last 90 days</li>
+      <li>It repeats on a pattern</li>
+      <li>It is a real, climate-relevant organization</li>
+      <li>Its web address is stable</li>
+    </ul>
+    <p class="desc dim">A failed check is named, not dropped quietly. You decide.</p>
+    <p class="desc">Read the list before approving it. You live there. Add the meetup everyone goes to if it is missing.</p>
+    <div class="note"><strong>Target: 25 to 30 sources.</strong> Claude works all nine categories and every cross-link before it stops. Under 25, it hands you the list and names the categories that came up empty. It never pads.</div>
+    <div class="note"><strong>Once approved, add CTC_Source_Registry_[City].xlsx to your project as a context file.</strong> The weekly harvest reads it from there.</div>
+    <p class="desc">One row is in every chapter's list: the Climate Tech Cities event submission form. Readers send events through it; the harvest reads them every week.</p>
+    <div class="note"><strong>Re-run every three months.</strong> Calendars die quietly. Nothing else in the toolkit runs quarterly.</div>
+    <div class="card getback reveal">
+      <p class="eyebrow">What you get back</p>
+      <div class="scroll">
+      <table class="excerpt">
+        <thead><tr>
+          <th>Source Name</th><th>URL</th><th>Platform</th><th>Method</th><th>Tier</th>
+          <th>Category</th><th>Cadence</th><th>Last Event</th><th>Confidence</th><th>Origin</th><th>Notes</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every registry</td></tr>
+          <tr><td>Portland Climate Tech Collective</td><td class="mono">luma.com/&hellip;</td><td class="mono">luma</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">luma</td><td>2 to 4 events a month</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">user</td><td>Lead already followed this</td></tr>
+          <tr><td>PSU Institute for Sustainable Solutions</td><td class="mono">example.edu/&hellip;</td><td class="mono">web</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">university</td><td>weekly Sep to Jun</td><td class="mono">2026-06-11</td><td class="mono">verified</td><td class="mono">research</td><td>Empty in July and August. Term break, not death</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/registry-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Source_Registry_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="registry">Preview</button>
+            <a class="btn sm" href="../downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="opportunities">Refresh your opportunities</h2>
+    <p class="desc">Grants, fellowships, accelerators and open calls, in one file your issues draw from. Monthly.</p>
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">Opportunities <span class="hint">&middot; monthly</span></span><button class="copy-btn" onclick="copyPrompt('p-monthly', this)">Copy</button></div>
+      <pre class="prompt" id="p-monthly"></pre>
+    </div>
+
+    <p class="desc">Claude sweeps program pages, public funders, aggregators, LinkedIn through your browser if you say yes, and the organizations in your partner map.</p>
+    <ul class="checks">
+      <li>At least 15 open opportunities in the file after every run, carried ones included</li>
+      <li>A mix of accelerators, grants, and fellowships, never all of one kind</li>
+      <li>Local opportunities lead the file, national ones sit below</li>
+      <li>Anything past its deadline moves to a Closed sheet</li>
+      <li>Rolling programs count, and are listed as Rolling</li>
+    </ul>
+    <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> One run covers every issue that month.</div>
+    <div class="card getback reveal">
+      <p class="eyebrow">What you get back</p>
+      <div class="scroll">
+      <table class="excerpt">
+        <thead><tr>
+          <th>Opportunity</th><th>Organization</th><th>Type</th><th>Deadline</th><th>Who it is for</th><th>Scope</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>PSU Climate Venture Studio</td><td>Portland State University</td><td>Accelerator</td><td class="mono">2026-09-30</td><td>Student and alumni founders</td><td>Portland</td><td class="mono">Not used</td></tr>
+          <tr><td>Portland Clean Energy Fund Community Grants</td><td>Portland Clean Energy Community Benefits Fund</td><td>Grant</td><td class="mono">2026-10-01</td><td>Nonprofits and community groups in Portland</td><td>Portland</td><td class="mono">Not used</td></tr>
+          <tr><td>Oregon BEST Early Commercialization Grant</td><td>Oregon BEST</td><td>Grant</td><td class="mono">2026-09-15</td><td>Hardware climate startups with a physical presence</td><td>Oregon</td><td class="mono">Not used</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="cap">The Open sheet. A Closed sheet appears beside it the first time something expires; this sample has none yet. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/opportunities-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Opportunities_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="opportunities">Preview</button>
+            <a class="btn sm" href="../downloads/samples/Opportunities_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <nav class="pager" aria-label="Previous and next step">
+      <a class="prev" href="../set-up/"><span class="k">Previous</span><span class="t"><span class="n">05</span>Set up</span></a>
+      <a class="next" href="../weekly-cycle/"><span class="k">Next</span><span class="t"><span class="n">07</span>Weekly cycle</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

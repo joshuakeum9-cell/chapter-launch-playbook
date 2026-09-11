@@ -6,6 +6,12 @@ matching the skill), the opportunities cadence (monthly on the page and in the
 skill), the logo section's time estimate (deleted), and the two retired v1
 repositories (deleted on GitHub).
 
+## The navigation shell is repeated in eleven files
+
+By design, to keep the site free of a build step. A change to the sidebar or
+footer has to be made in every page. An assertion-guarded script is the safe
+way to do that; do not hand-edit eleven copies.
+
 ## The sample issue mixes two New York issues
 
 Blocks 1 to 8 of the sample come from the 21 July issue. Block 9, This Week in

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Set up · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="cityfield">
+      <label for="city">Your city</label>
+      <input type="text" id="city" placeholder="Boston" autocomplete="off" />
+      <p>Fills every prompt on the site. Carried in the link, never saved.</p>
+    </div>
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a href="../logo/"><span class="n">03</span>Logo</a>
+    <a href="../install/"><span class="n">04</span>Install</a>
+    <a class="here" href="../set-up/"><span class="n">05</span>Set up</a>
+    <a href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Step 05 of 08</b> &middot; Once</p>
+    <h1>Set up</h1>
+    <p class="lede">The first thing you run. You never answer the same question twice.</p>
+
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">Chapter setup <span class="hint">&middot; once</span></span><button class="copy-btn" onclick="copyPrompt('p-setup', this)">Copy</button></div>
+      <pre class="prompt" id="p-setup"></pre>
+    </div>
+
+    <h2 class="sub">Nine questions</h2>
+    <p class="desc dim">One at a time, each with a default. Reply "default" to accept. The last is optional.</p>
+    <div class="card qcard reveal">
+      <ol class="qlist">
+        <li><strong>Which city?</strong><span>Becomes your chapter name, Climate Tech [City].</span></li>
+        <li><strong>Your name?</strong><span>Goes on every issue as the sender. Email from a person gets opened.</span></li>
+        <li><strong>Which day to send?</strong><span>Pick one and never move it.</span></li>
+        <li><strong>How often?</strong><span>Weekly is the standard and the default. Every two weeks is offered only after your first harvests show the volume.</span></li>
+        <li><strong>Which events count as local?</strong><span>The sentence every harvest uses to decide what belongs. It is the only instruction it gets.</span></li>
+        <li><strong>Which web address?</strong><span>Chapters use two patterns and there is no published rule. Recorded, and flagged to confirm with the CTC team.</span></li>
+        <li><strong>How to close each issue?</strong><span>Default: [your first name] and the Climate Tech [City] team.</span></li>
+        <li><strong>Timezone?</strong><span>It offers the obvious one. You confirm.</span></li>
+        <li><strong>Anything unusual about your city?</strong><span>A second cluster, a university that owns the calendar, a season when everything stops. Skippable.</span></li>
+      </ol>
+    </div>
+
+    <h2 class="sub">Two documents come back</h2>
+    <div class="card getback reveal">
+      <p class="eyebrow">What you get back</p>
+      <p class="cap">The settings file is what every other skill reads. The plan is what you read. Fictional Denver chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/chapter-settings-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Settings_SAMPLE.docx</b><span>Word document, 2 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-settings">Preview</button>
+            <a class="btn sm" href="../downloads/samples/Chapter_Settings_SAMPLE.docx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/chapter-plan-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Plan_SAMPLE.docx</b><span>Word document, 4 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-plan">Preview</button>
+            <a class="btn sm" href="../downloads/samples/Chapter_Plan_SAMPLE.docx" download>Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>Add the settings file to your project as a context file.</strong> Project settings, then add files. Not a chat attachment: those vanish with the conversation. Nothing else works until it is there.</div>
+    <nav class="pager" aria-label="Previous and next step">
+      <a class="prev" href="../install/"><span class="k">Previous</span><span class="t"><span class="n">04</span>Install</span></a>
+      <a class="next" href="../newsletter/"><span class="k">Next</span><span class="t"><span class="n">06</span>Newsletter</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Logo · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="cityfield">
+      <label for="city">Your city</label>
+      <input type="text" id="city" placeholder="Boston" autocomplete="off" />
+      <p>Fills every prompt on the site. Carried in the link, never saved.</p>
+    </div>
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a class="here" href="../logo/"><span class="n">03</span>Logo</a>
+    <a href="../install/"><span class="n">04</span>Install</a>
+    <a href="../set-up/"><span class="n">05</span>Set up</a>
+    <a href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Step 03 of 08</b> &middot; Week one &middot; in ChatGPT</p>
+    <h1>Your chapter logo</h1>
+    <p class="lede">The one step that does not run in Claude. ChatGPT makes the images.</p>
+
+    <p class="desc">Every chapter logo is the same lockup: a square icon on the left, <strong>Climate Tech [your city]</strong> stacked on three lines to the right. Only the building silhouette changes.</p>
+    <div class="grid grid-2" style="margin-top:20px;">
+      <figure class="logo card hoverable reveal"><img src="../downloads/brand/ctc-chicago.png" alt="Climate Tech Chicago logo: a square lavender icon with an abstracted Willis Tower in light and dark green over an orange horizon, beside the words Climate Tech Chicago on three lines." loading="lazy" /><figcaption>Climate Tech Chicago</figcaption></figure>
+      <figure class="logo card hoverable reveal"><img src="../downloads/brand/ctc-london.png" alt="Climate Tech London logo: the same lavender icon format with an abstracted clock tower, beside the words Climate Tech London on three lines." loading="lazy" /><figcaption>Climate Tech London</figcaption></figure>
+    </div>
+    <h2 class="sub">The icon on its own</h2>
+    <p class="desc dim">Two planes, a light side and a dark side, a handful of steps. If your landmark still has windows or a many-piece spire, it is not abstract enough.</p>
+    <div class="grid grid-3" style="margin-top:12px;">
+      <figure class="logo card hoverable reveal"><img src="../downloads/brand/ctc-chicago-icon.png" alt="Climate Tech Chicago icon: an abstracted Willis Tower with twin antennas." loading="lazy" /><figcaption>Chicago &middot; Willis Tower</figcaption></figure>
+      <figure class="logo card hoverable reveal"><img src="../downloads/brand/ctc-london-icon.png" alt="Climate Tech London icon: an abstracted clock tower." loading="lazy" /><figcaption>London &middot; the clock tower</figcaption></figure>
+      <figure class="logo card hoverable reveal"><img src="../downloads/brand/ctc-new-york-icon.png" alt="Climate Tech New York icon: an abstracted Empire State Building." loading="lazy" /><figcaption>New York &middot; the Empire State</figcaption></figure>
+    </div>
+
+    <ol class="steps" style="margin-top:40px;">
+      <li>
+        <h2 class="sub">Copy the prompt</h2>
+        <p class="desc dim">The house prompt, your city filled in. Paste it into ChatGPT and ask for images.</p>
+        <div class="prompt-card reveal">
+          <div class="head"><span class="label">Logo prompt for ChatGPT <span class="hint">&middot; image generation</span></span><button class="copy-btn" onclick="copyPrompt('p-logo', this)">Copy</button></div>
+          <pre class="prompt tall" id="p-logo"></pre>
+        </div>
+      </li>
+      <li>
+        <h2 class="sub">Attach all five reference logos</h2>
+        <p class="desc dim">The prompt describes the style; the references hold it. Lockups set the proportions and wordmark, icons show how far to abstract.</p>
+        <ul class="dl-list">
+          <li><span><a href="../downloads/brand/ctc-chicago.png" download>ctc-chicago.png</a></span><span class="tag">lockup</span></li>
+          <li><span><a href="../downloads/brand/ctc-london.png" download>ctc-london.png</a></span><span class="tag">lockup</span></li>
+          <li><span><a href="../downloads/brand/ctc-chicago-icon.png" download>ctc-chicago-icon.png</a></span><span class="tag">icon</span></li>
+          <li><span><a href="../downloads/brand/ctc-london-icon.png" download>ctc-london-icon.png</a></span><span class="tag">icon</span></li>
+          <li><span><a href="../downloads/brand/ctc-new-york-icon.png" download>ctc-new-york-icon.png</a></span><span class="tag">icon</span></li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="sub">Ask for ten concepts, pick one</h2>
+        <p class="desc dim">A silhouette a local would name in a second, built from a few flat planes. Too detailed? Say "simpler, fewer planes, more abstract" and run it again.</p>
+      </li>
+      <li>
+        <h2 class="sub">Get the founders' sign-off</h2>
+        <p class="desc dim">Send your pick and wait for a yes. The logo goes on everything the chapter publishes.</p>
+        <div class="note"><strong>Publish nothing with the logo until it is signed off.</strong></div>
+      </li>
+      <li>
+        <h2 class="sub">Ask for your Substack</h2>
+        <p class="desc dim">Sonam Velani or Alec Turnbull create your chapter's Substack once the logo is approved. Send them the logo and chapter name; they send back the page and the login.</p>
+      </li>
+    </ol>
+    <nav class="pager" aria-label="Previous and next step">
+      <a class="prev" href="../two-weeks/"><span class="k">Previous</span><span class="t"><span class="n">02</span>Two weeks</span></a>
+      <a class="next" href="../install/"><span class="k">Next</span><span class="t"><span class="n">04</span>Install</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weekly cycle · CTC Chapter Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>Climate Tech Cities <span class="thin">&middot; Chapter Launch Playbook</span></a>
+    <nav class="top-links">
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
+      <a href="../downloads/">Downloads</a>
+      <a href="../help/">Help</a>
+      <a class="btn green" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="cityfield">
+      <label for="city">Your city</label>
+      <input type="text" id="city" placeholder="Boston" autocomplete="off" />
+      <p>Fills every prompt on the site. Carried in the link, never saved.</p>
+    </div>
+    <p class="group">Steps</p>
+    <a href="../apply/"><span class="n">01</span>Apply</a>
+    <a href="../two-weeks/"><span class="n">02</span>Two weeks</a>
+    <a href="../logo/"><span class="n">03</span>Logo</a>
+    <a href="../install/"><span class="n">04</span>Install</a>
+    <a href="../set-up/"><span class="n">05</span>Set up</a>
+    <a href="../newsletter/"><span class="n">06</span>Newsletter</a>
+    <a class="here" href="../weekly-cycle/"><span class="n">07</span>Weekly cycle</a>
+    <a href="../partners/"><span class="n">08</span>Partners</a>
+    <p class="group">Reference</p>
+    <a href="../help/"><span class="n"></span>Help</a>
+    <a href="../downloads/"><span class="n"></span>Downloads</a>
+  </aside>
+  <main class="main">
+    <div class="body">
+    <p class="eyebrow"><b>Step 07 of 08</b> &middot; Every week</p>
+    <h1>The weekly cycle</h1>
+    <p class="lede">Claude does the lists. You write the words.</p>
+
+    <p class="desc">The tools collect, verify, format and draft. You choose what makes the issue and rewrite the note, the picks and the housekeeping in your own words. Every Claude stage checks its own output before handing you the file.</p>
+    <details class="more"><summary>What the second-pass check covers</summary><div class="body">Links re-opened, claims checked against their pages, prose checked against the voice file.</div></details>
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">The whole week, one prompt <span class="hint">&middot; weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle2', this)">Copy</button></div>
+      <pre class="prompt" id="p-cycle2"></pre>
+    </div>
+
+    <p class="desc dim">The same prompt every week. It works out where you are, runs the right skill, and stops when it needs you. The step prompts below work too, if you would rather drive.</p>
+
+    <div class="diagram reveal">
+      <div class="legend-row">
+        <span><span class="swatch claude-box" aria-hidden="true"></span> Claude</span>
+        <span><span class="swatch you-box" aria-hidden="true"></span> You</span>
+      </div>
+      <div class="diagram-scroll">
+        <svg viewBox="0 0 900 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The weekly cycle in two lanes with four steps. Claude harvests events into a spreadsheet. You cut the sheet and upload it back. Both of you assemble and write the issue. You send it.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#0a0a0a"/>
+            </marker>
+          </defs>
+          <g font-family="Inter, sans-serif">
+            <text x="4" y="58" font-size="12" font-weight="600" fill="#5a5a5c" letter-spacing="0.5">CLAUDE</text>
+            <text x="4" y="182" font-size="12" font-weight="600" fill="#5a5a5c" letter-spacing="0.5">YOU</text>
+            <line x1="0" y1="116" x2="900" y2="116" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="3 5"/>
+
+            <path d="M 250 88 L 292 148" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+            <path d="M 436 148 L 478 122" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+            <path d="M 664 116 L 706 152" stroke="#0a0a0a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+
+            <rect x="106" y="30" width="144" height="60" rx="12" fill="#cc3a1f"/>
+            <text x="178" y="56" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Harvest</text>
+            <text x="178" y="76" font-size="11" fill="#ffffff" fill-opacity="0.85" text-anchor="middle">every source, one sweep</text>
+
+            <rect x="292" y="146" width="144" height="60" rx="12" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+            <text x="364" y="170" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Cut</text>
+            <text x="364" y="188" font-size="11" fill="#5a5a5c" text-anchor="middle">delete rows, flag picks,</text>
+            <text x="364" y="201" font-size="11" fill="#5a5a5c" text-anchor="middle">upload it back</text>
+
+            <rect x="478" y="86" width="144" height="60" rx="12" fill="#fde1dc" stroke="#f55a3c" stroke-width="1.5"/>
+            <text x="550" y="112" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Assemble</text>
+            <text x="550" y="132" font-size="11" fill="#5a5a5c" text-anchor="middle">both of you</text>
+
+            <rect x="706" y="146" width="144" height="60" rx="12" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+            <text x="778" y="172" font-size="15" font-weight="600" fill="#0a0a0a" text-anchor="middle">Send</text>
+            <text x="778" y="192" font-size="11" fill="#5a5a5c" text-anchor="middle">check, paste, send</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid grid-4" style="margin-top:20px;">
+      <a class="card stepcard reveal" href="#collect"><span class="who claude">Claude</span><p class="card-title" style="margin-top:10px;">Collect</p><p>Every source in your registry, into one spreadsheet.</p></a>
+      <a class="card stepcard reveal" href="#cut"><span class="who you">You</span><p class="card-title" style="margin-top:10px;">Cut</p><p>Delete rows, flag picks, upload it back.</p></a>
+      <a class="card stepcard reveal" href="#write"><span class="who both">Both</span><p class="card-title" style="margin-top:10px;">Assemble and write</p><p>Claude lays out the issue. You fill the gaps it leaves.</p></a>
+      <a class="card stepcard reveal" href="#send"><span class="who you">You</span><p class="card-title" style="margin-top:10px;">Send</p><p>Check, paste into Substack, read once, send.</p></a>
+    </div>
+
+    <h2 id="collect">Collect <span class="who claude">Claude</span></h2>
+    <p class="desc">Claude sweeps every source in your registry and hands back a spreadsheet. Everything, unfiltered, on purpose: collecting and judging are separate jobs.</p>
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">Harvest <span class="hint">&middot; weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-harvest', this)">Copy</button></div>
+      <pre class="prompt" id="p-harvest"></pre>
+    </div>
+
+    <p class="desc">It also reads the CTC event submission form for your city, and asks first whether you know of anything not on a calendar. Every row says where it came from: <code>registry</code>, <code>submitted</code>, or <code>lead</code>. Every link is opened and checked. Incomplete rows are shaded red and named in a Missing Info column.</p>
+    <div class="note"><strong>If Claude asks to use your Chrome browser, say yes.</strong> Some sites hide listings from simple requests. It reads; it does not click. Save the spreadsheet when it finishes.</div>
+    <div class="card getback reveal">
+      <p class="eyebrow">What you get back</p>
+      <div class="scroll">
+      <table class="excerpt">
+        <thead><tr>
+          <th>Event Name</th><th>Date</th><th>Start Time (PDT)</th><th>Registration Link</th>
+          <th>Event Type</th><th>Access</th><th>Location</th><th>Block</th><th>Source</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Grid Interconnection 101</td><td class="mono">2026-08-12</td><td class="mono">17:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>Ecotrust Building, 721 NW 9th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+          <tr><td>Repair Cafe: Small Appliances</td><td class="mono">2026-08-13</td><td class="mono">10:00</td><td class="mono">example.org/&hellip;</td><td>In-person</td><td>Not stated</td><td>St. Johns Community Center, 8427 N Central St</td><td class="mono">this_week</td><td class="mono">submitted</td></tr>
+          <tr><td>Cascadia Climate Data Meetup</td><td class="mono">2026-08-13</td><td class="mono">18:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>WeWork Custom House, 220 NW 8th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/events-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="events">Preview</button>
+            <a class="btn sm" href="../downloads/samples/CTC_Events_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="cut">Cut <span class="who you">You</span></h2>
+    <p class="desc">Open the spreadsheet and delete rows. No prompt: this is judgment. There is no target number. A good week is however many good events your city has.</p>
+    <div class="grid grid-2" style="margin-top:20px;">
+      <div class="card hoverable reveal">
+        <p class="card-title">Delete</p>
+        <ul class="plain">
+          <li>Outside your scope rule, which sits in your settings file for exactly this</li>
+          <li>Not really climate</li>
+          <li>Dead link, or no date</li>
+          <li>Duplicates. Keep the better registration link</li>
+          <li>Rows marked <code>submitted</code> came from a reader. Treat them like any other; if you cut one, a reply is kind</li>
+        </ul>
+      </div>
+      <div class="card hoverable reveal">
+        <p class="card-title">Flag</p>
+        <ul class="plain">
+          <li><strong>Four to six</strong> events worth featuring, about one per day that has events</li>
+          <li>Type <strong>PICK</strong> in a spare column beside each</li>
+          <li>Favour free, newcomer-friendly, in person, hard to find elsewhere</li>
+          <li>Claude reads the PICK column at the next step</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><strong>Upload the edited spreadsheet back.</strong> The issue is built from that file, not the one Claude gave you.</div>
+
+    <h2 id="write">Assemble and write <span class="who both">Both</span></h2>
+    <p class="desc">Paste the prompt, attach your edited spreadsheet. Claude asks three questions and builds the issue.</p>
+    <div class="prompt-card reveal">
+      <div class="head"><span class="label">Assemble <span class="hint">&middot; weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-assemble', this)">Copy</button></div>
+      <pre class="prompt" id="p-assemble"></pre>
+    </div>
+
+    <p class="desc">Two files come back, Word and HTML. <strong>Send from the HTML file.</strong> It holds its formatting in Substack.</p>
+    <div class="card qcard reveal">
+      <h3>Three questions first</h3>
+      <ol class="qlist">
+        <li><strong>Which events are the picks?</strong><span>Reads your PICK column and confirms. Otherwise lists this week's events and suggests four to six.</span></li>
+        <li><strong>Any opportunities this week?</strong><span>Offers from your <a href="../newsletter/#opportunities">opportunities file</a> if it is in the project, nearest deadlines first. Otherwise give a name, link and deadline, or say none and the block is left out.</span></li>
+        <li><strong>Anything the sheet cannot know?</strong><span>Your own event, a postponement, city news. The opening note and housekeeping are built from this. Nothing? Say so, and those blocks come back as marked scaffolds.</span></li>
+      </ol>
+    </div>
+    <h3>The ten blocks, in order</h3>
+    <div class="tablewrap reveal">
+      <table class="plan" style="min-width:520px;">
+        <thead><tr><td style="width:auto;font-weight:500;">Block</td><td style="font-weight:500;">Who finishes it</td></tr></thead>
+        <tbody>
+          <tr><td>1. Title and subtitle</td><td>Claude</td></tr>
+          <tr><td>2. Opening note</td><td>Claude drafts, you rewrite</td></tr>
+          <tr><td>3. Picks of the week</td><td>Claude drafts from your picks, you add the asides</td></tr>
+          <tr><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you tell it, you rewrite</td></tr>
+          <tr><td>5. Climate Tech Cities and Streetlife Ventures platforms block</td><td>Fixed, never changes</td></tr>
+          <tr><td>6. Opportunities</td><td>Claude drafts from your queue, you confirm</td></tr>
+          <tr><td>7. This Week's Events</td><td>Claude, complete</td></tr>
+          <tr><td>8. Upcoming Events</td><td>Claude, complete</td></tr>
+          <tr><td>9. This Week in Detail</td><td>Claude, complete, one entry for every event in This Week's Events</td></tr>
+          <tr><td>10. Join the fun (submit events, volunteer)</td><td>Fixed, never changes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="desc">Blocks 2, 3 and 4 come back drafted, each under a yellow line: <code>[REWRITE IN YOUR OWN WORDS, then delete this line]</code>. Rewrite the block, delete the line. Nothing in square brackets ships. Claude drafts from what you told it and never invents news, weather, or a verdict on an event nobody went to.</p>
+
+    <h3 id="sample">A finished issue</h3>
+    <p class="desc dim">A real New York issue, shortened. Shading shows who wrote what.</p>
+    <div class="legend-row">
+      <span><span class="swatch auto" aria-hidden="true"></span> Claude, from your spreadsheet</span>
+      <span><span class="swatch both" aria-hidden="true"></span> You choose, Claude writes around it</span>
+      <span><span class="swatch human" aria-hidden="true"></span> You</span>
+    </div>
+    <div class="issue reveal">
+      <div class="blk auto">
+        <span class="tag2">Automated · title and subtitle</span>
+        <div class="title">NY Climate Tech: July 21 - July 28</div>
+        <div class="sub">Offshore wind, hours of action, sustainable investment in the park, climate conversations, City of Water Day, and more upcoming events</div>
+      </div>
+
+      <div class="blk human">
+        <span class="tag2">Yours · opening note <span class="who2">Claude drafts, you rewrite</span></span>
+        <p>Hi all,</p>
+        <p>Last week we pulled out our N95s once again as wildfire smoke subsumed the summer. The brown-orange skies, torrential rain, and tornado warnings have been stark reminders that climate change is here and now.</p>
+        <p>For such a global problem, we continually find hope and inspiration in local community. While the summer is a lot quieter, there's still plenty of ways to connect. Here are our picks for the week:</p>
+      </div>
+
+      <div class="blk both">
+        <span class="tag2">Both · picks of the week <span class="who2">you pick, Claude frames</span></span>
+        <ul>
+          <li><strong>Tomorrow</strong> embrace the tides at the <span class="lnk">🌊 2026 Offshore Wind Innovator Program</span> or make calls (and friends!) at the <span class="lnk">⏳ Manhattan Climate Changemakers Hour of Action</span></li>
+          <li><strong>Thursday</strong> talk sustainable finance in Sheep's Meadow at the <span class="lnk">🧺 BASIC NY Summer Social</span> or join Climatebase in Midtown for <span class="lnk">💬 Climate Conversations NYC</span></li>
+          <li><strong>Saturday</strong> is <span class="lnk">💧 City of Water Day</span> with events throughout the five boroughs</li>
+        </ul>
+      </div>
+
+      <div class="blk human">
+        <span class="tag2">Yours · housekeeping and sign-off <span class="who2">sign-off comes from your settings file</span></span>
+        <p>We've postponed Wednesday's <strong>Other Intelligence</strong> summit until later this year (too many people were out of town!) but are still looking forward to it in the Fall.</p>
+        <p>Til next week!<br/>Alec, Sonam, and the Climate Tech Cities team</p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · platforms block <span class="who2">fixed, every chapter</span></span>
+        <p class="foot-h">🌎 Climate Tech Cities and Streetlife Ventures Startup and Talent Platforms</p>
+        <p>Climate Tech Cities and Streetlife Ventures are launching new platforms to support climate founders, funders, and career transitioners. We can't wait to hear from you!</p>
+        <ul>
+          <li><a class="lnk" href="https://gccht82e8mz.typeform.com/to/fLp65vtz?typeform-source=www.climatetechcities.com" target="_blank" rel="noopener">Climate startups looking to raise</a></li>
+          <li><a class="lnk" href="https://gccht82e8mz.typeform.com/to/Rk2roZac?typeform-source=www.climatetechcities.com" target="_blank" rel="noopener">Climate talent looking to transition</a></li>
+        </ul>
+        <p class="blkcap">Fixed text and links, the same in every chapter, right after the sign-off.</p>
+      </div>
+
+      <div class="blk both">
+        <span class="tag2">Both · opportunities <span class="who2">you give the name, link, deadline</span></span>
+        <p><strong>💡 New York Climate Exchange Climate Tech Fellowship</strong><br/>A six-month hybrid program combining expert-led curriculum, mentorship, and non-dilutive funding. <strong>Applications due August 1.</strong></p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · this week's events</span>
+        <div class="dayhead">Wednesday, Jul 22</div>
+        <ul>
+          <li><span class="lnk">🌊 2026 Offshore Wind Innovator Program: Q&amp;A Social Hour</span></li>
+          <li><span class="lnk">☀️ Solarpunk, Communes, &amp; Co-Living Dinner Series: NYC Edition</span></li>
+          <li><span class="lnk">🌱 Brooklyn Hour of Action</span></li>
+        </ul>
+        <div class="dayhead">Thursday, Jul 23</div>
+        <ul>
+          <li><span class="lnk">📊 Summer 2026 Lecture in Climate Data Science</span></li>
+          <li><span class="lnk">🧺 BASIC NY Summer Social</span></li>
+          <li><span class="lnk">💬 Climate Conversations NYC</span></li>
+        </ul>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · upcoming events</span>
+        <ul>
+          <li><span class="lnk">♻️ The Circular Economists Meet-up: New York City</span>: Jul 29</li>
+          <li><span class="lnk">⚡ [INFRASTRUCTOURS] Midtown East / LIC</span>: Aug 1</li>
+          <li><span class="lnk">🦪 Volunteering Untapped NYC: Billion Oyster Project</span>: Aug 8</li>
+        </ul>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · this week in detail</span>
+        <p class="foot-h">🔌 WISE-NYC: August Lunch on AI in Sustainability</p>
+        <p><strong>When:</strong> Tuesday, Aug 18<br/><strong>Where:</strong> New York, NY</p>
+        <p>This lunch discussion explores the paradox of AI adoption in sustainability work, examining both its practical benefits and environmental costs. Hosted by Parichat Wrolstad, the event brings together WISE Community members to share experiences with AI implementation and discuss responsible usage strategies.</p>
+        <p class="foot-h" style="margin-top:14px;">🌿 A Community Reading Of Black Eco-Poetry Feat. Keenyn Omari</p>
+        <p><strong>When:</strong> Wednesday, Aug 19<br/><strong>Where:</strong> New York, NY</p>
+        <p>Black Forest School presents a community reading of 40+ Black eco-poems from a collection spanning over 1,000 works in 20+ languages by 300+ poets. The event features live jazz accompaniment by flautist Keenyn Omari, an interactive poetry relay, and a temporary installation within Project EATS' urban farm setting.</p>
+        <p class="blkcap">One entry per event in This Week's Events, written from the event's own page.</p>
+      </div>
+
+      <div class="blk auto">
+        <span class="tag2">Automated · join the fun <span class="who2">the last block of every issue</span></span>
+        <p class="foot-h">Join the Fun!</p>
+        <p><strong>Submit Events.</strong> Running something climate-related in the city? Tell us about it and it goes into next week's list. <a class="lnk" href="https://airtable.com/appunzUZg6b8fe83m/pagmLLAnynXZxEtmL/form" target="_blank" rel="noopener">Submit an event</a></p>
+        <p><strong>Volunteer.</strong> Climate Tech Cities runs on volunteers. If you want to help with events, the newsletter, or the chapter itself, say hello. <a class="lnk" href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Volunteer with Climate Tech Cities</a></p>
+        <p class="blkcap">Always last. Two fixed links: submit an event, volunteer.</p>
+      </div>
+    </div>
+
+    <p class="desc dim">The sign-off sits in the middle, not the end. Platforms, opportunities and listings follow it; Join the fun is last. Claude drafts all ten blocks. The three you rewrite are the words that are truly yours.</p>
+    <div class="card getback reveal">
+      <p class="eyebrow">What you get back</p>
+      <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.html</b><span>Web page, the one you paste from</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue-html">Preview</button>
+            <a class="btn sm" href="../downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="../downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>Word document, 6 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue">Preview</button>
+            <a class="btn sm" href="../downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="send">Send <span class="who you">You</span></h2>
+    <div class="grid grid-2" style="margin-top:20px;">
+      <div class="card hoverable reveal">
+        <p class="card-title">Check</p>
+        <ul class="plain">
+          <li>Search for a square bracket. Nothing in brackets ships</li>
+          <li>Scan the dates. Nothing in the past</li>
+          <li>Click a couple of links from Upcoming. One dead means check its neighbours from the same source</li>
+          <li>Same event listed twice?</li>
+          <li>This Week in Detail has an entry for every event in This Week's Events</li>
+          <li>Platforms block after your sign-off; Join the fun last</li>
+        </ul>
+      </div>
+      <div class="card hoverable reveal">
+        <p class="card-title">Send</p>
+        <ol class="plain">
+          <li><strong>Open the HTML file</strong>, not the Word document</li>
+          <li><strong>Select by clicking and dragging</strong>, top to bottom. Dragging carries the formatting and the links; a copy button does not</li>
+          <li>Copy, then paste into a new Substack post</li>
+          <li>Read it once, top to bottom, for voice and picks</li>
+          <li>Send</li>
+        </ol>
+      </div>
+    </div>
+    <nav class="pager" aria-label="Previous and next step">
+      <a class="prev" href="../newsletter/"><span class="k">Previous</span><span class="t"><span class="n">06</span>Newsletter</span></a>
+      <a class="next" href="../partners/"><span class="k">Next</span><span class="t"><span class="n">08</span>Partners</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Climate Tech Cities &middot; Chapter Launch Playbook. Static: no backend, no accounts, no cookies, nothing saved.</span>
+    <span class="l"><a href="https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form" target="_blank" rel="noopener">Apply</a><a href="../downloads/">Downloads</a><a href="../help/">Help</a></span>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -2,6 +2,33 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 10.0.0 - 2026-09-11
+
+The single scrolling page is now a site of eleven. Each item in the old
+navigation is its own page, numbered in the order a lead works through them:
+01 Apply, 02 Two weeks, 03 Logo, 04 Install, 05 Set up, 06 Newsletter,
+07 Weekly cycle, 08 Partners, then Help and Downloads as reference. The
+newsletter section, which was over half the old page, is split in two:
+Newsletter holds the two files every issue draws from (the source list, once
+and then quarterly; the opportunities queue, monthly), and Weekly cycle holds
+the four steps of a sitting, collect, cut, write and send, with the sample
+issue. A left sidebar carries the numbered spine on every page, the current
+page marked; a previous and next pair closes each step. On a phone the sidebar
+folds into a Steps button.
+
+The copy was cut hard. Every verified claim from the SKILL.md files is still
+on the page; what went was restatement, reassurance and hedging. The words a
+lead reads, prompts and sample content aside, are down by about half.
+
+The city field moved into the sidebar. Type it once and every prompt on the
+site fills in; it rides along in the link as you move between pages and is
+never stored, so the standing rule about the browser holds.
+
+Old links keep working: anyone landing on the previous /#setup style anchors
+is sent to the matching page. The stylesheet and script are shared files in
+assets/ rather than repeated in each page. There is still no build step; the
+eleven HTML files are the source.
+
 ## 9.3.0 - 2026-09-10
 
 Every sample is now readable on the page. Each one sits in a row with its own
