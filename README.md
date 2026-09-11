@@ -15,7 +15,7 @@ packages, nine skills, covering a new chapter lead's launch.
 
 | Package | Kind | Contains |
 |---|---|---|
-| `ctc-chapter-setup` v1.4.3 | Skill | Eight-question setup interview, writes the settings file and launch plan |
+| `ctc-chapter-setup` v1.5.0 | Skill | Nine-question setup interview, writes the settings file and launch plan |
 | `ctc-newsletter` v2.0.0 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
 | `ctc-partner-map` v2.0.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
@@ -63,7 +63,11 @@ micro labels as eyebrows.
 - Nothing invented: every claim about what a skill does traces to that skill's
   own `SKILL.md`. Gaps are marked TODO in the source rather than papered over.
 - Every section that produces a file shows a What you get back card built from
-  the real sample in `downloads/samples/`.
+  the real sample in `downloads/samples/`, with Preview and Download beside it.
+- Preview renders the whole file, page by page, from the same document the
+  Download button hands over. If a sample changes, re-run the page renders; the
+  viewer check in the verification pass fails when a declared page count and
+  the renders on disk disagree.
 - US English, no em dashes, no time estimates, no day names in the weekly
   cycle. The one allowed framing is "two weeks of setup, then about one
   sitting a week".
@@ -71,7 +75,7 @@ micro labels as eyebrows.
 ## Contents
 
 - `index.html`, the whole site. No framework, no build step
-- `downloads/`, the three package zips, the five brand PNGs, and `samples/` with the nine sample files plus `samples/previews/` with two renders of each sample, the file open in its application (`-open.png`) and a clean print view
+- `downloads/`, the three package zips, the five brand PNGs, and `samples/` with the nine sample files plus `samples/previews/`, which holds one render per page of each sample (`<name>-p1.png`, `-p2.png`, and so on) and one screenshot of that file open in Excel or Word (`<name>-open.png`)
 - `version.json`, version and date
 - `playbook/newsletter-chapter.md`, Chapter 8 draft for the CTC Operational Playbook
 - `TODO.md`, open items

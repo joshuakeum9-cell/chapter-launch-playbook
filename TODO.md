@@ -28,5 +28,12 @@ versions only.
 ## One design-system gap
 
 The Mintlify design file calls for atmospheric hero illustrations (clouds on
-the sky gradient). No illustration assets were supplied, so the hero uses the
-gradient alone.
+the sky gradient). No illustration assets were supplied, so the hero uses a
+gradient and a light bloom alone.
+
+## The application screenshots carry a personal Office profile
+
+The Opened in Excel and Opened in Word images at the end of each preview were
+captured on the maintainer's own machine, so they show that installation's
+ribbon, add-ins and account initials. They are accurate and harmless, but a
+capture from a clean profile would be tidier.

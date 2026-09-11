@@ -2,6 +2,36 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 9.3.0 - 2026-09-10
+
+Every sample is now readable on the page. Each one sits in a row with its own
+thumbnail, and Preview opens the whole file in a scrollable window over the
+page: all six pages of the issue, all four of the plan, both sheets of the
+partner map and the city resources workbook, every page rendered from the file
+that the Download button hands over. The screenshot of the file open in Excel
+or Word is the last thing in that window, so the excerpt, the full document and
+the application view are one place instead of three tabs. The window closes on
+the X, on a click outside it, and on Escape, holds the tab ring while it is
+open, and reserves each page's height before the image loads so nothing jumps.
+The HTML issue is previewed live in a sandboxed frame rather than as a picture,
+because it is a web page already. The Downloads samples list carries the same
+Preview and Download pair, so all nine files can be read without leaving the
+page.
+
+Alongside that, a pass over the interface itself. A reading-progress bar sits
+under the navigation and the current section is underlined in it as you go.
+Cards, the diagram, the sample issue and the prompt blocks fade up as they come
+into view, staggered inside a grid, with the animation dropped for anyone who
+asks for reduced motion and a noscript rule so nothing is ever hidden if the
+script does not run. Cards lift on hover, the hero carries a light bloom and a
+short count of what the toolkit is, and every file row highlights under the
+cursor.
+
+One correction: the opportunities sample was described as having a Closed sheet
+beside the Open one. It does not. The skill creates that sheet the first time
+something expires, and nothing in the sample has, so the page now says so. The
+single-page print renders were replaced by the full page sets they superseded.
+
 ## 9.2.0 - 2026-09-10
 
 The snapshot beside each sample is now the file open in its own application

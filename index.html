@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 <style>
   :root {
     /* Mintlify palette */
@@ -46,7 +47,10 @@
     --r-xs: 4px; --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-full: 9999px;
     /* depth */
     --shadow-card: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+    --shadow-lift: rgba(0, 0, 0, 0.10) 0px 10px 28px -6px, rgba(0, 0, 0, 0.05) 0px 2px 6px -1px;
     --shadow-mockup: rgba(0, 0, 0, 0.12) 0px 24px 48px -8px;
+    --shadow-modal: rgba(0, 0, 0, 0.28) 0px 32px 64px -12px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 84px; }
@@ -75,7 +79,17 @@
   .band { width: 100%; }
   .band-canvas { background: var(--canvas); }
   .band-surface { background: var(--surface-soft); border-top: 1px solid var(--hairline-soft); border-bottom: 1px solid var(--hairline-soft); }
-  .band-hero { background: linear-gradient(180deg, var(--sky-from) 0%, var(--sky-to) 100%); }
+  .band-hero {
+    background: linear-gradient(180deg, var(--sky-from) 0%, var(--sky-to) 100%);
+    position: relative; overflow: hidden;
+  }
+  .band-hero::before {
+    content: ""; position: absolute; left: 50%; top: -28%; width: min(120vw, 1100px); aspect-ratio: 1;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 62%);
+    pointer-events: none;
+  }
+  .band-hero > * { position: relative; }
   .band-teal { background: linear-gradient(135deg, var(--dark-from) 0%, var(--dark-to) 100%); color: var(--on-dark); }
   .band-teal h2, .band-teal h3 { color: var(--on-dark); }
   .band-teal .eyebrow { color: var(--on-dark-muted); }
@@ -92,7 +106,20 @@
   .nav-brand { font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none; white-space: nowrap; letter-spacing: -0.01em; }
   .nav-links { display: flex; gap: 24px; margin-left: auto; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--steel); text-decoration: none; white-space: nowrap; }
+  .nav-links a { position: relative; padding: 4px 0; transition: color 150ms var(--ease); }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--green); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left; transition: transform 200ms var(--ease);
+  }
   .nav-links a:hover { color: var(--ink); }
+  .nav-links a.here { color: var(--ink); }
+  .nav-links a.here::after { transform: scaleX(1); }
+  .progress {
+    position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+    transform: scaleX(0); transform-origin: left;
+    background: linear-gradient(90deg, var(--green) 0%, var(--green-soft) 100%);
+  }
   @media (max-width: 860px) {
     .nav-inner { height: auto; flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
     .nav-brand { padding: 12px 16px 6px; white-space: normal; }
@@ -122,6 +149,8 @@
     background: var(--canvas); border: 1px solid var(--hairline);
     border-radius: var(--r-lg); padding: 24px;
   }
+  .card.hoverable { transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease), transform 180ms var(--ease); }
+  .card.hoverable:hover { box-shadow: var(--shadow-lift); transform: translateY(-2px); }
   .grid { display: grid; gap: 16px; }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
@@ -219,23 +248,8 @@
   pre.prompt.tall { max-height: 320px; overflow-y: auto; }
 
   /* ---------- what you get back card ---------- */
-  .getback { margin-top: 24px; max-width: 52em; }
-  .getback .split { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 24px; align-items: start; }
-  .getback .split > div { min-width: 0; }
-  .shot { display: block; border: 1px solid var(--hairline); border-radius: var(--r-md); overflow: hidden; background: var(--canvas); }
-  .shot img { display: block; width: 100%; height: auto; }
-  .shot:hover { border-color: var(--stone); }
-  .shotlabel { display: block; font-size: 12px; color: var(--stone); margin-top: 6px; line-height: 1.5; }
-  .shotlabel a { color: var(--steel); text-decoration: underline; text-underline-offset: 2px; }
-  .shotlabel a:hover { color: var(--ink); }
-  .shotpair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  @media (max-width: 900px) {
-    .getback .split { grid-template-columns: 1fr; }
-    .getback .split > div:last-child { max-width: 320px; }
-  }
+  .getback { margin-top: 24px; max-width: 56em; }
   .getback .eyebrow { margin-bottom: 8px; }
-  .getback .fname { font-size: 15px; font-weight: 500; color: var(--ink); }
-  .getback .fname a { color: var(--ink); }
   .getback .scroll { overflow-x: auto; margin: 14px 0 10px; -webkit-overflow-scrolling: touch; }
   table.excerpt { border-collapse: collapse; font-size: 13px; white-space: nowrap; }
   table.excerpt th, table.excerpt td {
@@ -246,7 +260,90 @@
   table.excerpt td.mono { font-family: var(--mono); font-size: 12px; color: var(--steel); }
   table.excerpt tr:last-child td { border-bottom: none; }
   .getback .cap { font-size: 13px; line-height: 1.5; color: var(--steel); margin: 0; }
-  .getback .files { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 4px; }
+
+  /* ---------- file rail: preview and download per sample ---------- */
+  .rail { display: grid; gap: 10px; margin-top: 16px; }
+  .filerow {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    padding: 12px 14px; background: var(--surface-soft);
+    border: 1px solid var(--hairline); border-radius: var(--r-md);
+    transition: border-color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+  .filerow:hover { border-color: var(--stone); background: var(--canvas); box-shadow: var(--shadow-card); }
+  .filerow .thumb {
+    flex: 0 0 auto; width: 44px; height: 56px; border-radius: var(--r-xs);
+    border: 1px solid var(--hairline); overflow: hidden; background: var(--canvas);
+  }
+  .filerow .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+  .filerow .meta { flex: 1 1 14em; min-width: 0; }
+  .filerow .meta b {
+    display: block; font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .filerow .meta span { display: block; font-size: 12px; color: var(--stone); margin-top: 3px; }
+  .filerow .acts { display: flex; gap: 8px; flex: 0 0 auto; }
+  .btn.sm { font-size: 13px; padding: 7px 15px; }
+
+  /* ---------- modal ---------- */
+  .backdrop {
+    position: fixed; inset: 0; z-index: 100; padding: 24px;
+    background: rgba(10, 10, 10, 0.55); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    display: none; align-items: center; justify-content: center;
+  }
+  .backdrop.open { display: flex; animation: fade 180ms var(--ease); }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px) scale(0.99); } to { opacity: 1; transform: none; } }
+  .modal {
+    background: var(--canvas); border-radius: var(--r-lg); box-shadow: var(--shadow-modal);
+    width: 100%; max-width: 1000px; max-height: 88vh;
+    display: flex; flex-direction: column; overflow: hidden;
+    animation: rise 220ms var(--ease);
+  }
+  @media (prefers-reduced-motion: reduce) { .backdrop.open, .modal { animation: none; } }
+  .modal-head {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 20px; border-bottom: 1px solid var(--hairline); flex: 0 0 auto;
+  }
+  .modal-head .t { flex: 1 1 auto; min-width: 0; }
+  .modal-head h3 {
+    margin: 0; font-family: var(--mono); font-size: 15px; font-weight: 400;
+    color: var(--ink); overflow-wrap: anywhere;
+  }
+  .modal-head p { margin: 4px 0 0; font-size: 13px; color: var(--steel); max-width: none; }
+  .modal-close {
+    flex: 0 0 auto; width: 32px; height: 32px; border-radius: var(--r-full);
+    background: var(--surface); border: 1px solid var(--hairline); color: var(--steel);
+    font-size: 18px; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+  }
+  .modal-close:hover { background: var(--ink); border-color: var(--ink); color: var(--on-dark); }
+  .modal-body {
+    flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain;
+    background: var(--surface); padding: 20px; -webkit-overflow-scrolling: touch;
+  }
+  .page { margin-bottom: 20px; }
+  .page:last-child { margin-bottom: 0; }
+  .page img {
+    display: block; width: 100%; height: auto;
+    background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-sm);
+    box-shadow: var(--shadow-card);
+  }
+  .page .pn {
+    display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 8px;
+  }
+  .modal-foot {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 14px 20px; border-top: 1px solid var(--hairline); flex: 0 0 auto; background: var(--canvas);
+  }
+  .modal-foot .note-sm { flex: 1 1 12em; font-size: 12px; line-height: 1.5; color: var(--stone); margin: 0; }
+  body.locked { overflow: hidden; }
+  @media (max-width: 767px) {
+    .backdrop { padding: 0; align-items: stretch; }
+    .modal { max-width: none; max-height: 100vh; height: 100vh; border-radius: 0; }
+    .modal-body { padding: 12px; }
+  }
 
   /* ---------- plan table ---------- */
   .tablewrap { overflow-x: auto; margin-top: 24px; }
@@ -302,6 +399,11 @@
   .hero-city input::placeholder { color: var(--muted); }
   .hero-city input:focus { outline: none; border: 2px solid var(--green); padding: 11px 15px; }
   .hero-city p { font-size: 13px; line-height: 1.5; color: var(--steel); flex: 1 1 15em; margin: 0; }
+  .hero-counts {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    margin: 28px auto 0; font-size: 14px; color: var(--slate);
+  }
+  .hero-counts b { font-weight: 600; color: var(--ink); }
 
   /* ---------- orange statement card ---------- */
   .statement {
@@ -402,6 +504,14 @@
   .footer a { font-size: 14px; color: var(--steel); text-decoration: none; }
   .footer a:hover { color: var(--ink); }
 
+  /* ---------- scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity 520ms var(--ease), transform 520ms var(--ease); }
+  .grid > .reveal:nth-child(2) { transition-delay: 60ms; }
+  .grid > .reveal:nth-child(3) { transition-delay: 120ms; }
+  .grid > .reveal:nth-child(4) { transition-delay: 180ms; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
   a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
     outline: 2px solid var(--green); outline-offset: 2px; border-radius: var(--r-xs);
   }
@@ -426,6 +536,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-brand" href="#top">Climate Tech Cities · Chapter Launch Playbook</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
     <div class="nav-links">
       <a href="#apply">Apply</a>
       <a href="#plan">Two weeks</a>
@@ -455,6 +566,11 @@
       </div>
       <p>Type it once and every prompt on this page fills in, ready to copy. Nothing is saved: this page stores nothing and has no connection to your Claude or ChatGPT account.</p>
     </div>
+    <div class="hero-counts">
+      <span><b>3</b> packages</span>
+      <span><b>9</b> skills</span>
+      <span><b>9</b> sample files you can open right here</span>
+    </div>
   </div>
 </div>
 
@@ -464,7 +580,7 @@
     <p class="eyebrow">Before you apply</p>
     <h2>Is this you?</h2>
     <div class="grid grid-3" style="margin-top:32px;">
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">What you are signing up for</p>
         <ul class="checks">
           <li>Two weeks to set up</li>
@@ -472,7 +588,7 @@
           <li>A newsletter your city does not currently have</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">What you get</p>
         <ul class="checks">
           <li>The toolkit, free</li>
@@ -480,7 +596,7 @@
           <li>The ten city network</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">What success looks like</p>
         <ul class="checks">
           <li>Logo approved</li>
@@ -490,7 +606,7 @@
       </div>
     </div>
 
-    <div class="statement" style="margin-top:48px;">
+    <div class="statement reveal" style="margin-top:48px;">
       <h2>Chapters fail by not sending, not by sending badly.</h2>
     </div>
   </div>
@@ -501,7 +617,7 @@
   <div class="wrap">
     <p class="eyebrow">The map</p>
     <h2>Your first two weeks</h2>
-    <div class="tablewrap">
+    <div class="tablewrap reveal">
       <table class="plan">
         <tbody>
           <tr><td>Week 1</td><td>Logo, made in ChatGPT; Substack set up by the CTC founders</td></tr>
@@ -527,11 +643,11 @@
     <p class="desc">Every chapter logo is the same lockup: a square icon on the left, and <strong>Climate Tech [your city]</strong> stacked on three lines to the right. Only the building silhouette changes from city to city. That consistency is what makes ten chapters look like one organisation.</p>
 
     <div class="grid grid-2" style="margin-top:24px;">
-      <figure class="card">
+      <figure class="card hoverable reveal">
         <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-chicago.png" alt="Climate Tech Chicago logo: a square lavender icon with an abstracted Willis Tower silhouette in light and dark green over an orange horizon, beside the words Climate Tech Chicago stacked on three lines." loading="lazy" />
         <figcaption class="small" style="margin-top:10px;">Climate Tech Chicago</figcaption>
       </figure>
-      <figure class="card">
+      <figure class="card hoverable reveal">
         <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-london.png" alt="Climate Tech London logo: the same square lavender icon format with an abstracted clock tower silhouette, beside the words Climate Tech London stacked on three lines." loading="lazy" />
         <figcaption class="small" style="margin-top:10px;">Climate Tech London</figcaption>
       </figure>
@@ -541,15 +657,15 @@
     <h3>The icon on its own</h3>
     <p class="desc dim">The square is where all the work happens. These are the same three chapters with the wordmark cropped away, which is the clearest way to see how far the abstraction goes.</p>
     <div class="grid grid-3" style="margin-top:12px;">
-      <figure class="card">
+      <figure class="card hoverable reveal">
         <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-chicago-icon.png" alt="Climate Tech Chicago icon: an abstracted Willis Tower in light and dark green planes with twin antennas, on lavender above an orange horizon." loading="lazy" />
         <figcaption class="small" style="margin-top:10px;">Chicago · Willis Tower</figcaption>
       </figure>
-      <figure class="card">
+      <figure class="card hoverable reveal">
         <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-london-icon.png" alt="Climate Tech London icon: an abstracted clock tower in light and dark green planes, on lavender above an orange horizon." loading="lazy" />
         <figcaption class="small" style="margin-top:10px;">London · the clock tower</figcaption>
       </figure>
-      <figure class="card">
+      <figure class="card hoverable reveal">
         <img style="width:100%;height:auto;display:block;border-radius:var(--r-md);" src="downloads/brand/ctc-new-york-icon.png" alt="Climate Tech New York icon: an abstracted Empire State Building in light and dark green planes, on lavender above an orange horizon." loading="lazy" />
         <figcaption class="small" style="margin-top:10px;">New York · the Empire State</figcaption>
       </figure>
@@ -560,7 +676,7 @@
       <li>
         <h3>Copy the prompt</h3>
         <p class="desc dim">This is the house prompt, with your city already filled in. Paste it into ChatGPT and ask for images.</p>
-        <div class="prompt-card">
+        <div class="prompt-card reveal">
           <div class="head"><span class="label">Logo prompt for ChatGPT <span class="hint">· image generation</span></span><button class="copy-btn" onclick="copyPrompt('p-logo', this)">Copy</button></div>
           <pre class="prompt tall" id="p-logo"></pre>
         </div>
@@ -601,7 +717,7 @@
     <h2>What you install</h2>
     <p class="desc">Three packages and a browser extension. You need a paid Claude account. You do not need to know how to code.</p>
 
-    <div class="card" style="margin-top:24px;max-width:52em;">
+    <div class="card hoverable reveal" style="margin-top:24px;max-width:52em;">
       <div class="dl">
         <a class="name" href="downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a>
         <span class="what">Asks you nine questions, writes your settings file and plan.</span>
@@ -641,7 +757,7 @@
       </li>
       <li>
         <h3>Check the install worked</h3>
-        <div class="prompt-card">
+        <div class="prompt-card reveal">
           <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
           <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
         </div>
@@ -658,14 +774,14 @@
     <h2>Set up</h2>
     <p class="desc">The first thing you run, and the reason you never answer the same question twice.</p>
 
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Chapter setup <span class="hint">· once</span></span><button class="copy-btn" onclick="copyPrompt('p-setup', this)">Copy</button></div>
       <pre class="prompt" id="p-setup"></pre>
     </div>
 
     <h3>Nine questions</h3>
     <p class="desc dim">One at a time, plain language, each with a default you can accept. Reply "default" to any of them and move on. The last one is optional.</p>
-    <div class="card qcard">
+    <div class="card qcard reveal">
       <ol class="qlist">
         <li><strong>Which city is your chapter in?</strong><span>Becomes your chapter name, Climate Tech [City], everywhere it appears.</span></li>
         <li><strong>What is your name?</strong><span>Goes on every issue as the sender, because email from a person gets opened more often than email from an organization.</span></li>
@@ -685,22 +801,25 @@
       <li><strong>Chapter_Plan_[City].docx</strong>, your launch plan with real dates in it</li>
     </ul>
 
-    <div class="card getback">
+    <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <div class="split">
-        <div>
-          <div class="files">
-            <span class="fname"><a href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a></span>
-            <span class="fname"><a href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a></span>
-          </div>
-          <p class="cap">The settings file is the one every other skill reads. The plan is the one you read. Both from a fictional Denver chapter.</p>
+      <p class="cap">The settings file is the one every other skill reads. The plan is the one you read. Both from a fictional Denver chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/chapter-settings-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Settings_SAMPLE.docx</b><span>Word document, 2 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-settings">Preview</button>
+            <a class="btn sm" href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Download</a>
+          </span>
         </div>
-        <div>
-          <div class="shotpair">
-            <a class="shot" href="downloads/samples/previews/chapter-settings-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/chapter-settings-open.png" alt="The sample chapter settings document open in Word, showing how to use this file and the identity table." loading="lazy" /></a>
-            <a class="shot" href="downloads/samples/previews/chapter-plan-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/chapter-plan-open.png" alt="The sample launch plan open in Word, showing the dated phases." loading="lazy" /></a>
-          </div>
-          <span class="shotlabel">Both opened in Word. Click to enlarge, or see the print view of the <a href="downloads/samples/previews/chapter-settings.png" target="_blank" rel="noopener">settings</a> and the <a href="downloads/samples/previews/chapter-plan.png" target="_blank" rel="noopener">plan</a>.</span>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/chapter-plan-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Plan_SAMPLE.docx</b><span>Word document, 4 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-plan">Preview</button>
+            <a class="btn sm" href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Download</a>
+          </span>
         </div>
       </div>
     </div>
@@ -719,13 +838,13 @@
     <h2>Build your source list</h2>
     <p class="desc">Everywhere events get announced in your city. Every harvest only finds what this list points at.</p>
 
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Newsletter <span class="hint">· start here</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle1', this)">Copy</button></div>
       <pre class="prompt" id="p-cycle1"></pre>
     </div>
     <p class="desc dim">With no source list yet, Claude starts here.</p>
 
-    <div class="card qcard">
+    <div class="card qcard reveal">
       <h3 style="margin-top:0;font-size:18px;">Claude asks first whether you have your own links</h3>
       <p class="desc dim" style="margin-top:4px;">You probably already check five or ten calendars by hand. Those are the best rows in the registry, because a real person has already vouched for them. Claude lays out three ways to go and waits for your answer.</p>
       <ol class="qlist optlist">
@@ -751,29 +870,30 @@
     <p class="desc">One row is the same in every chapter's list: the Climate Tech Cities event submission form. Readers of your newsletter send you events through it, and the harvest reads your city's submissions every week alongside your calendars.</p>
     <div class="note"><strong>Re-run this once every three months.</strong> Calendars die quietly, and the quarterly refresh is what catches a dead one before your issues go thin. Nothing else in the toolkit runs quarterly.</div>
 
-    <div class="card getback">
+    <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <p class="fname"><a href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>CTC_Source_Registry_SAMPLE.xlsx</a></p>
-      <div class="split">
-        <div>
       <div class="scroll">
-        <table class="excerpt">
-          <thead><tr>
-            <th>Source Name</th><th>URL</th><th>Platform</th><th>Method</th><th>Tier</th>
-            <th>Category</th><th>Cadence</th><th>Last Event</th><th>Confidence</th><th>Origin</th><th>Notes</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every registry</td></tr>
-            <tr><td>Portland Climate Tech Collective</td><td class="mono">luma.com/&hellip;</td><td class="mono">luma</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">luma</td><td>2 to 4 events a month</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">user</td><td>Lead already followed this</td></tr>
-            <tr><td>PSU Institute for Sustainable Solutions</td><td class="mono">example.edu/&hellip;</td><td class="mono">web</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">university</td><td>weekly Sep to Jun</td><td class="mono">2026-06-11</td><td class="mono">verified</td><td class="mono">research</td><td>Empty in July and August. Term break, not death</td></tr>
-          </tbody>
-        </table>
+      <table class="excerpt">
+        <thead><tr>
+          <th>Source Name</th><th>URL</th><th>Platform</th><th>Method</th><th>Tier</th>
+          <th>Category</th><th>Cadence</th><th>Last Event</th><th>Confidence</th><th>Origin</th><th>Notes</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every registry</td></tr>
+          <tr><td>Portland Climate Tech Collective</td><td class="mono">luma.com/&hellip;</td><td class="mono">luma</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">luma</td><td>2 to 4 events a month</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">user</td><td>Lead already followed this</td></tr>
+          <tr><td>PSU Institute for Sustainable Solutions</td><td class="mono">example.edu/&hellip;</td><td class="mono">web</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">university</td><td>weekly Sep to Jun</td><td class="mono">2026-06-11</td><td class="mono">verified</td><td class="mono">research</td><td>Empty in July and August. Term break, not death</td></tr>
+        </tbody>
+      </table>
       </div>
       <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
-        </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/registry-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/registry-open.png" alt="The sample source registry open in Excel, showing the row numbers, column letters, the Sources sheet tab, and the shaded unverified row near the bottom." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Excel. Click to enlarge, or see the <a href="downloads/samples/previews/registry.png" target="_blank" rel="noopener">print view</a>.</span>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/registry-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Source_Registry_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="registry">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>Download</a>
+          </span>
         </div>
       </div>
     </div>
@@ -794,13 +914,13 @@
 <div class="band band-canvas" id="cycle">
   <div class="wrap">
     <h2>The weekly cycle</h2>
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">The whole week, one prompt <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle2', this)">Copy</button></div>
       <pre class="prompt" id="p-cycle2"></pre>
     </div>
     <p class="desc dim">The same prompt every week. It works out where you are, runs the right skill, and stops when it needs you. If you would rather drive each step yourself, the prompts below still work.</p>
 
-    <div class="diagram">
+    <div class="diagram reveal">
       <div class="legend-row">
         <span><span class="swatch claude-box" aria-hidden="true"></span> Claude does this</span>
         <span><span class="swatch you-box" aria-hidden="true"></span> You do this</span>
@@ -844,22 +964,22 @@
     </div>
 
     <div class="grid grid-4" style="margin-top:32px;" id="stepcards">
-      <a class="card stepcard" href="#collect">
+      <a class="card stepcard reveal" href="#collect">
         <span class="who claude">Claude</span>
         <p class="card-title" style="margin-top:10px;">Collect</p>
         <p>Claude sweeps every source in your registry and hands back a spreadsheet of everything happening.</p>
       </a>
-      <a class="card stepcard" href="#cut">
+      <a class="card stepcard reveal" href="#cut">
         <span class="who you">You</span>
         <p class="card-title" style="margin-top:10px;">Cut</p>
         <p>You open the sheet, delete rows, and upload it back. This is the decision that sets the shape of the issue.</p>
       </a>
-      <a class="card stepcard" href="#write">
+      <a class="card stepcard reveal" href="#write">
         <span class="who both">Both</span>
         <p class="card-title" style="margin-top:10px;">Assemble and write</p>
         <p>Claude lays out the whole issue. You fill the gaps it deliberately leaves blank.</p>
       </a>
-      <a class="card stepcard" href="#send">
+      <a class="card stepcard reveal" href="#send">
         <span class="who you">You</span>
         <p class="card-title" style="margin-top:10px;">Send</p>
         <p>Check it over, paste into Substack, read it once end to end, and hit send.</p>
@@ -874,7 +994,7 @@
     <p class="eyebrow">Step one</p>
     <h2>Collect <span class="who claude" style="margin-left:8px;">Claude</span></h2>
     <p class="desc">Paste the prompt into your project. Claude sweeps every source in your registry and hands back a spreadsheet. It collects everything without filtering, on purpose: collecting and judging are separate jobs, and mixing them turns a short task into a long one.</p>
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Harvest <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-harvest', this)">Copy</button></div>
       <pre class="prompt" id="p-harvest"></pre>
     </div>
@@ -883,29 +1003,30 @@
     <p class="desc">The spreadsheet marks anything incomplete: the empty cell is shaded red and named in a Missing Info column, so you can see at a glance what needs a second look.</p>
     <div class="note">If Claude asks to use your Chrome browser, say yes. Some event sites hide their listings from simple requests, so Claude reads those pages in your browser instead. It is reading, not clicking. Save the spreadsheet when it finishes.</div>
 
-    <div class="card getback">
+    <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <p class="fname"><a href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>CTC_Events_SAMPLE.xlsx</a></p>
-      <div class="split">
-        <div>
       <div class="scroll">
-        <table class="excerpt">
-          <thead><tr>
-            <th>Event Name</th><th>Date</th><th>Start Time (PDT)</th><th>Registration Link</th>
-            <th>Event Type</th><th>Access</th><th>Location</th><th>Block</th><th>Source</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>Grid Interconnection 101</td><td class="mono">2026-08-12</td><td class="mono">17:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>Ecotrust Building, 721 NW 9th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
-            <tr><td>Repair Cafe: Small Appliances</td><td class="mono">2026-08-13</td><td class="mono">10:00</td><td class="mono">example.org/&hellip;</td><td>In-person</td><td>Not stated</td><td>St. Johns Community Center, 8427 N Central St</td><td class="mono">this_week</td><td class="mono">submitted</td></tr>
-            <tr><td>Cascadia Climate Data Meetup</td><td class="mono">2026-08-13</td><td class="mono">18:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>WeWork Custom House, 220 NW 8th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
-          </tbody>
-        </table>
+      <table class="excerpt">
+        <thead><tr>
+          <th>Event Name</th><th>Date</th><th>Start Time (PDT)</th><th>Registration Link</th>
+          <th>Event Type</th><th>Access</th><th>Location</th><th>Block</th><th>Source</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Grid Interconnection 101</td><td class="mono">2026-08-12</td><td class="mono">17:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>Ecotrust Building, 721 NW 9th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+          <tr><td>Repair Cafe: Small Appliances</td><td class="mono">2026-08-13</td><td class="mono">10:00</td><td class="mono">example.org/&hellip;</td><td>In-person</td><td>Not stated</td><td>St. Johns Community Center, 8427 N Central St</td><td class="mono">this_week</td><td class="mono">submitted</td></tr>
+          <tr><td>Cascadia Climate Data Meetup</td><td class="mono">2026-08-13</td><td class="mono">18:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>WeWork Custom House, 220 NW 8th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+        </tbody>
+      </table>
       </div>
       <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
-        </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/events-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/events-open.png" alt="The sample events sheet open in Excel, one row per event, with the Block and Source columns to the right." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Excel. Click to enlarge, or see the <a href="downloads/samples/previews/events.png" target="_blank" rel="noopener">print view</a>.</span>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/events-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="events">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>Download</a>
+          </span>
         </div>
       </div>
     </div>
@@ -919,7 +1040,7 @@
     <h2>Cut <span class="who you" style="margin-left:8px;">You</span></h2>
     <p class="desc">Open the spreadsheet and delete rows. There is no prompt for this one, because it is judgment. How many events end up in the newsletter is decided here, and there is no target number: a good week is however many good events your city actually has.</p>
     <div class="grid grid-2" style="margin-top:24px;">
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">Delete</p>
         <ul class="plain">
           <li>Anything outside your scope rule, which is written in your settings file for exactly this moment</li>
@@ -929,7 +1050,7 @@
           <li>Rows marked <code>submitted</code> were sent in by a reader. Treat them like any other row; if you cut one, it is worth a reply to whoever sent it</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">Flag</p>
         <ul class="plain">
           <li>Note <strong>four to six</strong> events worth featuring, roughly one per day that has events</li>
@@ -949,13 +1070,13 @@
     <p class="eyebrow">Step three</p>
     <h2>Assemble and write <span class="who both" style="margin-left:8px;">Both</span></h2>
     <p class="desc">Paste the prompt and attach your edited spreadsheet. Claude reads the sheet, asks you three questions, and builds the issue.</p>
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Assemble <span class="hint">· weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-assemble', this)">Copy</button></div>
       <pre class="prompt" id="p-assemble"></pre>
     </div>
     <p class="desc">You get two files back, a Word document and an HTML file. <strong>Use the HTML file</strong> when you go to send: it is the one that holds its formatting in Substack.</p>
 
-    <div class="card qcard">
+    <div class="card qcard reveal">
       <h3 style="margin-top:0;font-size:18px;">Claude asks three questions first</h3>
       <p class="desc dim" style="margin-top:4px;">It will not start building until you answer. Have these ready.</p>
       <ol class="qlist">
@@ -975,7 +1096,7 @@
     </div>
 
     <h3>The ten blocks, in order</h3>
-    <div class="tablewrap">
+    <div class="tablewrap reveal">
       <table class="plan" style="min-width:520px;">
         <thead><tr><td style="width:auto;font-weight:500;">Block</td><td style="font-weight:500;">Who finishes it</td></tr></thead>
         <tbody>
@@ -1008,7 +1129,7 @@
       <span><span class="swatch human" aria-hidden="true"></span> Written by you</span>
     </div>
 
-    <div class="issue">
+    <div class="issue reveal">
       <div class="blk auto">
         <span class="tag2">Automated · title and subtitle</span>
         <div class="title">NY Climate Tech: July 21 - July 28</div>
@@ -1100,19 +1221,25 @@
 
     <div class="note" style="max-width:46em;">The sign-off still sits in the <strong>middle</strong>, not at the end. The platforms block follows it, then the opportunities and the listings, and the last thing on the page is Join the fun. Claude drafts all ten blocks; the words that are truly yours are the three you rewrite, the opening note, the picks, and the housekeeping.</div>
 
-    <div class="card getback">
+    <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <div class="split">
-        <div>
-          <div class="files">
-            <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a></span>
-            <span class="fname"><a href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a></span>
-          </div>
-          <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
+      <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.html</b><span>Web page, the one you paste from</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue-html">Preview</button>
+            <a class="btn sm" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Download</a>
+          </span>
         </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/issue-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/issue-open.png" alt="The sample Portland issue open in Word, showing the title, the subtitle, and the first yellow rewrite line above the opening note." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Word. Click to enlarge, or see the <a href="downloads/samples/previews/issue.png" target="_blank" rel="noopener">print view</a>.</span>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>Word document, 6 pages</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue">Preview</button>
+            <a class="btn sm" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Download</a>
+          </span>
         </div>
       </div>
     </div>
@@ -1125,7 +1252,7 @@
     <p class="eyebrow">Step four</p>
     <h2>Send <span class="who you" style="margin-left:8px;">You</span></h2>
     <div class="grid grid-2" style="margin-top:24px;">
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">Check first</p>
         <ul class="plain">
           <li>Search the document for a square bracket. Nothing in brackets ships</li>
@@ -1136,7 +1263,7 @@
           <li>The platforms block sits after your sign-off, and Join the fun is the last thing on the page</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card hoverable reveal">
         <p class="card-title">Then send</p>
         <ol class="plain">
           <li><strong>Open the HTML file</strong>, not the Word document. The HTML is the one that keeps the formatting when it lands in Substack</li>
@@ -1158,7 +1285,7 @@
     <h2>Refresh your opportunities</h2>
     <p class="desc">Grants, fellowships, accelerators, and open calls, kept in one file your issues draw from. Run this monthly. Your source list is the quarterly one, and they are the only two jobs outside the weekly cycle.</p>
 
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Opportunities <span class="hint">&middot; monthly</span></span><button class="copy-btn" onclick="copyPrompt('p-monthly', this)">Copy</button></div>
       <pre class="prompt" id="p-monthly"></pre>
     </div>
@@ -1174,28 +1301,29 @@
 
     <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> Claude reads it when it builds each issue, so one run covers every issue that month. Without it the opportunities block has nothing to draw on.</div>
 
-    <div class="card getback">
+    <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <p class="fname"><a href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Opportunities_SAMPLE.xlsx</a></p>
-      <div class="split">
-        <div>
       <div class="scroll">
-        <table class="excerpt">
-          <thead><tr>
-            <th>Opportunity</th><th>Organization</th><th>Type</th><th>Deadline</th><th>Who it is for</th><th>Scope</th><th>Status</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>PSU Climate Venture Studio</td><td>Portland State University</td><td>Accelerator</td><td class="mono">2026-09-30</td><td>Student and alumni founders</td><td>Portland</td><td class="mono">Not used</td></tr>
-            <tr><td>Portland Clean Energy Fund Community Grants</td><td>Portland Clean Energy Community Benefits Fund</td><td>Grant</td><td class="mono">2026-10-01</td><td>Nonprofits and community groups in Portland</td><td>Portland</td><td class="mono">Not used</td></tr>
-            <tr><td>Oregon BEST Early Commercialization Grant</td><td>Oregon BEST</td><td>Grant</td><td class="mono">2026-09-15</td><td>Hardware climate startups with a physical presence</td><td>Oregon</td><td class="mono">Not used</td></tr>
-          </tbody>
-        </table>
+      <table class="excerpt">
+        <thead><tr>
+          <th>Opportunity</th><th>Organization</th><th>Type</th><th>Deadline</th><th>Who it is for</th><th>Scope</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>PSU Climate Venture Studio</td><td>Portland State University</td><td>Accelerator</td><td class="mono">2026-09-30</td><td>Student and alumni founders</td><td>Portland</td><td class="mono">Not used</td></tr>
+          <tr><td>Portland Clean Energy Fund Community Grants</td><td>Portland Clean Energy Community Benefits Fund</td><td>Grant</td><td class="mono">2026-10-01</td><td>Nonprofits and community groups in Portland</td><td>Portland</td><td class="mono">Not used</td></tr>
+          <tr><td>Oregon BEST Early Commercialization Grant</td><td>Oregon BEST</td><td>Grant</td><td class="mono">2026-09-15</td><td>Hardware climate startups with a physical presence</td><td>Oregon</td><td class="mono">Not used</td></tr>
+        </tbody>
+      </table>
       </div>
-      <p class="cap">The Open sheet, with a Closed sheet beside it. Fictional Portland chapter.</p>
-        </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/opportunities-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/opportunities-open.png" alt="The sample opportunities queue open in Excel, showing the Open sheet tab and a Closed sheet tab beside it." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Excel. Click to enlarge, or see the <a href="downloads/samples/previews/opportunities.png" target="_blank" rel="noopener">print view</a>.</span>
+      <p class="cap">The Open sheet. A Closed sheet appears beside it the first time something expires, so this sample has none yet. Fictional Portland chapter.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/opportunities-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Opportunities_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="opportunities">Preview</button>
+            <a class="btn sm" href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Download</a>
+          </span>
         </div>
       </div>
     </div>
@@ -1209,7 +1337,7 @@
     <h2>Partners</h2>
     <p class="desc">Partners are where venues, audiences, and speakers come from. A lead with no partners hosts events in bars for their own friends. The partner map is also what the monthly opportunities run reads for local programs, so it pays off in the newsletter too.</p>
 
-    <div class="prompt-card">
+    <div class="prompt-card reveal">
       <div class="head"><span class="label">Partner map <span class="hint">· once, then quarterly</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
       <pre class="prompt" id="p-partnermap"></pre>
     </div>
@@ -1218,25 +1346,26 @@
       <li>
         <h3>Claude researches your city</h3>
         <p class="desc dim">Universities, incubators and accelerators, startup programs, industry partners, and capital partners. Every organization is verified before it goes in. You get a workbook.</p>
-        <div class="card getback">
+        <div class="card getback reveal">
           <p class="eyebrow">What you get back</p>
-          <p class="fname"><a href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>CTC_City_Resources_SAMPLE.xlsx</a></p>
-      <div class="split">
-        <div>
-          <div class="scroll">
-            <table class="excerpt">
-              <thead><tr><th>Organization</th><th>Type</th><th>Focus Area</th><th>Description</th><th>Website</th></tr></thead>
-              <tbody>
-                <tr><td>Tidewater Climate Labs</td><td>Incubator</td><td>Hardware climate startups</td><td>Tidewater Climate Labs is a climate hardware incubator&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
-                <tr><td>Kiln Accelerator</td><td>Accelerator</td><td>Pre-seed climate software and services</td><td>Kiln is a twelve week accelerator in downtown&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="cap">The workbook has the five-block city tab plus a City Narratives sheet. The city, Alderport, and every organization in it are fictional.</p>
+        <div class="scroll">
+          <table class="excerpt">
+            <thead><tr><th>Organization</th><th>Type</th><th>Focus Area</th><th>Description</th><th>Website</th></tr></thead>
+            <tbody>
+              <tr><td>Tidewater Climate Labs</td><td>Incubator</td><td>Hardware climate startups</td><td>Tidewater Climate Labs is a climate hardware incubator&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
+              <tr><td>Kiln Accelerator</td><td>Accelerator</td><td>Pre-seed climate software and services</td><td>Kiln is a twelve week accelerator in downtown&hellip;</td><td class="mono">example.org/&hellip;</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/city-resources-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/city-resources-open.png" alt="The sample city resources workbook open in Excel, showing the five blocks with a header band above each and the City Narratives sheet tab." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Excel. Click to enlarge, or see the <a href="downloads/samples/previews/city-resources.png" target="_blank" rel="noopener">print view</a>.</span>
+        <p class="cap">The workbook has the five-block city tab plus a City Narratives sheet. The city, Alderport, and every organization in it are fictional.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/city-resources-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_City_Resources_SAMPLE.xlsx</b><span>Excel workbook, 2 sheets</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="city-resources">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>Download</a>
+          </span>
         </div>
       </div>
         </div>
@@ -1245,26 +1374,27 @@
         <h3>You edit it, then Claude builds the outreach list</h3>
         <p class="desc dim">Cut anything that quietly closed. Add anything obvious it missed. Then Claude adds the categories a resource page leaves out and returns a tiered list: who to approach, in what order, and what to ask each one for first. Anything you add by hand is never dropped silently.</p>
         <div class="note">You know your city better than the research does. If you would rather not edit it, say <strong>"use it as is"</strong> and it carries on.</div>
-        <div class="card getback">
+        <div class="card getback reveal">
           <p class="eyebrow">What you get back</p>
-          <p class="fname"><a href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>CTC_Partner_Map_SAMPLE.xlsx</a></p>
-      <div class="split">
-        <div>
-          <div class="scroll">
-            <table class="excerpt">
-              <thead><tr><th>Organization</th><th>Category</th><th>Why them</th><th>Ask for first</th><th>Contact route</th></tr></thead>
-              <tbody>
-                <tr><td>Greentown Labs Houston</td><td>Accelerators and incubators</td><td>Their member companies are the founders we want&hellip;</td><td>Co-host our launch mixer in your event space&hellip;</td><td>Community or events team, via the contact form</td></tr>
-                <tr><td>Ion District</td><td>Coworking and innovation districts</td><td>They publish a public events calendar with an&hellip;</td><td>Add our monthly meetup to the Ion events calendar</td><td>Calendar submission form on the events page</td></tr>
-                <tr><td>Rice Alliance for Technology and Entrepreneurship</td><td>Universities and research centers</td><td>They convene the founder and investor side&hellip;</td><td>Put our chapter lead on a panel at your next event</td><td>Named program director listed on the Rice Alliance site</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="cap">Three rows from the Tier 1 band; the tier is the band header above each group, not a column. The map is a separate internal file with a Not approaching sheet. The organizations are real Houston ones, but every line written about them here is illustrative and unverified.</p>
+        <div class="scroll">
+          <table class="excerpt">
+            <thead><tr><th>Organization</th><th>Category</th><th>Why them</th><th>Ask for first</th><th>Contact route</th></tr></thead>
+            <tbody>
+              <tr><td>Greentown Labs Houston</td><td>Accelerators and incubators</td><td>Their member companies are the founders we want&hellip;</td><td>Co-host our launch mixer in your event space&hellip;</td><td>Community or events team, via the contact form</td></tr>
+              <tr><td>Ion District</td><td>Coworking and innovation districts</td><td>They publish a public events calendar with an&hellip;</td><td>Add our monthly meetup to the Ion events calendar</td><td>Calendar submission form on the events page</td></tr>
+              <tr><td>Rice Alliance for Technology and Entrepreneurship</td><td>Universities and research centers</td><td>They convene the founder and investor side&hellip;</td><td>Put our chapter lead on a panel at your next event</td><td>Named program director listed on the Rice Alliance site</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div>
-          <a class="shot" href="downloads/samples/previews/partner-map-open.png" target="_blank" rel="noopener"><img src="downloads/samples/previews/partner-map-open.png" alt="The sample partner map open in Excel, showing the Tier 1 band header above a group of organizations and the Not approaching sheet tab." loading="lazy" /></a>
-          <span class="shotlabel">Opened in Excel. Click to enlarge, or see the <a href="downloads/samples/previews/partner-map.png" target="_blank" rel="noopener">print view</a>.</span>
+        <p class="cap">Three rows from the Tier 1 band; the tier is the band header above each group, not a column. The map is a separate internal file with a Not approaching sheet. The organizations are real Houston ones, but every line written about them here is illustrative and unverified.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/partner-map-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Partner_Map_SAMPLE.xlsx</b><span>Excel workbook, 2 sheets</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="partner-map">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>Download</a>
+          </span>
         </div>
       </div>
         </div>
@@ -1296,7 +1426,7 @@
   <div class="wrap">
     <p class="eyebrow">Troubleshooting</p>
     <h2>When something breaks</h2>
-    <div class="faq-stack">
+    <div class="faq-stack reveal">
       <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero, then check those by hand. Do not assume the city went quiet.</div></details>
       <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
       <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal, and expected on Luma, Eventbrite, and the submission form. Say yes. It is reading pages, not clicking anything.</div></details>
@@ -1327,7 +1457,7 @@
     <p class="eyebrow">Everything in one place</p>
     <h2>Downloads</h2>
     <p class="desc dim">Install instructions are in <a href="#install" style="color:var(--ink);font-weight:500;">What you install</a>.</p>
-    <div class="card" style="margin-top:24px;max-width:52em;">
+    <div class="card hoverable reveal" style="margin-top:24px;max-width:52em;">
       <div class="dl">
         <a class="name" href="downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a>
         <span class="what">Asks you nine questions, writes your settings file and plan.</span>
@@ -1348,18 +1478,83 @@
       </div>
     </div>
 
-    <div class="card" style="margin-top:20px;max-width:52em;">
+    <div class="card hoverable reveal" style="margin-top:20px;max-width:52em;">
       <p class="eyebrow">Samples</p>
-      <p class="desc dim" style="margin-top:0;">Every file the toolkit produces, so you can see one before you run anything. All fictional.</p>
-      <div class="dl"><a class="name" href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Chapter_Settings_SAMPLE.docx</a><span class="what">The settings file every other skill reads.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Chapter_Plan_SAMPLE.docx</a><span class="what">The launch plan, with real dates in it.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>CTC_Source_Registry_SAMPLE.xlsx</a><span class="what">The source list the weekly harvest reads.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>CTC_Events_SAMPLE.xlsx</a><span class="what">A week of harvested events, before the cut.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Opportunities_SAMPLE.xlsx</a><span class="what">The monthly opportunities queue, Open and Closed.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Portland_Climate_Tech_Aug_11-Aug_18.html</a><span class="what">A finished issue, the file you paste into Substack.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Portland_Climate_Tech_Aug_11-Aug_18.docx</a><span class="what">The same issue as a Word document.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>CTC_City_Resources_SAMPLE.xlsx</a><span class="what">The city resource workbook, stage one of the partner map.</span></div>
-      <div class="dl"><a class="name" href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>CTC_Partner_Map_SAMPLE.xlsx</a><span class="what">The tiered outreach list, stage two.</span></div>
+      <p class="desc dim" style="margin-top:0;">Every file the toolkit produces. Preview opens the whole thing here, page by page, exactly as the file itself renders. All fictional.</p>
+      <div class="rail">
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/chapter-settings-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Settings_SAMPLE.docx</b><span>The settings file every other skill reads.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-settings">Preview</button>
+            <a class="btn sm" href="downloads/samples/Chapter_Settings_SAMPLE.docx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/chapter-plan-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Chapter_Plan_SAMPLE.docx</b><span>The launch plan, with real dates in it.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="chapter-plan">Preview</button>
+            <a class="btn sm" href="downloads/samples/Chapter_Plan_SAMPLE.docx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/registry-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Source_Registry_SAMPLE.xlsx</b><span>The source list the weekly harvest reads.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="registry">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Source_Registry_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/events-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>A week of harvested events, before the cut.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="events">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Events_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/opportunities-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Opportunities_SAMPLE.xlsx</b><span>The monthly opportunities queue.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="opportunities">Preview</button>
+            <a class="btn sm" href="downloads/samples/Opportunities_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.html</b><span>A finished issue, the file you paste into Substack.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue-html">Preview</button>
+            <a class="btn sm" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.html" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>The same issue as a Word document.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="issue">Preview</button>
+            <a class="btn sm" href="downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/city-resources-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_City_Resources_SAMPLE.xlsx</b><span>The city resource workbook, stage one of the partner map.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="city-resources">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_City_Resources_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
+          <span class="thumb"><img src="downloads/samples/previews/partner-map-p1.png" alt="" loading="lazy" /></span>
+          <span class="meta"><b>CTC_Partner_Map_SAMPLE.xlsx</b><span>The tiered outreach list, stage two.</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="partner-map">Preview</button>
+            <a class="btn sm" href="downloads/samples/CTC_Partner_Map_SAMPLE.xlsx" download>Download</a>
+          </span>
+        </div>
+      </div>
     </div>
     <!-- TODO: the brief lists "the written guide" here, but no current written guide
          was supplied. The old guide documented the superseded workflow and was removed.
@@ -1390,6 +1585,23 @@
         <li><a href="#partners">Partners</a></li>
         <li><a href="#help">Troubleshooting</a></li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t">
+        <h3 id="viewer-name"></h3>
+        <p id="viewer-sub"></p>
+      </span>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="modal-foot">
+      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
     </div>
   </div>
 </div>
@@ -1448,6 +1660,138 @@ var PROMPTS = {
   "p-partnermap": function (c) { return "build the partner map for " + c; },
   "p-logo":       function (c) { return LOGO_PROMPT.split("{CITY}").join(c); }
 };
+/* ---------- the file viewer ----------
+   Every sample ships as a real file. Each page here is a render of that exact
+   file, so what the modal shows and what the Download button hands over are the
+   same document. */
+var SAMPLES = "downloads/samples/";
+var SHOTS = SAMPLES + "previews/";
+var FILES = {
+  "chapter-settings": {
+    file: "Chapter_Settings_SAMPLE.docx", pages: 2, shot: "chapter-settings-open.png", app: "Word",
+    sub: "Word document, 2 pages. Fictional Denver chapter.",
+    note: "Every skill in the toolkit reads this file. Add it to your project as a context file."
+  },
+  "chapter-plan": {
+    file: "Chapter_Plan_SAMPLE.docx", pages: 4, shot: "chapter-plan-open.png", app: "Word",
+    sub: "Word document, 4 pages. Fictional Denver chapter.",
+    note: "The plan is the one you read. Your dates will differ; the phases will not."
+  },
+  "registry": {
+    file: "CTC_Source_Registry_SAMPLE.xlsx", pages: 1, shot: "registry-open.png", app: "Excel",
+    sub: "Excel workbook, the Sources sheet. Fictional Portland chapter.",
+    note: "Unverified rows are shaded, and any missing field is shaded red and named."
+  },
+  "events": {
+    file: "CTC_Events_SAMPLE.xlsx", pages: 1, shot: "events-open.png", app: "Excel",
+    sub: "Excel workbook, the Events sheet. Fictional Portland chapter.",
+    note: "The time header carries your chapter's timezone. One row per event."
+  },
+  "opportunities": {
+    file: "Opportunities_SAMPLE.xlsx", pages: 1, shot: "opportunities-open.png", app: "Excel",
+    sub: "Excel workbook, the Open sheet. Fictional Portland chapter.",
+    note: "A Closed sheet appears beside this one the first time something expires."
+  },
+  "city-resources": {
+    file: "CTC_City_Resources_SAMPLE.xlsx", pages: 3, shot: "city-resources-open.png", app: "Excel",
+    sub: "Excel workbook, the city sheet and City Narratives, 3 printed pages.",
+    note: "The city, Alderport, and every organization in it are fictional."
+  },
+  "partner-map": {
+    file: "CTC_Partner_Map_SAMPLE.xlsx", pages: 2, shot: "partner-map-open.png", app: "Excel",
+    sub: "Excel workbook, Partners and Not approaching, 2 printed pages.",
+    note: "The organizations are real Houston ones, but every line written about them here is illustrative and unverified."
+  },
+  "issue": {
+    file: "Portland_Climate_Tech_Aug_11-Aug_18.docx", pages: 6, shot: "issue-open.png", app: "Word",
+    sub: "Word document, 6 pages. Fictional Portland chapter.",
+    note: "The yellow lines are the rewrite markers. They come out when you have written your three blocks."
+  },
+  "issue-html": {
+    file: "Portland_Climate_Tech_Aug_11-Aug_18.html", live: true,
+    sub: "The web page version, shown here exactly as it renders.",
+    note: "This is the copy you paste from. Opening the HTML file keeps the formatting; the Word file does not."
+  }
+};
+
+var DIMS = {
+  "registry": [[1381,335],[1400,758]],
+  "events": [[1369,570],[1400,758]],
+  "opportunities": [[1398,598],[1400,758]],
+  "city-resources": [[1379,915],[1379,426],[1402,707],[1400,758]],
+  "partner-map": [[1399,866],[1395,315],[1400,758]],
+  "chapter-settings": [[995,1318],[972,408],[1400,758]],
+  "chapter-plan": [[985,1250],[998,1247],[984,1282],[798,242],[1400,758]],
+  "issue": [[922,1255],[931,1177],[931,1251],[931,1211],[913,1230],[931,1151],[1400,758]]
+};
+
+var viewer, lastFocus = null;
+function buildPage(src, label, alt, size) {
+  var fig = document.createElement("div");
+  fig.className = "page";
+  var cap = document.createElement("span");
+  cap.className = "pn";
+  cap.textContent = label;
+  var img = document.createElement("img");
+  img.src = src;
+  img.alt = alt;
+  img.loading = "lazy";
+  if (size) { img.width = size[0]; img.height = size[1]; }   // hold the space before it loads
+  fig.appendChild(cap);
+  fig.appendChild(img);
+  return fig;
+}
+function openFile(key) {
+  var f = FILES[key];
+  if (!f) return;
+  var body = document.getElementById("viewer-body");
+  body.textContent = "";
+  body.scrollTop = 0;
+  document.getElementById("viewer-name").textContent = f.file;
+  document.getElementById("viewer-sub").textContent = f.sub;
+  document.getElementById("viewer-note").textContent = f.note;
+  var dl = document.getElementById("viewer-dl");
+  dl.href = SAMPLES + f.file;
+  dl.setAttribute("download", f.file);
+
+  if (f.live) {
+    var frame = document.createElement("iframe");
+    frame.src = SAMPLES + f.file;
+    frame.title = f.file;
+    frame.setAttribute("sandbox", "");
+    frame.style.cssText = "width:100%;height:70vh;border:1px solid var(--hairline);border-radius:var(--r-sm);background:var(--canvas);display:block;";
+    body.appendChild(frame);
+  } else {
+    var d = DIMS[key] || [];
+    for (var i = 1; i <= f.pages; i++) {
+      body.appendChild(buildPage(
+        SHOTS + key + "-p" + i + ".png",
+        f.pages > 1 ? "Page " + i + " of " + f.pages : "The file",
+        "Page " + i + " of " + f.file,
+        d[i - 1]));
+    }
+    if (f.shot) {
+      body.appendChild(buildPage(
+        SHOTS + f.shot,
+        "Opened in " + f.app,
+        f.file + " open in " + f.app + ", the way it looks once you download it.",
+        d[f.pages]));
+    }
+  }
+  lastFocus = document.activeElement;
+  viewer.hidden = false;
+  viewer.classList.add("open");
+  document.body.classList.add("locked");
+  document.getElementById("viewer-close").focus();
+}
+function closeFile() {
+  viewer.classList.remove("open");
+  viewer.hidden = true;
+  document.body.classList.remove("locked");
+  document.getElementById("viewer-body").textContent = "";
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+
 function renderPrompt(el, text) {
   el.textContent = "";
   if (text.charAt(0) === "/") {
@@ -1497,6 +1841,58 @@ window.addEventListener("DOMContentLoaded", function () {
   } catch (e) {}
   document.getElementById("city").addEventListener("input", buildPrompts);
   buildPrompts();
+
+  // file viewer
+  viewer = document.getElementById("viewer");
+  document.querySelectorAll("[data-file]").forEach(function (b) {
+    b.addEventListener("click", function () { openFile(b.getAttribute("data-file")); });
+  });
+  document.getElementById("viewer-close").addEventListener("click", closeFile);
+  viewer.addEventListener("click", function (e) { if (e.target === viewer) closeFile(); });
+  document.addEventListener("keydown", function (e) {
+    if (!viewer.classList.contains("open")) return;
+    if (e.key === "Escape") { closeFile(); return; }
+    if (e.key !== "Tab") return;
+    // keep the tab ring inside the dialog while it is open
+    var f = viewer.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  // nav: read position and which section you are in
+  var bar = document.getElementById("progress");
+  var links = [].slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+    var at = -1;
+    for (var i = 0; i < targets.length; i++) {
+      // measured live, so an image that loads late cannot leave this stale
+      if (targets[i] && targets[i].getBoundingClientRect().top <= 140) at = i;
+    }
+    links.forEach(function (a, i) { a.classList.toggle("here", i === at); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", onScroll);
+  onScroll();
+
+  // scroll reveal
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    items.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    items.forEach(function (el) { io.observe(el); });
+  }
   document.querySelectorAll("details.faq > summary").forEach(function (s) {
     s.setAttribute("role", "button");
     s.setAttribute("aria-expanded", s.parentElement.open ? "true" : "false");
