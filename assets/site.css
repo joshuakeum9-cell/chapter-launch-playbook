@@ -332,6 +332,11 @@ details.faq summary::after { content: "+"; font-size: 20px; font-weight: 400; co
 details.faq[open] summary::after { content: "\2013"; }
 details.faq .body { padding: 0 0 16px; font-size: 14px; color: var(--steel); line-height: 1.6; max-width: 40em; }
 
+figure.shot { margin: 14px 0 6px; max-width: 44em; border: 1px solid var(--hairline); border-radius: var(--r-md); overflow: hidden; background: var(--canvas); }
+figure.shot img { display: block; width: 100%; height: auto; }
+figure.shot figcaption { font-size: 12px; line-height: 1.5; color: var(--steel); padding: 8px 12px; border-top: 1px solid var(--hairline-soft); background: var(--surface-soft); }
+figure.shot figcaption b { color: var(--green-deep); font-weight: 600; }
+.steps a.go { color: var(--ink); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
 figure.logo { margin: 0; }
 figure.logo img { width: 100%; height: auto; display: block; border-radius: var(--r-md); }
 figure.logo figcaption { font-size: 13px; color: var(--steel); margin-top: 8px; }

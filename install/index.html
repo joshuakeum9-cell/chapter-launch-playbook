@@ -49,20 +49,48 @@
       <div class="dl"><a class="name" href="../downloads/ctc-partner-map-v2.0.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails.</span><span class="tag">Plugin &middot; 3 skills</span></div>
       <div class="dl"><span class="name">Claude for Chrome</span><span class="what">Luma, Eventbrite and the submission form need a real browser.</span><span class="tag">Extension</span></div>
     </div>
-    <div class="note"><strong>A skill does one job. A plugin is several skills installed together.</strong> Claude for Chrome is required for the weekly harvest.</div>
+    <div class="note"><strong>A skill does one job. A plugin is several skills installed together.</strong> Claude for Chrome is required for the weekly harvest. Download all three zips first; the steps below upload them.</div>
 
     <ol class="steps" style="margin-top:36px;">
       <li>
-        <h2 class="sub">Install the packages</h2>
-        <p class="desc dim">Claude: Settings, then Capabilities, then Skills. Upload the skill. Install the two plugins. Turn on code execution in the same panel.</p>
+        <h2 class="sub">Turn on code execution</h2>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/settings/capabilities" target="_blank" rel="noopener">claude.ai/settings/capabilities</a>. Make sure <strong>Cloud code execution and file creation</strong> is on. Skills need it.</p>
+        <figure class="shot">
+          <img src="../downloads/guide/code-exec.png" alt="" loading="lazy" />
+          <figcaption>Settings, then Capabilities. <b>1</b> The switch that has to be on. It usually already is.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <h2 class="sub">Upload the skill</h2>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/skills" target="_blank" rel="noopener">claude.ai/customize/skills</a>. <strong>Add</strong>, then <strong>Upload skill</strong>, then choose the ctc-chapter-setup zip you downloaded.</p>
+        <figure class="shot">
+          <img src="../downloads/guide/skills-add.png" alt="" loading="lazy" />
+          <figcaption>Customize, then Skills. <b>1</b> Add. <b>2</b> Upload skill. It appears in the list once it is in.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <h2 class="sub">Upload the two plugins</h2>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>. Once for ctc-newsletter, once for ctc-partner-map. A plugin brings its skills with it.</p>
+        <figure class="shot">
+          <img src="../downloads/guide/plugins-add.png" alt="" loading="lazy" />
+          <figcaption>Customize, then Plugins. <b>1</b> Add. <b>2</b> Upload plugin. Do it twice.</figcaption>
+        </figure>
       </li>
       <li>
         <h2 class="sub">Install Claude for Chrome</h2>
-        <p class="desc dim">Same account.</p>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/chrome" target="_blank" rel="noopener">claude.ai/chrome</a>, then <strong>Add to Chrome</strong>. Sign in with the same account.</p>
+        <figure class="shot">
+          <img src="../downloads/guide/chrome.png" alt="" loading="lazy" />
+          <figcaption>The one button. The weekly harvest reads Luma and Eventbrite through this.</figcaption>
+        </figure>
       </li>
       <li>
-        <h2 class="sub">Create a project in Claude</h2>
-        <p class="desc dim">Named for your chapter. Everything happens inside it.</p>
+        <h2 class="sub">Create a project</h2>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/projects" target="_blank" rel="noopener">claude.ai/projects</a>, then <strong>New project</strong>. Name it Climate Tech [your city]. Everything from here on happens inside it.</p>
+        <figure class="shot">
+          <img src="../downloads/guide/project-new.png" alt="" loading="lazy" />
+          <figcaption><b>1</b> The name. <b>2</b> Create. The second box can stay empty.</figcaption>
+        </figure>
       </li>
       <li>
         <h2 class="sub">Check it worked</h2>
@@ -70,7 +98,7 @@
           <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
           <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
         </div>
-        <div class="note">Claude should name ctc-chapter-setup and the skills in both plugins. If not: reinstall, confirm code execution is on, start a fresh conversation. Skills do not appear mid-conversation.</div>
+        <div class="note">Claude should name ctc-chapter-setup and the skills in both plugins. If not: check step 1, upload again, and start a fresh conversation. Skills do not appear mid-conversation.</div>
       </li>
     </ol>
     <nav class="pager" aria-label="Previous and next step">

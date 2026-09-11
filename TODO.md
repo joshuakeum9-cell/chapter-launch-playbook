@@ -12,6 +12,13 @@ By design, to keep the site free of a build step. A change to the sidebar or
 footer has to be made in every page. An assertion-guarded script is the safe
 way to do that; do not hand-edit eleven copies.
 
+## The install screenshots will go stale
+
+`downloads/guide/` shows claude.ai as it was on 2026-09-11. The settings
+screens had already moved once between v9 and v10 (Skills and Plugins left
+Capabilities for Customize). When a lead reports a step that does not match,
+re-take that one screenshot rather than describing the difference in words.
+
 ## The sample issue mixes two New York issues
 
 Blocks 1 to 8 of the sample come from the 21 July issue. Block 9, This Week in

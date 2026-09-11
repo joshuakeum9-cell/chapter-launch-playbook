@@ -2,6 +2,25 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 10.1.0 - 2026-09-11
+
+The install page is now six illustrated steps. Each one carries a direct link
+to the exact screen in Claude and a real screenshot of it, taken from
+claude.ai on 11 September 2026, with a mint box and a number on the thing to
+click: the code execution switch, Add then Upload skill, Add then Upload
+plugin, Add to Chrome, New project. The Set up page shows where the settings
+file goes: a project's Context panel, with the plus sign marked.
+
+The words changed with the pictures, because Claude's settings had moved
+since they were written. Skills and plugins are no longer under Capabilities;
+they live under Customize, with an Add button and an Upload choice. The code
+execution switch is named Cloud code execution and file creation, and is on
+by default. The page now says exactly that.
+
+The screenshots are cropped to the panel in question, so nothing from the
+account they were taken on appears beyond the CTC skills and plugins
+themselves.
+
 ## 10.0.0 - 2026-09-11
 
 The single scrolling page is now a site of eleven. Each item in the old

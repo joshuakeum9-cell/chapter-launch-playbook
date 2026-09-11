@@ -89,6 +89,10 @@ Claude's work, white marks the lead's, the tint marks both.
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve
+- `downloads/guide/`, six screenshots of claude.ai used on the Install and
+  Set up pages, cropped to the panel and marked with what to click. Taken
+  2026-09-11; Claude's settings screens move, so re-take these when a step
+  stops matching what a lead sees
 - `downloads/`, the three package zips, the five brand PNGs, and `samples/`
   with the nine sample files plus `samples/previews/`, one render per page of
   each sample (`<name>-p1.png`, `-p2.png`, and so on) and one screenshot of
