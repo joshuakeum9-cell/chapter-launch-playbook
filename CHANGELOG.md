@@ -2,6 +2,15 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 10.1.1 - 2026-09-12
+
+Four of the install screenshots re-taken so they show what a new account
+shows, not the account they were taken on. The Skills and Plugins shots now
+use the Discover tab, which is the same for everyone, rather than a Yours tab
+full of one person's skills. The project shots come from a project created
+fresh for the purpose: the dialog with its name typed, and the empty Context
+panel with the plus sign marked.
+
 ## 10.1.0 - 2026-09-11
 
 The install page is now six illustrated steps. Each one carries a direct link
