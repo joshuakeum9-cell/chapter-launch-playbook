@@ -2,6 +2,31 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 11.0.0 - 2026-09-12
+
+Partners is no longer a numbered step. It was 08 of 08, which read as
+something a lead has to finish, and that is not true: `ctc-newsletter-cycle`
+never mentions a partner map, and `ctc-opportunities` reads one only if a
+`CTC_Partner_Map` or `CTC_City_Resources` workbook happens to exist, with an
+explicit fallback that researches the city directly when it does not. The
+spine is now seven steps, and Partners sits under its own Optional heading in
+the sidebar, between the steps and the reference pages.
+
+The page says so in its own words. The eyebrow reads Optional rather than a
+step number, the opening line is that none of it is needed to send the
+newsletter, and a note says to skip it for as long as you like and come back
+when you want to host an event, find a speaker, or grow past the list you
+have. The home page keeps Partners as a separate row under "Optional, in your
+own time". The weekly cycle's onward link is labelled "Optional, later"
+rather than "Next". The two week plan row reads "Optional: partners,
+whenever you want venues and speakers. Not needed to send."
+
+Two accuracy fixes fell out of it. The newsletter page said the monthly
+opportunities run sweeps "the organizations in your partner map", which
+assumed every lead has one; it now says "if you have built one" and names
+what happens otherwise. The ctc-partner-map package is marked Optional in
+both the install list and Downloads.
+
 ## 10.1.1 - 2026-09-12
 
 Four of the install screenshots re-taken so they show what a new account

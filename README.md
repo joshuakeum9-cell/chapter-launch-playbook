@@ -27,9 +27,10 @@ no backend, no account connection, and stores nothing.
 
 ## Pages
 
-Eleven static pages. The eight steps are numbered in the order a lead works
-through them and carry a previous and next pair; the two reference pages do
-not.
+Eleven static pages. The seven steps are numbered in the order a lead works
+through them and carry a previous and next pair. Partners and the two
+reference pages are not numbered: the newsletter does not depend on the
+partner map, so making it step 08 of 08 misrepresented it.
 
 | Page | Path | Holds |
 |---|---|---|
@@ -41,7 +42,7 @@ not.
 | 05 Set up | `/set-up/` | The nine questions, the two documents |
 | 06 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
 | 07 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
-| 08 Partners | `/partners/` | City resources, partner map, outreach |
+| Partners | `/partners/` | City resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
 | Downloads | `/downloads/` | Packages and the nine samples |
 
@@ -70,6 +71,9 @@ Claude's work, white marks the lead's, the tint marks both.
   written to the browser.
 - Nothing invented: every claim about what a skill does traces to that skill's
   own `SKILL.md`. Gaps are marked TODO in the source rather than papered over.
+- Required means required. A page only joins the numbered spine when a lead
+  cannot send the newsletter without it. Partners is optional and is labelled
+  that way in the sidebar, on the home page, in the plan, and on its own page.
 - Every step that produces a file shows a What you get back card built from
   the real sample in `downloads/samples/`, with Preview and Download beside it.
   Preview renders the whole file, page by page, from the same document the
