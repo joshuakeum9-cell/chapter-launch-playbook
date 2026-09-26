@@ -217,7 +217,7 @@ function closeFile() {
 
 /* ---------- old anchors from the single-page version ---------- */
 var LEGACY = {
-  "apply": "apply/", "plan": "two-weeks/", "logo": "logo/", "install": "install/", "setup": "set-up/",
+  "apply": "two-weeks/", "plan": "two-weeks/", "logo": "logo/", "install": "install/", "setup": "set-up/",
   "newsletter": "newsletter/", "monthly": "newsletter/#opportunities",
   "cycle": "weekly-cycle/", "collect": "weekly-cycle/#collect", "cut": "weekly-cycle/#cut",
   "write": "weekly-cycle/#write", "sample": "weekly-cycle/#sample", "send": "weekly-cycle/#send",

@@ -27,40 +27,45 @@ no backend, no account connection, and stores nothing.
 
 ## Pages
 
-Eleven static pages. The seven steps are numbered in the order a lead works
+Ten static pages. The six steps are numbered in the order a lead works
 through them and carry a previous and next pair. Partners and the two
 reference pages are not numbered: the newsletter does not depend on the
-partner map, so making it step 08 of 08 misrepresented it.
+partner map. The former step 01, Is this you?, was recruitment framing and
+was cut in v13; its definition of done lives on the Two weeks page.
 
 | Page | Path | Holds |
 |---|---|---|
 | Home | `/` | The numbered map, the counts, one statement |
-| 01 Is this you? | `/apply/` | What the role asks, what it gives, what done looks like. No apply link: applications are not taken through this site |
-| 02 Two weeks | `/two-weeks/` | The plan table |
-| 03 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
-| 04 Install | `/install/` | The three packages, the extension, the verify prompt |
-| 05 Set up | `/set-up/` | The nine questions, the two documents |
-| 06 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
-| 07 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
+| 01 Two weeks | `/two-weeks/` | The plan table and what done looks like |
+| 02 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
+| 03 Install | `/install/` | The three packages, the extension, the verify prompt |
+| 04 Set up | `/set-up/` | The nine questions, the two documents |
+| 05 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
+| 06 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
 | Partners | `/partners/` | City resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
 | Downloads | `/downloads/` | Packages and the nine samples |
 
 Every anchor from the old single page (`/#setup`, `/#cycle`, and so on) is
-redirected by the home page to the matching new page.
+redirected by the home page to the matching new page; `/#apply` and the
+retired `/apply/` address land on Two weeks.
 
 ## Design
 
-Mintlify-derived system (DESIGN-mintlify.md), laid out as documentation: a
-56px top bar, a 232px sidebar carrying the numbered steps with the current
-one marked in the mint tint, content in a 760px column. Inter for prose with
-Geist Mono for every prompt and filename, white canvas with `#f7f7f7`
-surfaces and hairline borders, black pill buttons with the mint `#00d4a4`
-accent reserved for the primary CTA, checkmarks, the current step and the
-input focus ring, the sky gradient only on the home hero, the orange
-`#f55a3c` card for the one statement, 12px card radius, 8px code blocks in
-`#1c1c1e` with header-bar copy buttons, uppercase 11px eyebrows. Orange marks
-Claude's work, white marks the lead's, the tint marks both.
+The visual language of climatetechcities.com, extracted from that site's own
+stylesheets into `DESIGN-climate-tech-cities.md` and applied to the playbook's
+docs layout. One olive ink `#25331a` for text, borders and dark surfaces; cream
+`#f5f4e9` ground with paper `#fefefd` and panel `#fcfcf9` surfaces; lavender
+`#e2bdff` for the current step and the copy buttons; coral `#ef653a` for
+Claude's work, darkened to `#c24d1c` under paper text. Mulish at 300, 400 and
+700 stands in for Halyard Display, which is licensed to the CTC domain: 18px
+base, weight 300 for prose and headings, `.05em` tracking on ledes and `.02em`
+on headings. Square corners everywhere (every `--r-*` token is `0`) and no
+shadows (every `--shadow-*` token is `none`); depth is a change of ground
+colour. Buttons are 2px olive outlines that fill on hover. Geist Mono is kept
+for prompts and filenames only. Layout: a 64px top bar, a 236px sidebar with
+the numbered steps, the current one on a lavender tint with an olive rule,
+content in a 780px column.
 
 ## Standing rules
 
@@ -74,6 +79,9 @@ Claude's work, white marks the lead's, the tint marks both.
 - Required means required. A page only joins the numbered spine when a lead
   cannot send the newsletter without it. Partners is optional and is labelled
   that way in the sidebar, on the home page, in the plan, and on its own page.
+- Only what helps someone run the process. Recruitment framing, slogans and
+  illustrative asides come out; a line stays if a lead acts on it or checks
+  against it.
 - Every step that produces a file shows a What you get back card built from
   the real sample in `downloads/samples/`, with Preview and Download beside it.
   Preview renders the whole file, page by page, from the same document the
@@ -89,7 +97,9 @@ Claude's work, white marks the lead's, the tint marks both.
 - `index.html` and one `index.html` per page directory, listed above. No
   framework, no build step: the shell (top bar, sidebar, footer, viewer) is
   written into each file, so a change to the navigation is a change to all
-  eleven
+  ten
+- `DESIGN-climate-tech-cities.md`, the design system the skin follows,
+  extracted from climatetechcities.com on 2026-09-26
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve
