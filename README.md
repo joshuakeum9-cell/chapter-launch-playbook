@@ -52,20 +52,27 @@ retired `/apply/` address land on Two weeks.
 
 ## Design
 
-The visual language of climatetechcities.com, extracted from that site's own
-stylesheets into `DESIGN-climate-tech-cities.md` and applied to the playbook's
-docs layout. One olive ink `#25331a` for text, borders and dark surfaces; cream
-`#f5f4e9` ground with paper `#fefefd` and panel `#fcfcf9` surfaces; lavender
-`#e2bdff` for the current step and the copy buttons; coral `#ef653a` for
-Claude's work, darkened to `#c24d1c` under paper text. Mulish at 300, 400 and
-700 stands in for Halyard Display, which is licensed to the CTC domain: 18px
-base, weight 300 for prose and headings, `.05em` tracking on ledes and `.02em`
-on headings. Square corners everywhere (every `--r-*` token is `0`) and no
-shadows (every `--shadow-*` token is `none`); depth is a change of ground
-colour. Buttons are 2px olive outlines that fill on hover. Geist Mono is kept
-for prompts and filenames only. Layout: a 64px top bar, a 236px sidebar with
-the numbered steps, the current one on a lavender tint with an olive rule,
-content in a 780px column.
+The visual language of climatetechcities.com, extracted element by element
+from that site's own stylesheets into `DESIGN-climate-tech-cities.md` and
+applied to the playbook's docs layout. Content on paper `#fefefd`, cream
+`#f5f4e9` for bands, callouts, the city field and the footer. Headings pure
+black, as in CTC's white-bold sections; prose in the olive ink `#25331a`.
+Coral `#ef653a` marks Claude's work and the install screenshot annotations,
+darkened to `#c24d1c` under paper text; lavender `#e2bdff` for the copy
+buttons on the dark prompt bands.
+
+Type is Mulish standing in for Halyard Display, which is licensed to the CTC
+domain. Mulish runs one weight step heavier than the Halyard value it
+replaces, because Halyard 300 is much sturdier than Mulish 300: prose 400,
+page titles 500, section heads 600, step titles, card titles and labels 700.
+Letter-spacing `.03em` on prose, `.04em` on ledes, `.015em` on headings.
+
+Square corners, except CTC's secondary button, which is a 1px pill (the
+Preview buttons). Primary buttons are a 2px square outline that fills on
+hover. The only shadow is the one the site owner's chapter grid uses on its
+cards, `0 1px 4px rgba(37,51,26,.06)`. The current step is bold and
+underlined, as CTC marks its active nav item. The help accordion uses CTC's
+dividers with a left chevron. Geist Mono is kept for prompts and filenames.
 
 ## Standing rules
 

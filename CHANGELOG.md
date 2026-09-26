@@ -2,6 +2,31 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 13.1.0 - 2026-09-26
+
+Heavier type, and CTC's elements taken one by one from their stylesheets.
+
+The weight was wrong. CTC sets Halyard Display at 300, but Halyard 300 has
+far sturdier strokes than Mulish 300, so copying the number made everything
+spindly. Mulish now runs one step heavier than the Halyard value it replaces,
+and CTC's own variation is kept: big display heads lighter, small heads bold,
+as their chapters page does with 700 city names. Prose 400, page titles 500,
+section heads 600, step titles, card titles and labels 700. Mulish loads at
+400 through 800.
+
+Element by element, from their theme maps and rules rather than a screenshot:
+headings are pure black on paper, as in CTC's white-bold sections, with body
+text in the olive ink; content sits on paper #fefefd, with cream #f5f4e9 kept
+for bands, callouts, the city field and the footer, as their site does. The
+current step is bold and underlined, which is how CTC marks its active nav
+item; the lavender tint that replaced it in 13.0 was invented and is gone.
+Secondary buttons, the Preview buttons, are CTC's 1px pill; primary buttons
+stay their 2px square outline, now at weight 600. Cards take the faint shadow
+the site owner's own chapter grid uses, 0 1px 4px at 6% ink, and nothing else
+has a shadow. The help page uses CTC's accordion: divider lines, no boxes,
+the chevron on the left. The annotation boxes in the six install screenshots
+were mint from the old palette and are now coral.
+
 ## 13.0.0 - 2026-09-26
 
 The site now looks like climatetechcities.com. The visual language was taken

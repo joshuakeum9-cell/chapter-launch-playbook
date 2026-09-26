@@ -285,7 +285,19 @@ None observed. The site has no error, success or warning states in view.
 `halyard-display` from Adobe Fonts, loaded through a Typekit kit locked to the climatetechcities.com domain. Weights present: 300, 400, 700. Fallback stack in the theme is the generic sans-serif.
 
 ### Note on Font Substitutes
-Halyard Display is licensed and cannot be loaded on another domain. **Mulish** (Google Fonts, weights 300, 400, 700) is the closest open substitute: a geometric-humanist sans with a similar x-height, open apertures and a genuinely thin 300. Set it with the same `.05em` body tracking and `.02em` heading tracking and the rhythm holds.
+Halyard Display is licensed and cannot be loaded on another domain. **Mulish** (Google Fonts) is the closest open substitute: a geometric-humanist sans with a similar x-height and open apertures.
+
+**Do not copy the weight numbers across.** Halyard 300 has much sturdier strokes than Mulish 300; set one for one, Mulish reads spindly. Run Mulish one step heavier than the Halyard value it replaces, and keep CTC's variation (big display heads light, small heads bold):
+
+| CTC role | Halyard | Mulish |
+|---|---|---|
+| Running prose | 300 | 400 |
+| Large display heading | 300 | 500 |
+| Section heading | 300 | 600 |
+| Small heading, city name, card title | 700 | 700 |
+| Inline label | 700 | 700 to 800 |
+| Primary button | 400 | 600 |
+| Secondary pill | 300 | 500 |
 
 ### Hierarchy
 
@@ -313,6 +325,29 @@ Squarespace derives the heading sizes from four multipliers on the 18px base, `-
 - Positive tracking everywhere, tighter on headings (.02em) than on body (.05em).
 - Headings and body share one family; hierarchy is size and space, never a second face.
 - No uppercase transforms in the theme; the one uppercase tag is the owner's addition.
+
+### Section Themes
+Squarespace 7.1 colours every section from a named theme. The resolved values, from `site.css`:
+
+| Theme | Background | Headings | Paragraphs | Primary button | Where CTC uses it |
+|---|---|---|---|---|---|
+| `:root` | cream `#f5f4e9` | olive `#25331a` | olive | olive fill, white text | the site ground, the footer |
+| `white-bold` | paper `#fefefd` | black `#000000` | olive | black | most content sections |
+| `light` | cream | olive | olive | black | |
+| `bright` | lavender `#e2bdff` | black | black | black, lavender text | the first home section |
+| `dark` | coral `#ef653a` | paper | paper | lavender, black text | |
+| `black` | olive `#25331a` | paper | paper | white, olive text | the sign-up band |
+
+Home runs `bright > white-bold > white > white-bold > white > white-bold > black > white`: mostly paper with black headings, one olive band.
+
+### Element Details
+- **Active nav item:** the link text underlined in its own colour, `text-decoration: underline`, 1px at the baseline. No background tint.
+- **Primary button:** outline, `--primary-button-stroke: 2px`, padding `1.2em 2.004em`, font `1.25` times base at 400, `.02em` tracking.
+- **Secondary button:** `--secondary-button-stroke: 1px`, padding `1.2em .5em`, rendered as a 300px pill, weight 300.
+- **Owner's card grid:** `#fcfcf9` panel, square, padding `36px 32px 40px`, shadow `0 1px 4px rgba(37,51,26,.06)`, h2 `1.6rem` in olive, p `1.1rem` in `#55554e` at 1.6 leading, grid gap 28px, 3 to 2 to 1 columns at 900 and 580px.
+- **Accordion:** no boxes; `accordion-divider` lines in `currentColor` between items; the chevron icon can sit left.
+- **Section padding:** `6.6vmax` top and bottom for medium sections, `3.3vmax` small, `10vmax` large.
+- **Links in body and footer:** a 1px `currentColor` underline, animated in from the centre on hover by the owner's custom CSS.
 
 ## Layout
 
