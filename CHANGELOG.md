@@ -2,6 +2,14 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 13.2.1 - 2026-09-26
+
+The stylesheet and script links carry the release number,
+`assets/site.css?v=13.2.1`. GitHub Pages tells browsers to reuse those files
+for ten minutes, so without it anyone who had visited recently saw the old
+styles after a release and could reasonably think the change had not landed.
+Bump the number on every release that touches either file.
+
 ## 13.2.0 - 2026-09-26
 
 Softer corners, and a sidebar that never moves.

@@ -13,6 +13,12 @@ already (2026-09-26, rebuilt from memory). It should move into the repo, in a
 `tools/` directory that Pages does not serve, so the next session does not
 have to rebuild it.
 
+## Bump the asset version on every release
+
+Every page links `assets/site.css?v=X` and `assets/site.js?v=X`. When either
+file changes, bump X on all ten pages in the same commit, or returning
+visitors keep the old copy for up to ten minutes.
+
 ## The navigation shell is repeated in eleven files
 
 By design, to keep the site free of a build step. A change to the sidebar or
