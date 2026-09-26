@@ -35,7 +35,7 @@ partner map, so making it step 08 of 08 misrepresented it.
 | Page | Path | Holds |
 |---|---|---|
 | Home | `/` | The numbered map, the counts, one statement |
-| 01 Apply | `/apply/` | Is this you |
+| 01 Is this you? | `/apply/` | What the role asks, what it gives, what done looks like. No apply link: applications are not taken through this site |
 | 02 Two weeks | `/two-weeks/` | The plan table |
 | 03 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
 | 04 Install | `/install/` | The three packages, the extension, the verify prompt |

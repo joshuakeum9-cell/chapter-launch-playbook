@@ -6,6 +6,13 @@ matching the skill), the opportunities cadence (monthly on the page and in the
 skill), the logo section's time estimate (deleted), and the two retired v1
 repositories (deleted on GitHub).
 
+## The verification script lives outside the repo
+
+`verify_site.py` is kept in the session scratchpad and has been lost once
+already (2026-09-26, rebuilt from memory). It should move into the repo, in a
+`tools/` directory that Pages does not serve, so the next session does not
+have to rebuild it.
+
 ## The navigation shell is repeated in eleven files
 
 By design, to keep the site free of a build step. A change to the sidebar or

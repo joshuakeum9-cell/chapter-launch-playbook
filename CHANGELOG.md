@@ -2,6 +2,28 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 12.0.0 - 2026-09-26
+
+The apply call to action is off the site. The green Apply button in the top
+bar of every page, the Apply link in every footer, the Apply to lead a chapter
+button in the home hero and the one at the foot of step 01 are all gone, and
+with them the link to the volunteer form. The home hero keeps one button,
+Start at step 01, now the primary. The two places that same form URL appears
+inside the sample newsletter, the Join the fun block on the weekly cycle page
+and the shipped sample HTML, are newsletter content and stay as they are.
+
+Step 01 was labelled Apply in the sidebar, the home map and the step 02 back
+link. With no apply action on the site that label pointed at nothing, so it
+now reads Is this you?, which is the page's own heading. The home map's
+description for it becomes what the role asks, and what done looks like. The
+page's directory is still /apply/ so nothing shared breaks.
+
+The home heading is in title case: Start a Climate Tech Chapter in Your City.
+
+The verification script was rebuilt after the session scratchpad that held
+it was cleared; it now also fails if an Apply link or the apply URL returns
+anywhere outside the sample issue.
+
 ## 11.0.0 - 2026-09-12
 
 Partners is no longer a numbered step. It was 08 of 08, which read as
