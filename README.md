@@ -67,9 +67,12 @@ replaces, because Halyard 300 is much sturdier than Mulish 300: prose 400,
 page titles 500, section heads 600, step titles, card titles and labels 700.
 Letter-spacing `.03em` on prose, `.04em` on ledes, `.015em` on headings.
 
-Square corners, except CTC's secondary button, which is a 1px pill (the
-Preview buttons). Primary buttons are a 2px square outline that fills on
-hover. The only shadow is the one the site owner's chapter grid uses on its
+Corners come from a scale rather than CTC's literal square, which read
+harsh: circles for markers (CTC's own icon vocabulary), 12px for cards and
+blocks, 8px for buttons and inputs, 4px for badges, and CTC's 1px pill for
+the secondary Preview buttons. Primary buttons are a 2px outline that fills
+on hover. The sidebar, city field included, is identical on every page so it
+never shifts. The only shadow is the one the site owner's chapter grid uses on its
 cards, `0 1px 4px rgba(37,51,26,.06)`. The current step is bold and
 underlined, as CTC marks its active nav item. The help accordion uses CTC's
 dividers with a left chevron. Geist Mono is kept for prompts and filenames.

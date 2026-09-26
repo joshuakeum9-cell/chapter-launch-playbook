@@ -2,6 +2,26 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 13.2.0 - 2026-09-26
+
+Softer corners, and a sidebar that never moves.
+
+CTC's theme is square, and taken literally that read harsh, most of all on
+small things like the numbered markers. Corners now come from a scale: the
+question numbers, step numbers, check ticks, the brand dot and the viewer's
+close button are circles, which is CTC's own icon vocabulary (their chapter
+grid glyphs are built from circles); cards, notes, prompt blocks, the home
+map rows, the pager, screenshots, the diagram and the city field take 12px;
+buttons, file rows and inputs 8px; badges, tags, code and thumbnails 4px;
+the file viewer 16px, square again when it fills a phone screen. The Preview
+buttons keep CTC's pill.
+
+The city field appeared only on pages with prompts, so moving between steps
+shifted the whole step list down and up by its height. It is now on every
+page. Where a page has no prompts it still carries the city through every
+link. The verifier fails if any two sidebars differ by more than which step
+is marked current.
+
 ## 13.1.0 - 2026-09-26
 
 Heavier type, and CTC's elements taken one by one from their stylesheets.
