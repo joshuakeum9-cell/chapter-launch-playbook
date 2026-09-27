@@ -2,6 +2,17 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 13.3.0
+
+The home page, rebuilt from CTC's own visuals (read from climatetechcities.com's markup, not screenshots).
+
+- Hero: CTC's rounded-pentagon shape block (their exact path, their fill `#233b10`) with a lavender circle and a coral dot. Laid over it, where CTC puts a photo, is a card from the real sample issue; it opens the full issue in the viewer.
+- The six steps are CTC's chapter-grid tiles: a lavender panel with a line drawing, the number in a circle, the name in bold beneath. Each says when it happens (Week 1, Week 2, Weeks 1-2, Every week), taken from the Two weeks plan. The weekly step sits on olive.
+- Partners is its own cream card below the grid, marked Optional and "Not needed to send the newsletter".
+- New olive band in CTC's black theme: the weekly loop (Collect, Cut, Assemble and write, Send, each tagged Claude, You or Both as on the Weekly cycle page) with a return line, the counts in large lavender numerals, and CTC's lavender newsletter button.
+- Hero eyebrow shortened to "For chapter leads"; the top bar already says Climate Tech Cities.
+- Phones: the issue card drops into the flow under the pentagon, tiles and loop stack to one column. Checked at 375px with no sideways scroll.
+
 ## 13.2.1 - 2026-09-26
 
 The stylesheet and script links carry the release number,

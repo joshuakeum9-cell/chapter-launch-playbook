@@ -453,3 +453,10 @@ Two-column sections stack image over copy. Section padding scales with the viewp
 - Global fade animations run at 0.8s with a 1s delay; hover and scroll timings beyond that were not measured.
 - Chapter detail pages and the About and Partners pages were not harvested; the home, chapters and programs pages were.
 - Some primary buttons compute to pure black `#000000` for text and border while others use the olive; the theme's safeDarkAccent decides, and no rule for which is which was found.
+
+## Signature shapes (read from the home page markup)
+
+- **Rounded pentagon.** Squarespace shape block `data-shape-name="rounded-pentagon"`, viewBox 0 0 100 100, path `M36.1 4.1a28.3 28.3 0 0127.8 0 279.7 279.7 0 0126.4 19.6c6.9 6 10.8 18 8.6 27a289.4 289.4 0 01-10.1 31.7A28.8 28.8 0 0166.3 99a273.8 273.8 0 01-32.6 0c-9-.6-19.1-8.1-22.5-16.6A289.4 289.4 0 011.1 50.7c-2.2-9 1.7-21 8.6-27A279.7 279.7 0 0136 4.1z`. Fill `hsla(93.49, 57.33%, 14.71%, 1)` = `#233b10`, a touch greener than the ink. Used twice: behind the hero photo (white-bold section) and behind the newsletter sign-up (black section).
+- **Chapter tiles.** "Discover, Subscribe, Engage." grid: square lavender images with a small green building drawing, city name beneath as an h4 link (700).
+- **Black section.** `--siteBackgroundColor` is the theme black `#25331a`; headings and paragraphs white `#fefefd`; the newsletter button is lavender text and a 2px lavender outline.
+

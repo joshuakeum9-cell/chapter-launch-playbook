@@ -23,6 +23,7 @@
   --coral-tint: rgba(239, 101, 58, 0.14);
   --coral-line: rgba(239, 101, 58, 0.45);
   --leaf: #d1ecbc;
+  --blob: #233b10;                 /* their shape block fill, hsla(93.49, 57.33%, 14.71%) */
   --on-dark: #fefefd;
   --on-dark-muted: rgba(254, 254, 253, 0.72);
   /* attribution scheme: Claude is coral, you are paper, both is the tint */
@@ -277,22 +278,97 @@ ul.dl-list li:last-child { border-bottom: none; }
 ul.dl-list li > span:first-child { flex: 1 1 16em; }
 ul.dl-list a { color: var(--black); font-weight: 600; }
 
-/* ---------- home: a cream band, then paper ---------- */
-.hero { background: var(--cream); }
-.hero-wrap { max-width: 1280px; margin: 0 auto; padding: 104px 5vw 88px; text-align: center; }
-.hero h1 { font-size: clamp(2.6rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.12; letter-spacing: 0.01em; color: var(--black); max-width: 15em; margin: 0 auto; }
-.hero .sub { font-size: 1.25rem; font-weight: 400; line-height: 1.45; letter-spacing: 0.04em; color: var(--ink); max-width: 30em; margin: 22px auto 0; }
-.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
-.home { max-width: 1280px; margin: 0 auto; padding: 76px 5vw 100px; }
-.map { list-style: none; margin-top: 24px; display: grid; gap: 12px; max-width: 680px; }
-.map a { border-radius: var(--r-md); display: flex; align-items: baseline; gap: 16px; padding: 20px 22px; background: var(--panel); border: 1px solid var(--hairline); box-shadow: var(--card-shadow); text-decoration: none; color: var(--ink); transition: border-color 150ms ease; }
-.map a:hover { border-color: var(--ink); }
-.map .n { font-size: 14px; font-weight: 700; color: var(--stone); width: 26px; flex: 0 0 auto; letter-spacing: 0.04em; }
-.map .t { font-size: 19px; font-weight: 700; flex: 0 0 auto; width: 9em; letter-spacing: 0.01em; color: var(--black); }
-.map .d { font-size: 15px; color: var(--slate); flex: 1 1 auto; }
-.map .arrow { color: var(--ink); flex: 0 0 auto; }
-.counts { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 40px; font-size: 16px; color: var(--slate); letter-spacing: 0.03em; }
-.counts b { font-weight: 800; color: var(--black); }
+/* ---------- home: cream hero, paper steps, olive band (CTC's section order) ---------- */
+/* hero: CTC lays a photo over their rounded-pentagon shape block; here it is the issue you will send */
+.hero { background: var(--cream); overflow: hidden; }
+.hero-wrap { max-width: 1280px; margin: 0 auto; padding: 76px 5vw 84px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 4.6vw, 3.9rem); font-weight: 500; line-height: 1.08; letter-spacing: 0.01em; color: var(--black); max-width: 11em; margin: 16px 0 0; }
+.hero .sub { font-size: 1.25rem; font-weight: 400; line-height: 1.45; letter-spacing: 0.04em; color: var(--ink); max-width: 26em; margin: 24px 0 0; }
+.hero .eyebrow { color: var(--ink); }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+.hero-art { position: relative; height: 480px; }
+.hero-art .blob { position: absolute; right: 0; top: 0; width: min(430px, 86%); height: auto; aspect-ratio: 1; fill: var(--blob); }
+.hero-art .orb { position: absolute; right: min(372px, 74%); top: 22px; width: 84px; height: 84px; border-radius: var(--r-full); background: var(--lavender); }
+.hero-art .spark { position: absolute; right: 14px; bottom: 40px; width: 22px; height: 22px; border-radius: var(--r-full); background: var(--coral); }
+.peek {
+  position: absolute; left: 0; bottom: 0; width: min(340px, 80%); display: block; padding: 0; text-align: left; cursor: pointer;
+  font-family: var(--sans); letter-spacing: 0.02em; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--card-shadow);
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+.peek:hover { transform: translateY(-3px); border-color: var(--ink); }
+.peek span { display: block; }
+.peek .pt .nw { display: inline; white-space: nowrap; }
+.peek .ph { background: var(--lavender); padding: 16px 20px 15px; }
+.peek .k { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.peek .pt { font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--black); margin-top: 5px; }
+.peek .pb { padding: 14px 20px 16px; }
+.peek .sec { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.peek .day { font-size: 13px; font-weight: 700; color: var(--black); margin-top: 10px; }
+.peek .ev { font-size: 14px; line-height: 1.45; color: var(--ink); margin-top: 3px; }
+.peek .go { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hairline); font-size: 14px; font-weight: 700; color: var(--black); }
+
+/* steps: CTC's chapter grid, a lavender tile with a line drawing and the name in bold beneath */
+.home { max-width: 1280px; margin: 0 auto; padding: 96px 5vw 104px; }
+.home h2, .band h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.15; margin: 10px 0 0; max-width: 18em; }
+.tiles { list-style: none; margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tiles a {
+  position: relative; display: flex; flex-direction: column; height: 100%; text-decoration: none; color: var(--ink);
+  background: var(--panel); border: 1px solid var(--hairline); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--card-shadow);
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+.tiles a:hover { transform: translateY(-3px); border-color: var(--ink); }
+.tiles .art { display: flex; align-items: center; justify-content: center; height: 150px; background: var(--lavender); color: var(--ink); }
+.art svg { width: 64px; height: 64px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.art svg .solid { fill: currentColor; stroke: none; }
+.tiles .n { position: absolute; top: 14px; left: 14px; width: 38px; height: 38px; border-radius: var(--r-full); background: var(--paper); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; letter-spacing: 0.02em; }
+.tiles .when { position: absolute; top: 25px; right: 16px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.tiles .t { font-size: 20px; font-weight: 700; letter-spacing: 0.01em; color: var(--black); padding: 18px 20px 0; }
+.tiles .t::after { content: "\2192"; margin-left: 8px; opacity: 0; transition: opacity 150ms ease; }
+.tiles a:hover .t::after { opacity: 1; }
+.tiles .d { font-size: 15px; line-height: 1.5; color: var(--slate); padding: 4px 20px 22px; }
+/* the recurring step is the one on the olive ground */
+.tiles li.every .art { background: var(--ink); color: var(--lavender); }
+.tiles li.every .when { color: var(--lavender); }
+.optional {
+  margin-top: 20px; display: flex; align-items: center; gap: 22px; padding: 18px 26px 18px 18px; text-decoration: none; color: var(--ink);
+  background: var(--cream); border: 1px solid var(--hairline); border-radius: var(--r-md); transition: border-color 150ms ease;
+}
+.optional:hover { border-color: var(--ink); }
+.optional .art { flex: 0 0 auto; width: 76px; height: 76px; border-radius: var(--r-full); background: var(--paper); display: flex; align-items: center; justify-content: center; color: var(--ink); }
+.optional .art svg { width: 40px; height: 40px; }
+.optional .txt { flex: 1 1 auto; display: block; }
+.optional .when { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); border-radius: var(--r-pill); padding: 2px 10px; }
+.optional .t { display: block; font-size: 20px; font-weight: 700; color: var(--black); margin-top: 6px; }
+.optional .d { display: block; font-size: 15px; color: var(--slate); }
+.optional .arrow { flex: 0 0 auto; font-size: 20px; color: var(--ink); }
+
+/* band: CTC's black theme, an olive ground with paper type and a lavender accent */
+.band { position: relative; overflow: hidden; background: var(--ink); color: var(--paper); }
+.band-blob { position: absolute; right: -120px; top: -250px; width: 440px; height: auto; aspect-ratio: 1; fill: rgba(254, 254, 253, 0.04); }
+.band-wrap { position: relative; max-width: 1280px; margin: 0 auto; padding: 96px 5vw 88px; }
+.band .eyebrow { color: var(--lavender); }
+.band h2 { color: var(--paper); max-width: 24em; }
+.loop { list-style: none; margin-top: 44px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.loop li { position: relative; padding: 20px 20px 22px; border-radius: var(--r-md); background: rgba(254, 254, 253, 0.05); border: 1px solid var(--hairline-dark); }
+.loop li:not(:last-child)::after { content: ""; position: absolute; right: -19px; top: 50%; width: 9px; height: 9px; border-top: 2px solid var(--lavender); border-right: 2px solid var(--lavender); transform: translateY(-50%) rotate(45deg); }
+.loop b { display: block; font-size: 21px; font-weight: 700; line-height: 1.25; color: var(--paper); margin-top: 14px; letter-spacing: 0.01em; }
+.loop li > span:last-child { display: block; font-size: 15px; line-height: 1.45; color: var(--on-dark-muted); margin-top: 5px; }
+.band .who.both { background: transparent; color: var(--paper); border: 1px solid var(--coral); }
+/* the return line: from Send back up into Collect */
+.loop-back { position: relative; height: 30px; margin: 14px calc((100% - 84px) / 8) 0; border: 2px solid var(--lavender); border-top: 0; border-radius: 0 0 var(--r-lg) var(--r-lg); }
+.loop-back::before { content: ""; position: absolute; left: -8px; top: -9px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 10px solid var(--lavender); }
+.loop-back span { position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); padding: 0 14px; background: var(--ink); font-size: 12px; font-weight: 800; line-height: 18px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); white-space: nowrap; }
+.band-foot { margin-top: 64px; padding-top: 34px; border-top: 1px solid var(--hairline-dark); display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap; }
+.counts { display: flex; gap: 44px; flex-wrap: wrap; font-size: 16px; color: var(--on-dark-muted); letter-spacing: 0.03em; }
+.counts b { display: block; font-size: 2.8rem; font-weight: 600; line-height: 1; color: var(--lavender); margin-bottom: 8px; letter-spacing: 0.01em; }
+.band-ctas { margin-left: auto; display: flex; gap: 12px; flex-wrap: wrap; }
+/* CTC's newsletter button on the dark band: lavender */
+.btn.lav { background: var(--lavender); border-color: var(--lavender); color: var(--black); }
+.btn.lav:hover { background: transparent; color: var(--lavender); }
+.btn.lav-line { border-color: var(--lavender); color: var(--lavender); }
+.btn.lav-line:hover { background: var(--lavender); color: var(--black); }
+@media (max-width: 1100px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- diagram, legend, sample issue, qlist, faq ---------- */
 .diagram { border-radius: var(--r-md); background: var(--paper); border: 1px solid var(--hairline); padding: 22px; margin-top: 24px; }
@@ -388,10 +464,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .top-links a:not(.btn):not(.menu-btn) { display: none; }
   .brand .thin { display: none; }
   .main { padding: 28px 0 72px; }
-  .hero-wrap { padding: 64px 6vw 56px; }
-  .home { padding: 48px 6vw 72px; }
-  .map .t { width: auto; }
-  .map .d { flex-basis: 100%; }
+  .hero-wrap { grid-template-columns: 1fr; gap: 36px; padding: 48px 6vw 56px; }
+  .hero-art { height: 440px; max-width: 520px; }
+  .home { padding: 64px 6vw 72px; }
+  .band-wrap { padding: 64px 6vw; }
+  .band-blob { width: 300px; right: -120px; top: -90px; }
+  .loop { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .loop li:not(:last-child)::after, .loop-back { display: none; }
+  .band-foot { margin-top: 44px; }
+  .band-ctas { margin-left: 0; }
   .footer-inner { padding: 26px 6vw; }
   .backdrop { padding: 0; align-items: stretch; }
   .modal { max-width: none; max-height: 100vh; height: 100vh; border: none; border-radius: 0; }
@@ -399,4 +480,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .issue { padding: 18px; }
   .pager { grid-template-columns: 1fr; }
   .pager a.next, .pager a.prev { grid-column: 1; text-align: left; }
+}
+@media (max-width: 600px) {
+  .hero-art { height: auto; padding-top: 70px; }
+  .hero-art .blob { width: 74%; }
+  .hero-art .orb { right: auto; left: 4%; top: 6px; width: 62px; height: 62px; }
+  .hero-art .spark { right: 4px; bottom: 26px; }
+  .peek { position: relative; width: 90%; }
+  .tiles { grid-template-columns: 1fr; }
+  .tiles .art { height: 124px; }
+  .loop { grid-template-columns: 1fr; }
+  .counts { gap: 28px; }
+  .counts b { font-size: 2.3rem; }
+  .optional { gap: 16px; padding: 16px; }
+  .optional .art { width: 60px; height: 60px; }
+  .optional .art svg { width: 32px; height: 32px; }
 }
