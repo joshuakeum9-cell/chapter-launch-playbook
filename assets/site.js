@@ -282,6 +282,13 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  document.querySelectorAll(".getback .scroll").forEach(function (s) {
+    function edge() { s.classList.toggle("more", s.scrollWidth - s.clientWidth - s.scrollLeft > 4); }
+    s.addEventListener("scroll", edge, { passive: true });
+    window.addEventListener("resize", edge);
+    edge();
+  });
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var items = document.querySelectorAll(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {

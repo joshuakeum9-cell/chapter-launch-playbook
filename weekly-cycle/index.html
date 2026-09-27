@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.0.0" />
+<link rel="stylesheet" href="../assets/site.css?v=14.1.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -45,7 +45,7 @@
   </aside>
   <main class="main">
     <div class="body">
-    <p class="eyebrow"><b>Step 06 of 06</b>, every week</p>
+    <p class="eyebrow"><span class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><b>Step 06 of 06</b>, every week</p>
     <h1>The weekly cycle</h1>
     <p class="lede">Claude does the lists. You write the words.</p>
 
@@ -58,54 +58,12 @@
 
     <p class="desc dim">The same prompt every week. It works out where you are, runs the right skill, and stops when it needs you. The step prompts below work too, if you would rather drive.</p>
 
-    <div class="diagram reveal">
-      <div class="legend-row">
-        <span><span class="swatch claude-box" aria-hidden="true"></span> Claude</span>
-        <span><span class="swatch you-box" aria-hidden="true"></span> You</span>
-      </div>
-      <div class="diagram-scroll">
-        <svg viewBox="0 0 900 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The weekly cycle in two lanes with four steps. Claude harvests events into a spreadsheet. You cut the sheet and upload it back. Both of you assemble and write the issue. You send it.">
-          <defs>
-            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 1 L 9 5 L 0 9 z" fill="#25331a"/>
-            </marker>
-          </defs>
-          <g font-family="Catamaran, sans-serif">
-            <text x="4" y="58" font-size="12" font-weight="600" fill="#55554e" letter-spacing="0.5">CLAUDE</text>
-            <text x="4" y="182" font-size="12" font-weight="600" fill="#55554e" letter-spacing="0.5">YOU</text>
-            <line x1="0" y1="116" x2="900" y2="116" stroke="#e4e4dc" stroke-width="1" stroke-dasharray="3 5"/>
-
-            <path d="M 250 88 L 292 148" stroke="#25331a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
-            <path d="M 436 148 L 478 122" stroke="#25331a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
-            <path d="M 664 116 L 706 152" stroke="#25331a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
-
-            <rect x="106" y="30" width="144" height="60" rx="10" fill="#c24d1c"/>
-            <text x="178" y="56" font-size="15" font-weight="600" fill="#fefefd" text-anchor="middle">Harvest</text>
-            <text x="178" y="76" font-size="11" fill="#fefefd" fill-opacity="0.85" text-anchor="middle">every source, one sweep</text>
-
-            <rect x="292" y="146" width="144" height="60" rx="10" fill="#fefefd" stroke="#9b9b94" stroke-width="1.5"/>
-            <text x="364" y="170" font-size="15" font-weight="600" fill="#25331a" text-anchor="middle">Cut</text>
-            <text x="364" y="188" font-size="11" fill="#55554e" text-anchor="middle">delete rows, flag picks,</text>
-            <text x="364" y="201" font-size="11" fill="#55554e" text-anchor="middle">upload it back</text>
-
-            <rect x="478" y="86" width="144" height="60" rx="10" fill="#fce9e2" stroke="#ef653a" stroke-width="1.5"/>
-            <text x="550" y="112" font-size="15" font-weight="600" fill="#25331a" text-anchor="middle">Assemble</text>
-            <text x="550" y="132" font-size="11" fill="#55554e" text-anchor="middle">both of you</text>
-
-            <rect x="706" y="146" width="144" height="60" rx="10" fill="#fefefd" stroke="#9b9b94" stroke-width="1.5"/>
-            <text x="778" y="172" font-size="15" font-weight="600" fill="#25331a" text-anchor="middle">Send</text>
-            <text x="778" y="192" font-size="11" fill="#55554e" text-anchor="middle">check, paste, send</text>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <div class="grid grid-4" style="margin-top:20px;">
-      <a class="card stepcard reveal" href="#collect"><span class="who claude">Claude</span><p class="card-title" style="margin-top:10px;">Collect</p><p>Every source in your registry, into one spreadsheet.</p></a>
-      <a class="card stepcard reveal" href="#cut"><span class="who you">You</span><p class="card-title" style="margin-top:10px;">Cut</p><p>Delete rows, flag picks, upload it back.</p></a>
-      <a class="card stepcard reveal" href="#write"><span class="who both">Both</span><p class="card-title" style="margin-top:10px;">Assemble and write</p><p>Claude lays out the issue. You fill the gaps it leaves.</p></a>
-      <a class="card stepcard reveal" href="#send"><span class="who you">You</span><p class="card-title" style="margin-top:10px;">Send</p><p>Check, paste into Substack, read once, send.</p></a>
-    </div>
+    <ol class="flow">
+      <li><a href="#collect"><span class="who claude">Claude</span><b>Collect</b><span class="d">Every source in your registry, into one spreadsheet.</span></a></li>
+      <li><a href="#cut"><span class="who you">You</span><b>Cut</b><span class="d">Delete rows, flag picks, upload it back.</span></a></li>
+      <li><a href="#write"><span class="who both">Both</span><b>Assemble and write</b><span class="d">Claude lays out the issue. You fill the gaps it leaves.</span></a></li>
+      <li><a href="#send"><span class="who you">You</span><b>Send</b><span class="d">Check, paste into Substack, read once, send.</span></a></li>
+    </ol>
 
     <h2 id="collect">Collect <span class="who claude">Claude</span></h2>
     <p class="desc">Claude sweeps every source in your registry and hands back a spreadsheet. Everything, unfiltered, on purpose: collecting and judging are separate jobs.</p>
@@ -380,6 +338,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.0.0"></script>
+<script src="../assets/site.js?v=14.1.0"></script>
 </body>
 </html>

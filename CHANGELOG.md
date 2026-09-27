@@ -2,6 +2,21 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 14.1.0
+
+Polish across all ten pages, for a cleaner, client-ready read.
+
+- One column, one right edge. Notes, prompts, question cards, screenshots, tables and paragraphs used to stop at four different widths; every block in a step page now fills the same 680px column.
+- Small buttons come as a matched pair: Download filled, Preview outline, both pills of the same size.
+- Previous and Next are lighter: a 1px border, arrows, and no dark flash on hover.
+- Claude, You and Both badges are sentence-case pills instead of uppercase chips; tags are pills too.
+- Check marks and question numbers use CTC's lavender instead of an off-palette mint.
+- File rows inside a "What you get back" card are rows, not boxes inside a box. Labels inside cards read as captions, not shouted uppercase.
+- Sample tables that scroll sideways fade at the right edge while there is more to see.
+- Weekly cycle: the lane diagram and the four step cards said the same thing and disagreed on a name (Harvest against Collect). One linked row, Collect, Cut, Assemble and write, Send, replaces both.
+- Each step page shows a six-segment progress bar beside "Step 0N of 06".
+- Home: the headline has room to sit on two lines.
+
 ## 14.0.0
 
 A calmer home page, a closer typeface, and no middle dots.
