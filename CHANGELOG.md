@@ -2,6 +2,16 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 14.0.0
+
+A calmer home page, a closer typeface, and no middle dots.
+
+- Type is now Catamaran, self-hosted under the SIL Open Font License. It was picked by measurement, not by eye alone: on climatetechcities.com, 60 Google fonts were drawn glyph by glyph against CTC's Halyard Display at stroke-matched weights. Mulish ranked 44th; Catamaran is closest in width (a test line ends at 415px against Halyard's 417px), x-height and texture. Its vertical metrics are overridden to Halyard's measured values (106% ascent, 28% descent) so text sits in buttons and lines as on CTC. Stroke-matched weights map one for one, so the heavier weights chosen in 13.1 keep their thickness. Catamaran only has old-style figures (3, 4, 7 and 9 drop below the line), where Halyard's are lining, so the digits 0-9 come from Gantari: the closest lining digits to Halyard among the same 60 fonts, figure height identical to Halyard's. It is cut down to the ten digits (4 KB) and declared in the same family, so nothing in the markup changes.
+- No middle dots anywhere in the site: page titles use a hyphen, the brand uses a thin rule, step labels read "Step 03 of 06, once", tags "Plugin, 5 skills", logo captions "Chicago's Willis Tower", sample-issue labels "Automated: title and subtitle". The verifier now fails on any middle dot or em dash.
+- Home, calmer: one pentagon with the sample issue centred on it (the lavender circle and coral dot are gone); no eyebrow labels; step tiles without boxes, chips or number circles, the number and name set beneath each drawing as in CTC's chapter grid; Partners is one quiet line marked Optional; the weekly loop is four columns of text with arrows, no boxes or badges; one button in the band.
+- The coral dot before the brand name is gone.
+- Downloads said "04 Install"; Install is step 03.
+
 ## 13.3.0
 
 The home page, rebuilt from CTC's own visuals (read from climatetechcities.com's markup, not screenshots).

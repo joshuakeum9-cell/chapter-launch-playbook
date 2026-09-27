@@ -25,85 +25,85 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 47.5px
     fontWeight: 300
     lineHeight: 1.13
     letterSpacing: 0.02em
   display-lg:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 37.7px
     fontWeight: 300
     lineHeight: 1.17
     letterSpacing: 0.02em
   heading-md:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 27.8px
     fontWeight: 300
     lineHeight: 1.21
     letterSpacing: 0.02em
   heading-md-bold:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 27.8px
     fontWeight: 700
     lineHeight: 1.21
     letterSpacing: 0.02em
   card-title:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 28.8px
     fontWeight: 300
     lineHeight: 1.3
     letterSpacing: 0
   body-lg:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 21.7px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0.05em
   body-md:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 20.5px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0.05em
   body-card:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 19.8px
     fontWeight: 300
     lineHeight: 1.6
     letterSpacing: 0.05em
   body-base:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 18px
     fontWeight: 300
     lineHeight: 1.2
     letterSpacing: 0
   label-bold:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 21.7px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0.05em
   nav-link:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 21.7px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0.05em
   button:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 21.1px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: 0.02em
   button-pill:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 18px
     fontWeight: 300
     lineHeight: 1.0
     letterSpacing: 0
   micro:
-    fontFamily: "halyard-display, Mulish, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "halyard-display, Catamaran, 'Helvetica Neue', Arial, sans-serif"
     fontSize: 13.5px
     fontWeight: 300
     lineHeight: 1.5
@@ -285,19 +285,21 @@ None observed. The site has no error, success or warning states in view.
 `halyard-display` from Adobe Fonts, loaded through a Typekit kit locked to the climatetechcities.com domain. Weights present: 300, 400, 700. Fallback stack in the theme is the generic sans-serif.
 
 ### Note on Font Substitutes
-Halyard Display is licensed and cannot be loaded on another domain. **Mulish** (Google Fonts) is the closest open substitute: a geometric-humanist sans with a similar x-height and open apertures.
+Halyard Display is licensed and cannot be loaded on another domain. **Catamaran** (SIL OFL) is the closest open substitute found by measurement: on climatetechcities.com, with Halyard loaded, 60 Google fonts were drawn glyph by glyph (46 glyphs) and compared by pixel overlap at stroke-matched weights, plus advance widths and x-height.
 
-**Do not copy the weight numbers across.** Halyard 300 has much sturdier strokes than Mulish 300; set one for one, Mulish reads spindly. Run Mulish one step heavier than the Halyard value it replaces, and keep CTC's variation (big display heads light, small heads bold):
+| Font | Overlap score | Line width vs Halyard | Note |
+|---|---|---|---|
+| Catamaran | 0.594 | 415px vs 417px | chosen: closest width and texture, double-storey a, single-storey g |
+| Jost | 0.602 | 449px | Futura-like, runs wide |
+| Familjen Grotesk | 0.593 | 436px | single-storey a, cannot go below 400 |
+| Hanken Grotesk | 0.590 | 453px | runs about 9% wide |
+| Mulish (previous) | 0.481 | wide | ranked 44th of 60 |
 
-| CTC role | Halyard | Mulish |
-|---|---|---|
-| Running prose | 300 | 400 |
-| Large display heading | 300 | 500 |
-| Section heading | 300 | 600 |
-| Small heading, city name, card title | 700 | 700 |
-| Inline label | 700 | 700 to 800 |
-| Primary button | 400 | 600 |
-| Secondary pill | 300 | 500 |
+Halyard's vertical metrics measured 106% ascent and 28% descent; Catamaran's own are 110% and 54%, which sits text high in buttons. Self-host it and set `ascent-override: 106%; descent-override: 28%; line-gap-override: 0%`.
+
+Catamaran's figures are old-style only (no `lnum` feature), while Halyard's are lining. Take 0-9 from **Gantari** (OFL): the closest lining digits to Halyard among the 60 (overlap 0.676), figure height 68 against Halyard's 68 and Catamaran's cap height 69. Subset it to U+0030-0039 and declare it last in the same family with the same metric overrides.
+
+Stroke thickness (stem of I at 400px): Halyard 300 = 28px, 400 = 39px, 700 = 82px. Catamaran matches Halyard 300 at about 350 and 400 at about 500; its heaviest (900) is 73px, a little under Halyard 700.
 
 ### Hierarchy
 
@@ -447,9 +449,9 @@ Two-column sections stack image over copy. Section padding scales with the viewp
 
 ## Known Gaps
 
-- Halyard Display is an Adobe Fonts kit locked to the site's domain and could not be loaded; Mulish is documented as the substitute.
+- Halyard Display is an Adobe Fonts kit locked to the site's domain and cannot be used elsewhere; Catamaran is documented as the measured substitute.
 - Squarespace's CSS is cross-origin, so the harvester could not read `cssRules` in the browser; tokens and multipliers were taken by fetching `site.css` directly instead. The full 1.27MB theme was not read end to end.
-- The home hero's dark organic blob is a Squarespace shape block; its path was not extracted.
+- The home hero's dark organic blob is a Squarespace shape block (rounded-pentagon); its path is recorded under Signature shapes.
 - Global fade animations run at 0.8s with a 1s delay; hover and scroll timings beyond that were not measured.
 - Chapter detail pages and the About and Partners pages were not harvested; the home, chapters and programs pages were.
 - Some primary buttons compute to pure black `#000000` for text and border while others use the olive; the theme's safeDarkAccent decides, and no rule for which is which was found.

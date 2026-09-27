@@ -61,11 +61,15 @@ Coral `#ef653a` marks Claude's work and the install screenshot annotations,
 darkened to `#c24d1c` under paper text; lavender `#e2bdff` for the copy
 buttons on the dark prompt bands.
 
-Type is Mulish standing in for Halyard Display, which is licensed to the CTC
-domain. Mulish runs one weight step heavier than the Halyard value it
-replaces, because Halyard 300 is much sturdier than Mulish 300: prose 400,
-page titles 500, section heads 600, step titles, card titles and labels 700.
-Letter-spacing `.03em` on prose, `.04em` on ledes, `.015em` on headings.
+Type is Catamaran, self-hosted from `assets/fonts/` under the SIL Open Font
+License, standing in for Halyard Display, which is licensed to the CTC domain.
+It was chosen by measuring 60 Google fonts against Halyard on CTC's own page;
+its vertical metrics are overridden to Halyard's so text sits the same way.
+Its figures are old-style, so the digits 0-9 come from Gantari (also OFL,
+subset to ten glyphs), whose lining digits are the closest to Halyard's.
+Weights: prose 400, page titles 500, section heads 600, step titles, card
+titles and labels 700. Letter-spacing `.03em` on prose, `.04em` on ledes,
+`.015em` on headings. No middle dots and no em dashes anywhere.
 
 Corners come from a scale rather than CTC's literal square, which read
 harsh: circles for markers (CTC's own icon vocabulary), 12px for cards and

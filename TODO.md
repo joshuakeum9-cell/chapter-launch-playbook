@@ -63,3 +63,5 @@ The Opened in Excel and Opened in Word images at the end of each preview were
 captured on the maintainer's own machine, so they show that installation's
 ribbon, add-ins and account initials. They are accurate and harmless, but a
 capture from a clean profile would be tidier.
+
+- `playbook/newsletter-chapter.md` is an old doc no page links to. It still has em dashes and middle dots; clean it or delete it.
