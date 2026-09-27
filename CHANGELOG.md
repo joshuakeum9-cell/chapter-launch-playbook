@@ -2,6 +2,18 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 14.2.0
+
+A second polish pass, and the home pentagon goes.
+
+- Home: the background pentagon is removed. The sample-issue card stands on its own, a little larger.
+- The annotated sample issue on Weekly cycle drops the salmon boxes for CTC's note treatment: a 3px rule and a light ground. The rule says who drafts (coral Claude, olive you), the ground says who finishes (cream is you). The legend matches.
+- Nothing that is not a link reacts to the mouse any more: the logo figures, the package lists and the Delete, Flag, Check and Send cards lost their hover border.
+- The arrows in the weekly loop (home) and the flow row (Weekly cycle) sit centred in the gap, level with the stage name rather than the role.
+- File viewer: a 1px frame instead of 2px, a lighter close button, and page labels in sentence case.
+- The top bar marks Downloads or Help when you are on that page.
+- The fade-in on scroll is quicker (450ms).
+
 ## 14.1.0
 
 Polish across all ten pages, for a cleaner, client-ready read.
