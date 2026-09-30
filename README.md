@@ -31,24 +31,24 @@ Ten static pages. The six steps are numbered in the order a lead works
 through them and carry a previous and next pair. Partners and the two
 reference pages are not numbered: the newsletter does not depend on the
 partner map. The former step 01, Is this you?, was recruitment framing and
-was cut in v13; its definition of done lives on the Two weeks page.
+was cut in v13; its definition of done lives on the Two-week overview page.
 
 | Page | Path | Holds |
 |---|---|---|
 | Home | `/` | The numbered map, the counts, one statement |
-| 01 Two weeks | `/two-weeks/` | The plan table and what done looks like |
-| 02 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
-| 03 Install | `/install/` | The three packages, the extension, the verify prompt |
-| 04 Set up | `/set-up/` | The nine questions, the two documents |
-| 05 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
-| 06 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
+| Overview | `/two-weeks/` | The plan table and what done looks like |
+| 01 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
+| 02 Install | `/install/` | The three packages, the extension, the verify prompt |
+| 03 Set up | `/set-up/` | The nine questions, the two documents |
+| 04 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
+| 05 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
 | Partners | `/partners/` | City resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
 | Downloads | `/downloads/` | Packages and the nine samples |
 
 Every anchor from the old single page (`/#setup`, `/#cycle`, and so on) is
 redirected by the home page to the matching new page; `/#apply` and the
-retired `/apply/` address land on Two weeks.
+retired `/apply/` address land on the Two-week overview.
 
 ## Design
 

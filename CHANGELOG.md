@@ -2,6 +2,15 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 14.3.0
+
+Two weeks is an overview, not a step.
+
+- The page is now the **Two-week overview**, unnumbered, under a new **Start here** group at the top of the sidebar. Its label reads "Overview, before step 01" and it has no progress bar. The address `/two-weeks/` is unchanged, so old links still work.
+- The real steps renumber 01 to 05: Logo, Install, Set up, Newsletter, Weekly cycle. Step labels read "Step 0N of 05" with five-segment progress bars; every pager, the home tiles and the Downloads pointer ("02 Install") follow.
+- Arrows are one drawn icon (a long shaft and an open, round-ended head) instead of the font glyph, on every button, pager, card and loop; they nudge forward on hover. This also fixes a phone-only bug where the Partners line showed " 92" in place of its arrow.
+- Home: the button reads "Start with the overview", the section heading "An overview, then five steps.", and the first tile is the unnumbered overview.
+
 ## 14.2.0
 
 A second polish pass, and the home pentagon goes.
