@@ -51,8 +51,7 @@ td.wrap { white-space: normal; overflow-wrap: anywhere; }
 th { background: #f3f3f3; color: #555; font: 400 10pt "Segoe UI", Arial, sans-serif; text-align: center; vertical-align: middle;
      border-right: 1px solid #d4d4d4; border-bottom: 1px solid #d4d4d4; position: sticky; z-index: 3; }
 thead th { top: 0; height: 22px; }
-tbody th { left: 0; z-index: 2; }
-thead th.corner { left: 0; z-index: 4; }
+tbody th { position: static; }
 td.frz { position: sticky; z-index: 1; }
 a { color: #0563c1; text-decoration: underline; }
 """
@@ -174,7 +173,7 @@ def sheet_html(ws):
     top = 22
     for r in range(1, max_r + 1):
         h = heights[r - 1]
-        out.append(f'<tr style="height:{h}px"><th style="height:{h}px{";top:" + str(top) + "px;z-index:4" if r <= frz_r else ""}">{r}</th>')
+        out.append(f'<tr style="height:{h}px"><th style="height:{h}px{";position:sticky;top:" + str(top) + "px;z-index:4" if r <= frz_r else ""}">{r}</th>')
         for c in range(1, max_c + 1):
             if (r, c) in covered:
                 continue
@@ -186,8 +185,7 @@ def sheet_html(ws):
             sticky = []
             if r <= frz_r:
                 sticky.append(f"top:{top}px")
-            if c <= frz_c:
-                sticky.append(f"left:{lefts[c - 1]}px")
+            # frozen columns are not pinned: sideways, the whole grid moves as one
             if sticky:
                 cls.append("frz")
                 st = ";".join(filter(None, [st, *sticky, "background:" + (re.search(r"background:([^;]+)", st).group(1) if "background:" in st else "#fff")]))

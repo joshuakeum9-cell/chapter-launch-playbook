@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 15.0.1
+
+Spreadsheet previews scroll sideways as one piece. Excel's frozen columns (City Resources freezes A to D) and the row-number column were pinned, so cells slid underneath them and looked merged. Nothing is pinned sideways now; the column letters and frozen header rows still stay on top when you scroll down.
+
 ## 15.0.0
 
 New toolkit packages, new setup samples, and previews you can actually read.
