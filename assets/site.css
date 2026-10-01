@@ -406,6 +406,10 @@ ul.dl-list a { color: var(--black); font-weight: 600; }
 /* ---------- diagram, legend, sample issue, qlist, faq ---------- */
 .legend-row { display: flex; gap: 20px; flex-wrap: wrap; margin: 10px 0 16px; }
 .legend-row span { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--ink); }
+/* a sample's colour key: one colour per line */
+.legend-row.key { flex-direction: column; gap: 8px; margin: 12px 0 14px; }
+.legend-row.key > span { align-items: flex-start; line-height: 1.45; }
+.legend-row.key .swatch { margin-top: 3px; border-radius: var(--r-xs); }
 /* rule colour says who drafts (coral Claude, olive you); the ground says who finishes (cream is you) */
 .swatch { border-radius: 0 var(--r-xs) var(--r-xs) 0; width: 22px; height: 14px; flex: 0 0 auto; border-left: 3px solid transparent; }
 .swatch.auto { background: var(--coral-wash); border-left-color: var(--coral); }

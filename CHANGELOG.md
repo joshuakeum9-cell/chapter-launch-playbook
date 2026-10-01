@@ -2,6 +2,16 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 15.0.3
+
+Every spreadsheet sample whose colours mean something now has a key under it, one colour per line, with the plugin's own fills and meanings:
+- Opportunities: pale yellow closes within three weeks or has a date to confirm; blue has more time; red cell missing information (`build_queue.py`).
+- Source list: white verified; pale yellow unverified; red cell a missing field (`build_registry.py`).
+- Events: white complete; red cell what the page did not give, named in Missing Info (`build_sheet.py`).
+- City resources: blue organization; light teal institution sub-header; bright yellow column F a reviewer note, not part of the list (`build_city.py`).
+- Partner map: light teal tier header; blue organization to approach; grey on Not approaching set aside (`build_partners.py`).
+The same explanation is the note at the foot of each preview.
+
 ## 15.0.2
 
 The opportunities sample explains its colours. `build_queue.py` in ctc-newsletter 2.5.1 shades a row yellow (`FDF0E3`) when its deadline is 21 days or less away or is unconfirmed, blue (`DCE6F1`) otherwise, and a cell red (`F8CBCB`) when required information is missing. A key under the sample on the Newsletter page and the viewer note say so.

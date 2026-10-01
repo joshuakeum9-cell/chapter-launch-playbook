@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=15.0.2" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.3" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -100,6 +100,11 @@
       </table>
       </div>
       <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
+      <div class="legend-row key" data-key="registry">
+        <span><span class="swatch" style="background:#ffffff;border:1px solid #c9c9c2" aria-hidden="true"></span> White row: verified, the harvest reads it every week</span>
+        <span><span class="swatch" style="background:#fdf0e3;border:1px solid #e9c9a6" aria-hidden="true"></span> Pale yellow row: unverified, kept with a note saying why. Check it yourself</span>
+        <span><span class="swatch" style="background:#f8cbcb;border:1px solid #e0a3a3" aria-hidden="true"></span> Red cell: a required field is missing, named in the Missing Info column</span>
+      </div>
       <div class="rail">
         <div class="filerow">
           <span class="thumb xlsx" aria-hidden="true">XLSX</span>
@@ -143,10 +148,10 @@
       </table>
       </div>
       <p class="cap">The Open sheet. A Closed sheet appears beside it the first time something expires; this sample has none yet. Fictional Portland chapter.</p>
-      <div class="legend-row">
-        <span><span class="swatch" style="background:#fdf0e3;border:1px solid #e9c9a6" aria-hidden="true"></span> Yellow: closes within three weeks, or the date still needs confirming</span>
-        <span><span class="swatch" style="background:#dce6f1;border:1px solid #b9c9dc" aria-hidden="true"></span> Blue: open, more time</span>
-        <span><span class="swatch" style="background:#f8cbcb;border:1px solid #e0a3a3" aria-hidden="true"></span> Red cell: required information missing</span>
+      <div class="legend-row key" data-key="opportunities">
+        <span><span class="swatch" style="background:#fdf0e3;border:1px solid #e9c9a6" aria-hidden="true"></span> Pale yellow row: closes within three weeks, or the date still needs confirming</span>
+        <span><span class="swatch" style="background:#dce6f1;border:1px solid #b9c9dc" aria-hidden="true"></span> Blue row: open, with more time</span>
+        <span><span class="swatch" style="background:#f8cbcb;border:1px solid #e0a3a3" aria-hidden="true"></span> Red cell: required information is missing</span>
       </div>
       <div class="rail">
         <div class="filerow">
@@ -196,6 +201,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=15.0.2"></script>
+<script src="../assets/site.js?v=15.0.3"></script>
 </body>
 </html>
