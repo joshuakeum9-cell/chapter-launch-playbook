@@ -1,11 +1,11 @@
 {
-  "version": "14.3.0",
-  "date": "2026-09-26",
+  "version": "15.0.0",
+  "date": "2026-10-01",
   "toolkit": {
     "packages": {
-      "ctc-chapter-setup": "1.5.0",
-      "ctc-newsletter": "2.0.0",
-      "ctc-partner-map": "2.0.0"
+      "ctc-chapter-setup": "1.6.0",
+      "ctc-newsletter": "2.5.1",
+      "ctc-partner-map": "2.2.0"
     },
     "skills": [
       "ctc-chapter-setup",

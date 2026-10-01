@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -93,7 +93,7 @@
           <th>Category</th><th>Cadence</th><th>Last Event</th><th>Confidence</th><th>Origin</th><th>Notes</th>
         </tr></thead>
         <tbody>
-          <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every registry</td></tr>
+          <tr><td>CTC event submissions (all chapters)</td><td class="mono">airtable.com/&hellip;</td><td class="mono">airtable</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">submissions</td><td>continuous</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">ctc</td><td>Standing row in every source list. Never delete</td></tr>
           <tr><td>Portland Climate Tech Collective</td><td class="mono">luma.com/&hellip;</td><td class="mono">luma</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">luma</td><td>2 to 4 events a month</td><td class="mono">2026-08-04</td><td class="mono">verified</td><td class="mono">user</td><td>Lead already followed this</td></tr>
           <tr><td>PSU Institute for Sustainable Solutions</td><td class="mono">example.edu/&hellip;</td><td class="mono">web</td><td class="mono">auto</td><td class="mono">core</td><td class="mono">university</td><td>weekly Sep to Jun</td><td class="mono">2026-06-11</td><td class="mono">verified</td><td class="mono">research</td><td>Empty in July and August. Term break, not death</td></tr>
         </tbody>
@@ -102,7 +102,7 @@
       <p class="cap">Unverified rows are shaded; any missing field is shaded red and named. Fictional Portland chapter.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/registry-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb xlsx" aria-hidden="true">XLSX</span>
           <span class="meta"><b>CTC_Source_Registry_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="registry">Preview</button>
@@ -119,7 +119,7 @@
       <pre class="prompt" id="p-monthly"></pre>
     </div>
 
-    <p class="desc">Claude sweeps program pages, public funders, aggregators, LinkedIn through your browser if you say yes, and, if you have built one, the organizations in your <a href="../partners/">partner map</a>. Without one it researches the city directly.</p>
+    <p class="desc">Claude sweeps program pages, public funders, aggregators, LinkedIn through your browser if you say yes (it asks every run), and, if you have built one, the organizations in your <a href="../partners/">partner map</a>. Without one it researches the city directly.</p>
     <ul class="checks">
       <li>At least 15 open opportunities in the file after every run, carried ones included</li>
       <li>A mix of accelerators, grants, and fellowships, never all of one kind</li>
@@ -127,7 +127,7 @@
       <li>Anything past its deadline moves to a Closed sheet</li>
       <li>Rolling programs count, and are listed as Rolling</li>
     </ul>
-    <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> One run covers every issue that month.</div>
+    <div class="note"><strong>Add Opportunities_[City].xlsx to your project as a context file, replacing last month's.</strong> One run covers every issue that month. From the second month on, drop last month's file into the chat when you run it: it updates that file rather than starting over.</div>
     <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
       <div class="scroll">
@@ -145,7 +145,7 @@
       <p class="cap">The Open sheet. A Closed sheet appears beside it the first time something expires; this sample has none yet. Fictional Portland chapter.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/opportunities-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb xlsx" aria-hidden="true">XLSX</span>
           <span class="meta"><b>Opportunities_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="opportunities">Preview</button>
@@ -173,9 +173,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -184,6 +191,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

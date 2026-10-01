@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -55,38 +55,37 @@
       <pre class="prompt" id="p-setup"></pre>
     </div>
 
-    <h2 class="sub">Nine questions</h2>
-    <p class="desc dim">One at a time, each with a default. Reply "default" to accept. The last is optional.</p>
+    <h2 class="sub">Eight questions, one message</h2>
+    <p class="desc dim">All eight arrive together, each with its default. Answer what you can in one reply. Anything you skip gets the default, and Claude tells you which. Every chapter starts weekly, so how often is not asked.</p>
     <div class="card qcard reveal">
       <ol class="qlist">
         <li><strong>Which city?</strong><span>Becomes your chapter name, Climate Tech [City].</span></li>
         <li><strong>Your name?</strong><span>Goes on every issue as the sender. Email from a person gets opened.</span></li>
-        <li><strong>Which day to send?</strong><span>Pick one and never move it.</span></li>
-        <li><strong>How often?</strong><span>Weekly is the standard and the default. Every two weeks is offered only after your first harvests show the volume.</span></li>
-        <li><strong>Which events count as local?</strong><span>The sentence every harvest uses to decide what belongs. It is the only instruction it gets.</span></li>
-        <li><strong>Which web address?</strong><span>Chapters use two patterns and there is no published rule. Recorded, and flagged to confirm with the CTC team.</span></li>
+        <li><strong>Which day to send?</strong><span>Pick one and never move it. No view? Tuesday or Wednesday.</span></li>
+        <li><strong>Which events count as local?</strong><span>The sentence every harvest uses to decide what belongs. Default: the city plus anywhere a subscriber would travel on a weeknight.</span></li>
+        <li><strong>Which web address?</strong><span>Chapters use two patterns and there is no published rule. The one question with no default: recorded, and flagged to confirm with the CTC team.</span></li>
         <li><strong>How to close each issue?</strong><span>Default: [your first name] and the Climate Tech [City] team.</span></li>
         <li><strong>Timezone?</strong><span>It offers the obvious one. You confirm.</span></li>
-        <li><strong>Anything unusual about your city?</strong><span>A second cluster, a university that owns the calendar, a season when everything stops. Skippable.</span></li>
+        <li><strong>Anything unusual about your city?</strong><span>Optional. A second cluster, a university that owns the calendar, a season when everything stops.</span></li>
       </ol>
     </div>
 
     <h2 class="sub">Two documents come back</h2>
     <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
-      <p class="cap">The settings file is what every other skill reads. The plan is what you read. Fictional Denver chapter.</p>
+      <p class="cap">The settings file is what every other skill reads. The plan is what you read. Sample Austin chapter.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/chapter-settings-p1.png" alt="" loading="lazy" /></span>
-          <span class="meta"><b>Chapter_Settings_SAMPLE.docx</b><span>Word document, 2 pages</span></span>
+          <span class="thumb docx" aria-hidden="true">DOCX</span>
+          <span class="meta"><b>Chapter_Settings_SAMPLE.docx</b><span>Word document</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="chapter-settings">Preview</button>
             <a class="btn sm" href="../downloads/samples/Chapter_Settings_SAMPLE.docx" download>Download</a>
           </span>
         </div>
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/chapter-plan-p1.png" alt="" loading="lazy" /></span>
-          <span class="meta"><b>Chapter_Plan_SAMPLE.docx</b><span>Word document, 4 pages</span></span>
+          <span class="thumb docx" aria-hidden="true">DOCX</span>
+          <span class="meta"><b>Chapter_Plan_SAMPLE.docx</b><span>Word document</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="chapter-plan">Preview</button>
             <a class="btn sm" href="../downloads/samples/Chapter_Plan_SAMPLE.docx" download>Download</a>
@@ -119,9 +118,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -130,6 +136,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

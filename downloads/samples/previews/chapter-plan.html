@@ -1,0 +1,668 @@
+<style>
+:host { all: initial; }
+.paper-wrap { padding: 28px 0 40px; display: flex; justify-content: center; min-width: max-content; }
+.paper { background: #fff; width: 8.5in; box-sizing: border-box; padding: 0.9in 1in; box-shadow: 0 1px 4px rgba(0,0,0,.18); color: #000; }
+.paper img { max-width: 100%; height: auto; }
+
+
+
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{margin:0in;
+	font-size:16.0pt;
+	font-family:"Times New Roman",serif;
+	color:#2E74B5;
+	font-weight:normal;}
+h2
+	{margin:0in;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	color:#2E74B5;
+	font-weight:normal;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.75in .75in .75in .75in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+
+</style><div class="paper-wrap"><div class="paper">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.0pt'><b><span style='font-size:18.0pt;
+font-family:"Calibri",sans-serif;color:#0F6E6E'>Climate Tech Austin</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:2.0pt'><span style='font-size:12.0pt;
+font-family:"Calibri",sans-serif;color:#555555'>Launch plan</span></p>
+
+<p class=MsoNormal style='margin-bottom:10.0pt'><i><span style='font-size:9.0pt;
+font-family:"Calibri",sans-serif;color:#555555'>Thursday, October 1, 2026 to
+Wednesday, October 14, 2026</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:5.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif'>Bulleted lines are the steps the toolkit and
+the Climate Tech Cities team depend on. The grey notes are advice: take what is
+useful and skip the rest. You know your city better than this document does.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif'>The full manual is the chapter launch
+playbook: https://joshuakeum9-cell.github.io/chapter-launch-playbook/. This
+plan is the short version with your dates in it.</span></p>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Before you start</span></b></h2>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Create a
+project in Claude and name it Climate Tech Austin.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Add
+Chapter_Settings_Austin.docx to that project as a context file, in project
+settings under add files, not attached to a chat. Every skill reads it from
+there, so nothing else in the toolkit works until it is in.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Install
+the toolkit: ctc-chapter-setup, ctc-newsletter, ctc-partner-map.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Install
+the Claude in Chrome extension. The weekly harvest needs it to read Luma and
+Eventbrite.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Turn on
+code execution in Settings, Capabilities.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>The playbook's Install
+page has these in order with links. Skills only appear in a fresh conversation,
+so start a new one after installing.</span></i></p>
+
+</div>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Schedule</span></b></h2>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=533
+ style='width:400.0pt;margin-left:-.15pt;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+   background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal>&nbsp;</p>
+   </td>
+   <td width=147 valign=top style='width:110.0pt;border:solid windowtext 1.0pt;
+   border-left:none;background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>When</span></b></p>
+   </td>
+   <td width=300 valign=top style='width:225.0pt;border:solid windowtext 1.0pt;
+   border-left:none;background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>What</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Week
+  1</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>October
+  1 to October 7</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Logo,
+  then Substack.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Week
+  2</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>October
+  8 to October 14</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Source
+  list, subscriber list, first issue.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Ongoing</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Every
+  Tuesday</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Harvest,
+  cut, draft, send.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Monthly</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>First
+  week of the month</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Run
+  ctc-opportunities.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Quarterly</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Once
+  every three months</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Re-run
+  ctc-source-map.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=87 valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Later</span></p>
+  </td>
+  <td width=147 valign=top style='width:110.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Once
+  the newsletter is running</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Partners,
+  if you want them.</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Week 1</span></b></h1>
+
+<p class=MsoNormal style='margin-bottom:7.0pt'><i><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif;color:#555555'>October 1 to October 7</span></i></p>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Logo</span></b></h2>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Open the
+Logo step on the chapter launch playbook. It has the prompt with your city in
+it, the reference images to attach, and the full walkthrough.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Generate
+concepts in ChatGPT and pick one.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Send
+your pick to the Climate Tech Cities team for sign-off. Nothing with the logo
+on it goes public until it is approved: it ends up on the Substack, the
+website, and every event graphic, so changing it later means changing it
+everywhere.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Judge concepts at icon
+size. That is the size most people will ever see it at.</span></i></p>
+
+</div>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Substack</span></b></h2>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Once the
+logo is approved, send it and your chapter name (Climate Tech Austin) to the
+Climate Tech Cities team. They create the Substack publication and send you the
+login.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Confirm
+the web address with them at the same time. Your settings file records
+austin.climatetechcities.com, but there is no fixed rule yet, and once other
+chapters link to the address it cannot change quietly.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>When you
+have the login, ask Claude in your project: &quot;walk me through Substack
+setup&quot; and &quot;draft my welcome email&quot;. Both read your settings
+file.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Two settings worth doing
+early: the sender name as Test Name rather than the chapter, because email from
+a person gets opened more often, and the welcome email, because Substack sends
+it to every new subscriber automatically and it is otherwise blank.</span></i></p>
+
+</div>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Week 2</span></b></h1>
+
+<p class=MsoNormal style='margin-bottom:7.0pt'><i><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif;color:#555555'>October 8 to October 14</span></i></p>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Source list</span></b></h2>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Run
+ctc-source-map in your project. It asks whether you have calendar links of your
+own, researches the rest, and hands back your source list to review.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>When it
+looks right, add CTC_Source_Registry_Austin.xlsx to your project as a context
+file. The weekly harvest reads it and stops without it.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Every future issue is
+built from this list, so it is worth an hour now. Sources go quiet without
+telling anyone, which is why the schedule has a refresh every three months.</span></i></p>
+
+</div>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Subscriber list</span></b></h2>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Add your
+first subscribers in Substack and start with whoever you have. A first issue
+going to a few dozen people is normal.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Your own network, asked
+one by one, is usually most of the early list and converts better than a public
+post. If you are thinking of importing a list from somewhere, ask Claude
+&quot;how do I build my list&quot; first: there are consent rules, and stricter
+ones for chapters in the UK and EU.</span></i></p>
+
+</div>
+
+<h2 style='margin-top:13.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+0in'><b><span style='font-size:12.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>First issue</span></b></h2>
+
+<p class=MsoNormal style='margin-bottom:7.0pt'><i><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif;color:#555555'>Tuesday, October 13, 2026</span></i></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Say
+&quot;run the newsletter&quot; in your project. The toolkit runs the harvest,
+hands you the cut, drafts the issue, and stops wherever your input is needed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>A first issue is small
+and mostly a note about why the newsletter exists. That is the right shape, not
+a failure. Do not wait until there are more events.</span></i></p>
+
+</div>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Every week</span></b></h1>
+
+<p class=MsoNormal style='margin-bottom:7.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif'>The issue goes out every Tuesday. Run the
+four steps in one sitting or spread them across the week.</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=533
+ style='width:400.0pt;margin-left:-.15pt;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=113 valign=top style='width:85.0pt;border:solid windowtext 1.0pt;
+   background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>Step</span></b></p>
+   </td>
+   <td width=420 valign=top style='width:315.0pt;border:solid windowtext 1.0pt;
+   border-left:none;background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>What happens</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=113 valign=top style='width:85.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Harvest</span></p>
+  </td>
+  <td width=420 valign=top style='width:315.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>ctc-harvest
+  sweeps your sources and the reader submission form into a spreadsheet.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=113 valign=top style='width:85.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Cut</span></p>
+  </td>
+  <td width=420 valign=top style='width:315.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>You
+  delete rows and flag your picks.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=113 valign=top style='width:85.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Draft</span></p>
+  </td>
+  <td width=420 valign=top style='width:315.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>ctc-assemble
+  builds the issue. You rewrite the opening note and picks in your own words.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=113 valign=top style='width:85.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Send</span></p>
+  </td>
+  <td width=420 valign=top style='width:315.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Check
+  the issue, paste into Substack, send.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif'>Say &quot;run the newsletter&quot; and the
+toolkit sequences these and stops where your input is needed.</span></p>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Every month</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>In the
+first week of the month, run ctc-opportunities.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Add
+Opportunities_Austin.xlsx to your project as a context file, replacing last
+month's copy. ctc-assemble reads it every week, so the opportunities block has
+something in it in every issue.</span></p>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Every quarter</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Re-run
+ctc-source-map once every three months and replace
+CTC_Source_Registry_Austin.xlsx in your project. Sources go quiet without
+telling anyone, and the refresh catches a dead calendar before it thins out an
+issue.</span></p>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Once the newsletter is running</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Run
+ctc-city-resources and name your city. It researches the ecosystem and builds
+your resource workbook.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Then
+ctc-partner-list turns that workbook into a tiered list of who to approach and
+what to ask each one for.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Then
+ctc-partner-outreach drafts the messages in your own voice.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Partners are optional
+and have no deadline. Starting them before the newsletter is running is how
+leads end up finishing neither.</span></i></p>
+
+</div>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>If you miss a week</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+4.0pt;margin-left:21.0pt;text-indent:-11.0pt'>•<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.5pt;font-family:"Calibri",sans-serif'>Send the
+next issue on your usual send day. No apology or explanation needed. The target
+is weeks covered over a quarter, not consecutive weeks.</span></p>
+
+<h1 style='margin-top:16.0pt;margin-right:0in;margin-bottom:8.0pt;margin-left:
+0in'><b><span style='font-size:15.0pt;font-family:"Calibri",sans-serif;
+color:#0F6E6E'>Files</span></b></h1>
+
+<p class=MsoNormal style='margin-bottom:7.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri",sans-serif'>Three files go in your Claude project as
+context files. Add the settings file now. Add the other two when the skills
+that create them hand them over.</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=533
+ style='width:400.0pt;margin-left:-.15pt;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=193 valign=top style='width:145.0pt;border:solid windowtext 1.0pt;
+   background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>File</span></b></p>
+   </td>
+   <td width=93 valign=top style='width:70.0pt;border:solid windowtext 1.0pt;
+   border-left:none;background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>Add it</span></b></p>
+   </td>
+   <td width=247 valign=top style='width:185.0pt;border:solid windowtext 1.0pt;
+   border-left:none;background:#D9E2E1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+   <p class=MsoNormal><b><span style='font-family:"Calibri",sans-serif;
+   color:black'>What it is</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=193 valign=top style='width:145.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Chapter_Settings_Austin.docx</span></p>
+  </td>
+  <td width=93 valign=top style='width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Now</span></p>
+  </td>
+  <td width=247 valign=top style='width:185.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Your
+  settings. Every skill reads it. Nothing else works until it is in the
+  project.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=193 valign=top style='width:145.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>CTC_Source_Registry_Austin.xlsx</span></p>
+  </td>
+  <td width=93 valign=top style='width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Week
+  2</span></p>
+  </td>
+  <td width=247 valign=top style='width:185.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Created
+  by ctc-source-map. The weekly harvest reads it. Replace it at each quarterly
+  refresh.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=193 valign=top style='width:145.0pt;border:solid windowtext 1.0pt;
+  border-top:none;background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Opportunities_Austin.xlsx</span></p>
+  </td>
+  <td width=93 valign=top style='width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Monthly</span></p>
+  </td>
+  <td width=247 valign=top style='width:185.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DCE6F1;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-family:"Calibri",sans-serif;color:black'>Created
+  by ctc-opportunities. Replace last month's copy each time.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'>&nbsp;</p>
+
+<div style='border:none;border-left:solid #0F6E6E 1.5pt;padding:0in 0in 0in 8.0pt;
+margin-left:8.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:6.0pt;border:none;padding:0in'><i><span
+style='font-family:"Calibri",sans-serif;color:#555555'>Keep
+Chapter_Plan_Austin.docx for reference. It is the only one of the four that
+does not go in the project.</span></i></p>
+
+</div>
+
+</div>
+
+</div></div>

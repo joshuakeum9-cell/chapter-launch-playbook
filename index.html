@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -61,7 +61,7 @@
     <li><a href="two-weeks/"><span class="n"></span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="32" rx="5"/><path d="M6 19h36M16 5v9M32 5v9"/><rect class="solid" x="12" y="25" width="24" height="5" rx="2.5"/><rect class="solid" x="12" y="33" width="15" height="5" rx="2.5"/></svg></span><span class="t">Two-week overview</span><span class="d">What happens when, and what done looks like</span></a></li>
     <li><a href="logo/"><span class="n">01</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5l11 17-11 21-11-21z"/><path d="M24 5v15"/><circle cx="24" cy="24" r="3.5"/></svg></span><span class="t">Logo</span><span class="d">In ChatGPT, signed off by the founders</span></a></li>
     <li><a href="install/"><span class="n">02</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5l17 8.5v21L24 43 7 34.5v-21z"/><path d="M7 13.5L24 22l17-8.5M24 22v21"/></svg></span><span class="t">Install</span><span class="d">Three packages, one extension</span></a></li>
-    <li><a href="set-up/"><span class="n">03</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="35" rx="4"/><rect x="18" y="4" width="12" height="7" rx="2.5"/><path d="M16 21l3 3 5-6M28 21h5M16 32l3 3 5-6M28 32h5"/></svg></span><span class="t">Set up</span><span class="d">Nine questions, two documents</span></a></li>
+    <li><a href="set-up/"><span class="n">03</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="35" rx="4"/><rect x="18" y="4" width="12" height="7" rx="2.5"/><path d="M16 21l3 3 5-6M28 21h5M16 32l3 3 5-6M28 32h5"/></svg></span><span class="t">Set up</span><span class="d">Eight questions, two documents</span></a></li>
     <li><a href="newsletter/"><span class="n">04</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="11" width="38" height="27" rx="4"/><path d="M6 13l18 14 18-14"/></svg></span><span class="t">Newsletter</span><span class="d">The two files your issues draw from</span></a></li>
     <li><a href="weekly-cycle/"><span class="n">05</span><span class="art" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M39 21a15 15 0 00-27.5-5.5"/><path d="M10.5 8v8h8"/><path d="M9 27a15 15 0 0027.5 5.5"/><path d="M37.5 40v-8h-8"/></svg></span><span class="t">Weekly cycle</span><span class="d">Collect, cut, write, send</span></a></li>
   </ol>
@@ -99,9 +99,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -110,6 +117,6 @@
 </div>
 
 <script>window.ROOT = "";</script>
-<script src="assets/site.js?v=14.3.0"></script>
+<script src="assets/site.js?v=15.0.0"></script>
 </body>
 </html>

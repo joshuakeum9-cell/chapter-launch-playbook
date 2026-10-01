@@ -115,91 +115,110 @@ function fallbackCopy(text, done) {
    Every sample ships as a real file. Each page shown here is a render of that exact
    file, so what the viewer shows and what Download hands over are the same document. */
 var FILES = {
-  "chapter-settings": { file: "Chapter_Settings_SAMPLE.docx", pages: 2, shot: "chapter-settings-open.png", app: "Word",
-    sub: "Word document, 2 pages. Fictional Denver chapter.",
+  "chapter-settings": { file: "Chapter_Settings_SAMPLE.docx", kind: "docx",
+    sub: "Word document. Sample Austin chapter.",
     note: "Every skill in the toolkit reads this file. Add it to your project as a context file." },
-  "chapter-plan": { file: "Chapter_Plan_SAMPLE.docx", pages: 4, shot: "chapter-plan-open.png", app: "Word",
-    sub: "Word document, 4 pages. Fictional Denver chapter.",
+  "chapter-plan": { file: "Chapter_Plan_SAMPLE.docx", kind: "docx",
+    sub: "Word document. Sample Austin chapter.",
     note: "The plan is the one you read. Your dates will differ; the phases will not." },
-  "registry": { file: "CTC_Source_Registry_SAMPLE.xlsx", pages: 1, shot: "registry-open.png", app: "Excel",
-    sub: "Excel workbook, the Sources sheet. Fictional Portland chapter.",
+  "registry": { file: "CTC_Source_Registry_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
     note: "Unverified rows are shaded, and any missing field is shaded red and named." },
-  "events": { file: "CTC_Events_SAMPLE.xlsx", pages: 1, shot: "events-open.png", app: "Excel",
-    sub: "Excel workbook, the Events sheet. Fictional Portland chapter.",
+  "events": { file: "CTC_Events_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
     note: "The time header carries your chapter's timezone. One row per event." },
-  "opportunities": { file: "Opportunities_SAMPLE.xlsx", pages: 1, shot: "opportunities-open.png", app: "Excel",
-    sub: "Excel workbook, the Open sheet. Fictional Portland chapter.",
+  "opportunities": { file: "Opportunities_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
     note: "A Closed sheet appears beside this one the first time something expires." },
-  "city-resources": { file: "CTC_City_Resources_SAMPLE.xlsx", pages: 3, shot: "city-resources-open.png", app: "Excel",
-    sub: "Excel workbook, the city sheet and City Narratives, 3 printed pages.",
+  "city-resources": { file: "CTC_City_Resources_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook, the city sheet and City Narratives.",
     note: "The city, Alderport, and every organization in it are fictional." },
-  "partner-map": { file: "CTC_Partner_Map_SAMPLE.xlsx", pages: 2, shot: "partner-map-open.png", app: "Excel",
-    sub: "Excel workbook, Partners and Not approaching, 2 printed pages.",
+  "partner-map": { file: "CTC_Partner_Map_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook, Partners and Not approaching.",
     note: "The organizations are real Houston ones, but every line written about them here is illustrative and unverified." },
-  "issue": { file: "Portland_Climate_Tech_Aug_11-Aug_18.docx", pages: 6, shot: "issue-open.png", app: "Word",
-    sub: "Word document, 6 pages. Fictional Portland chapter.",
+  "issue": { file: "Portland_Climate_Tech_Aug_11-Aug_18.docx", kind: "docx",
+    sub: "Word document. Fictional Portland chapter.",
     note: "The yellow lines are the rewrite markers. They come out when you have written your three blocks." },
-  "issue-html": { file: "Portland_Climate_Tech_Aug_11-Aug_18.html", live: true,
-    sub: "The web page version, shown here exactly as it renders.",
+  "issue-html": { file: "Portland_Climate_Tech_Aug_11-Aug_18.html", kind: "html",
+    sub: "The web page version, shown as it renders.",
     note: "This is the copy you paste from. Opening the HTML file keeps the formatting; the Word file does not." }
 };
-var DIMS = {
-  "registry": [[1381,335],[1400,758]],
-  "events": [[1369,570],[1400,758]],
-  "opportunities": [[1398,663],[1400,758]],
-  "city-resources": [[1379,915],[1379,426],[1402,707],[1400,758]],
-  "partner-map": [[1399,866],[1395,315],[1400,758]],
-  "chapter-settings": [[995,1318],[972,408],[1400,758]],
-  "chapter-plan": [[985,1250],[998,1247],[984,1282],[798,242],[1400,758]],
-  "issue": [[922,1255],[931,1177],[931,1251],[931,1211],[913,1230],[931,1151],[1400,758]]
-};
 var SAMPLES = ROOT + "downloads/samples/";
-var SHOTS = SAMPLES + "previews/";
-var viewer, lastFocus = null;
+var PREVIEWS = SAMPLES + "previews/";
+var viewer, lastFocus = null, zoom = 1, stage = null;
 
-function buildPage(src, label, alt, size) {
-  var fig = document.createElement("div");
-  fig.className = "page";
-  var cap = document.createElement("span");
-  cap.className = "pn";
-  cap.textContent = label;
-  var img = document.createElement("img");
-  img.src = src; img.alt = alt; img.loading = "lazy";
-  if (size) { img.width = size[0]; img.height = size[1]; }
-  fig.appendChild(cap); fig.appendChild(img);
-  return fig;
+/* the preview is the file's own text and cells, rendered in a shadow root so its styles stay its own */
+function setZoom(z) {
+  zoom = Math.min(3, Math.max(0.3, Math.round(z * 100) / 100));
+  if (stage) stage.style.zoom = zoom;
+  var lbl = document.getElementById("zoom-level");
+  if (lbl) lbl.textContent = Math.round(zoom * 100) + "%";
+}
+function fitWidth() {
+  if (!stage) return;
+  var body = document.getElementById("viewer-body");
+  stage.style.zoom = 1;
+  var w = stage.scrollWidth;
+  setZoom(w ? Math.min(1, (body.clientWidth - 2) / w) : 1);
+}
+function buildTabs(root) {
+  var bar = document.getElementById("viewer-tabs");
+  bar.textContent = "";
+  var sheets = root.querySelectorAll(".sheet");
+  bar.hidden = sheets.length < 1;
+  sheets.forEach(function (s, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = s.getAttribute("data-name");
+    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () {
+      sheets.forEach(function (x) { x.classList.remove("on"); });
+      bar.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      s.classList.add("on");
+      b.setAttribute("aria-pressed", "true");
+      document.getElementById("viewer-body").scrollTo(0, 0);
+    });
+    bar.appendChild(b);
+  });
 }
 function openFile(key) {
   var f = FILES[key];
   if (!f || !viewer) return;
   var body = document.getElementById("viewer-body");
   body.textContent = "";
-  body.scrollTop = 0;
+  body.className = "modal-body kind-" + f.kind;
+  document.getElementById("viewer-tabs").hidden = true;
   document.getElementById("viewer-name").textContent = f.file;
   document.getElementById("viewer-sub").textContent = f.sub;
   document.getElementById("viewer-note").textContent = f.note;
   var dl = document.getElementById("viewer-dl");
   dl.href = SAMPLES + f.file;
   dl.setAttribute("download", f.file);
-  if (f.live) {
-    var frame = document.createElement("iframe");
-    frame.src = SAMPLES + f.file;
-    frame.title = f.file;
-    frame.setAttribute("sandbox", "");
-    frame.style.cssText = "width:100%;height:70vh;border:1px solid var(--hairline);border-radius:var(--r-sm);background:var(--canvas);display:block;";
-    body.appendChild(frame);
-  } else {
-    var d = DIMS[key] || [];
-    for (var i = 1; i <= f.pages; i++) {
-      body.appendChild(buildPage(SHOTS + key + "-p" + i + ".png",
-        f.pages > 1 ? "Page " + i + " of " + f.pages : "The file",
-        "Page " + i + " of " + f.file, d[i - 1]));
-    }
-    if (f.shot) {
-      body.appendChild(buildPage(SHOTS + f.shot, "Opened in " + f.app,
-        f.file + " open in " + f.app + ", the way it looks once you download it.", d[f.pages]));
-    }
-  }
+  var host = document.createElement("div");
+  host.className = "preview-host";
+  body.appendChild(host);
+  var root = host.attachShadow ? host.attachShadow({ mode: "open" }) : host;
+  stage = document.createElement("div");
+  stage.className = "stage";
+  host.textContent = "";
+  var loading = document.createElement("p");
+  loading.className = "preview-wait";
+  loading.textContent = "Opening the file";
+  body.appendChild(loading);
+  fetch(PREVIEWS + key + ".html").then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.text();
+  }).then(function (markup) {
+    root.innerHTML = markup.replace(/<div class="(xl|paper-wrap|mail-wrap)">/, '<div class="stage-in $1">');
+    var styles = root.querySelectorAll("style");
+    var inner = root.querySelector(".stage-in");
+    stage = inner || root.firstElementChild;
+    loading.remove();
+    if (f.kind === "xlsx") buildTabs(root);
+    if (f.kind === "docx" || f.kind === "html") fitWidth(); else setZoom(1);
+  }).catch(function () {
+    loading.textContent = "The preview could not load. Download the file to open it.";
+  });
   lastFocus = document.activeElement;
   viewer.hidden = false;
   viewer.classList.add("open");
@@ -212,6 +231,7 @@ function closeFile() {
   viewer.hidden = true;
   document.body.classList.remove("locked");
   document.getElementById("viewer-body").textContent = "";
+  stage = null;
   if (lastFocus && lastFocus.focus) lastFocus.focus();
 }
 
@@ -253,10 +273,22 @@ window.addEventListener("DOMContentLoaded", function () {
       b.addEventListener("click", function () { openFile(b.getAttribute("data-file")); });
     });
     document.getElementById("viewer-close").addEventListener("click", closeFile);
+    document.getElementById("zoom-out").addEventListener("click", function () { setZoom(zoom - 0.1); });
+    document.getElementById("zoom-in").addEventListener("click", function () { setZoom(zoom + 0.1); });
+    document.getElementById("zoom-level").addEventListener("click", function () { setZoom(1); });
+    document.getElementById("zoom-fit").addEventListener("click", fitWidth);
+    document.getElementById("viewer-body").addEventListener("wheel", function (e) {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      setZoom(zoom * (e.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
     viewer.addEventListener("click", function (e) { if (e.target === viewer) closeFile(); });
     document.addEventListener("keydown", function (e) {
       if (!viewer.classList.contains("open")) return;
       if (e.key === "Escape") { closeFile(); return; }
+      if ((e.ctrlKey || e.metaKey) && (e.key === "=" || e.key === "+")) { e.preventDefault(); setZoom(zoom + 0.1); return; }
+      if ((e.ctrlKey || e.metaKey) && e.key === "-") { e.preventDefault(); setZoom(zoom - 0.1); return; }
+      if ((e.ctrlKey || e.metaKey) && e.key === "0") { e.preventDefault(); setZoom(1); return; }
       if (e.key !== "Tab") return;
       var f = viewer.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])");
       if (!f.length) return;

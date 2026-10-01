@@ -2,6 +2,22 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 15.0.0
+
+New toolkit packages, new setup samples, and previews you can actually read.
+
+**Packages.** The site now hosts `ctc-chapter-setup` v1.6.0, `ctc-newsletter` v2.5.1 and `ctc-partner-map` v2.2.0; the old zips are removed.
+- ctc-chapter-setup is now a plugin, not a bare skill. Install drops the "Upload the skill" step: all three go through Upload plugin. Its tag reads "Plugin, 1 skill".
+- Setup asks eight questions in one message (how often is no longer asked; every chapter starts weekly). The Set up page lists the eight with their defaults; the web address is the one with no default.
+- Assembly now refuses to build without both the source list and the opportunities file, and asks you to pick two to four opportunities from the file. The three-questions copy says so, and that an empty answer drafts from the week and season.
+- The harvest returns a small optional .json beside the spreadsheet; the opportunities run asks for last month's file from the second month on, and asks about LinkedIn every run; the submission form reads through an Airtable connector when one is on. Each is one line on the page it belongs to.
+- The partner map is "once", not "once, then quarterly": nothing in the package refreshes it. Outreach starts by dropping the partner map into the chat.
+- The source-registry sample is the one shipped in 2.5.1 ("Standing row in every source list. Never delete"). The partner-map sample is rebuilt with 2.2.0's builder (tiers read "First wave", "Second wave").
+
+**Setup samples.** Chapter_Settings_SAMPLE.docx and Chapter_Plan_SAMPLE.docx are now the Austin chapter documents built by setup v1.6.0 (they replace the Denver ones; file names kept so links hold).
+
+**Previews.** Every Preview opens the file itself, not screenshots of it. Spreadsheets render as Excel-style grids (column letters, row numbers, the file's own widths, fills, merges, links and frozen header rows) with sheet tabs along the bottom; Word documents render as Word's own HTML on a page. Zoom with the buttons, Ctrl and the scroll wheel, or Ctrl plus and minus; Fit width sizes a document to the window. Built by `tools/build_previews.py`; the PNG renders and app screenshots are gone, and the file rows show a type badge (XLSX, DOCX, HTML) instead of a thumbnail.
+
 ## 14.3.0
 
 Two weeks is an overview, not a step.

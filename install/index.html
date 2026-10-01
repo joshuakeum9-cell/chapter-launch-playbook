@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -51,12 +51,12 @@
     <p class="lede">Three packages and a browser extension. A paid Claude account. No code.</p>
 
     <div class="card reveal" style="margin-top:24px;">
-      <div class="dl"><a class="name" href="../downloads/ctc-chapter-setup-v1.5.0.zip" download>ctc-chapter-setup</a><span class="what">Nine questions, then your settings file and plan.</span><span class="tag">Skill</span></div>
-      <div class="dl"><a class="name" href="../downloads/ctc-newsletter-v2.0.0.zip" download>ctc-newsletter</a><span class="what">Finds sources, collects events and reader submissions, builds the issue.</span><span class="tag">Plugin, 5 skills</span></div>
-      <div class="dl"><a class="name" href="../downloads/ctc-partner-map-v2.0.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails. Optional.</span><span class="tag">Plugin, 3 skills</span></div>
+      <div class="dl"><a class="name" href="../downloads/ctc-chapter-setup-v1.6.0.zip" download>ctc-chapter-setup</a><span class="what">Eight questions in one message, then your settings file and plan.</span><span class="tag">Plugin, 1 skill</span></div>
+      <div class="dl"><a class="name" href="../downloads/ctc-newsletter-v2.5.1.zip" download>ctc-newsletter</a><span class="what">Finds sources, collects events and reader submissions, builds the issue.</span><span class="tag">Plugin, 5 skills</span></div>
+      <div class="dl"><a class="name" href="../downloads/ctc-partner-map-v2.2.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails. Optional.</span><span class="tag">Plugin, 3 skills</span></div>
       <div class="dl"><span class="name">Claude for Chrome</span><span class="what">Luma, Eventbrite and the submission form need a real browser.</span><span class="tag">Extension</span></div>
     </div>
-    <div class="note"><strong>A skill does one job. A plugin is several skills installed together.</strong> Claude for Chrome is required for the weekly harvest. Download all three zips first; the steps below upload them.</div>
+    <div class="note"><strong>All three are plugins: a zip you upload once that brings its skills with it.</strong> Claude for Chrome is required for the weekly harvest. Download all three zips first; the steps below upload them.</div>
 
     <ol class="steps" style="margin-top:36px;">
       <li>
@@ -68,19 +68,11 @@
         </figure>
       </li>
       <li>
-        <h2 class="sub">Upload the skill</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/skills" target="_blank" rel="noopener">claude.ai/customize/skills</a>. <strong>Add</strong>, then <strong>Upload skill</strong>, then choose the ctc-chapter-setup zip you downloaded.</p>
-        <figure class="shot">
-          <img src="../downloads/guide/skills-add.png" alt="" loading="lazy" />
-          <figcaption>Customize, then Skills. <b>1</b> Add. <b>2</b> Upload skill. Once it is in, it shows under Yours.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <h2 class="sub">Upload the two plugins</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>. Once for ctc-newsletter, once for ctc-partner-map. A plugin brings its skills with it.</p>
+        <h2 class="sub">Upload the three plugins</h2>
+        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>. Once each for ctc-chapter-setup, ctc-newsletter and ctc-partner-map.</p>
         <figure class="shot">
           <img src="../downloads/guide/plugins-add.png" alt="" loading="lazy" />
-          <figcaption>Customize, then Plugins. <b>1</b> Add. <b>2</b> Upload plugin. Do it twice.</figcaption>
+          <figcaption>Customize, then Plugins. <b>1</b> Add. <b>2</b> Upload plugin. Do it three times.</figcaption>
         </figure>
       </li>
       <li>
@@ -105,7 +97,7 @@
           <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
           <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
         </div>
-        <div class="note">Claude should name ctc-chapter-setup and the skills in both plugins. If not: check step 1, upload again, and start a fresh conversation. Skills do not appear mid-conversation.</div>
+        <div class="note">Claude should name ctc-chapter-setup and the skills in the other two plugins. If not: check step 1, upload again, and start a fresh conversation. Skills do not appear mid-conversation.</div>
       </li>
     </ol>
     <nav class="pager" aria-label="Previous and next step">
@@ -127,9 +119,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -138,6 +137,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 # Open items
 
-Everything from the 17 August round is settled by toolkit v2.0.0 and
-`ctc-chapter-setup` v1.5.0, and has been removed: the question count (now nine,
-matching the skill), the opportunities cadence (monthly on the page and in the
-skill), the logo section's time estimate (deleted), and the two retired v1
-repositories (deleted on GitHub).
+Toolkit on the site as of 2026-10-01: `ctc-chapter-setup` v1.6.0 (now a
+plugin, eight questions in one message), `ctc-newsletter` v2.5.1,
+`ctc-partner-map` v2.2.0.
 
 ## The verification script lives outside the repo
 

@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -52,7 +52,7 @@
     <div class="note"><strong>Skip this for as long as you like.</strong> The weekly cycle does not read the partner map, and your issues send without it. Come back when you want to host an event, find a speaker, or grow past the list you have. If you do build one, the monthly opportunities run reads it for local programs instead of researching the city again.</div>
 
     <div class="prompt-card reveal">
-      <div class="head"><span class="label">Partner map <span class="hint">once, then quarterly</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
+      <div class="head"><span class="label">Partner map <span class="hint">once</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
       <pre class="prompt" id="p-partnermap"></pre>
     </div>
 
@@ -74,7 +74,7 @@
       <p class="cap">Five-block city tab plus a City Narratives sheet. The city, Alderport, and everything in it are fictional.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/city-resources-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb xlsx" aria-hidden="true">XLSX</span>
           <span class="meta"><b>CTC_City_Resources_SAMPLE.xlsx</b><span>Excel workbook, 2 sheets</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="city-resources">Preview</button>
@@ -102,7 +102,7 @@
       <p class="cap">Three rows from the Tier 1 band; the tier is the band header above each group. A separate internal file, with a Not approaching sheet. Real Houston organizations; every line about them is illustrative and unverified.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/partner-map-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb xlsx" aria-hidden="true">XLSX</span>
           <span class="meta"><b>CTC_Partner_Map_SAMPLE.xlsx</b><span>Excel workbook, 2 sheets</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="partner-map">Preview</button>
@@ -114,7 +114,7 @@
       </li>
       <li>
         <h2 class="sub">Claude drafts the emails</h2>
-        <p class="desc dim">In your voice, one at a time, after seven questions. It asks for a recent email of yours to match how you write. It never sends anything.</p>
+        <p class="desc dim">Drop your partner map into the chat and name the organization. In your voice, one at a time, after seven questions. It asks for a recent email of yours to match how you write. It never sends anything.</p>
       </li>
     </ol>
 
@@ -138,9 +138,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -149,6 +156,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

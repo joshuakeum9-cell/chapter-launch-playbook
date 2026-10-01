@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -74,7 +74,7 @@
     </div>
 
     <p class="desc">It also reads the CTC event submission form for your city, and asks first whether you know of anything not on a calendar. Every row says where it came from: <code>registry</code>, <code>submitted</code>, or <code>lead</code>. Every link is opened and checked. Incomplete rows are shaded red and named in a Missing Info column.</p>
-    <div class="note"><strong>If Claude asks to use your Chrome browser, say yes.</strong> Some sites hide listings from simple requests. It reads; it does not click. Save the spreadsheet when it finishes.</div>
+    <div class="note"><strong>If Claude asks to use your Chrome browser, say yes.</strong> Some sites hide listings from simple requests. It reads; it does not click. Save the spreadsheet when it finishes. A small .json file comes back beside it: optional, drop it into next week's chat and unchanged events keep their write-ups.</div>
     <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
       <div class="scroll">
@@ -93,7 +93,7 @@
       <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/events-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb xlsx" aria-hidden="true">XLSX</span>
           <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="events">Preview</button>
@@ -129,7 +129,7 @@
     <div class="note"><strong>Upload the edited spreadsheet back.</strong> The issue is built from that file, not the one Claude gave you.</div>
 
     <h2 id="write">Assemble and write <span class="who both">Both</span></h2>
-    <p class="desc">Paste the prompt, attach your edited spreadsheet. Claude asks three questions and builds the issue.</p>
+    <p class="desc">Paste the prompt, attach your edited spreadsheet. Claude checks your source list and opportunities file are in the project, asks three questions, and builds the issue.</p>
     <div class="prompt-card reveal">
       <div class="head"><span class="label">Assemble <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-assemble', this)">Copy</button></div>
       <pre class="prompt" id="p-assemble"></pre>
@@ -140,8 +140,8 @@
       <h3>Three questions first</h3>
       <ol class="qlist">
         <li><strong>Which events are the picks?</strong><span>Reads your PICK column and confirms. Otherwise lists this week's events and suggests four to six.</span></li>
-        <li><strong>Any opportunities this week?</strong><span>Offers from your <a href="../newsletter/#opportunities">opportunities file</a> if it is in the project, nearest deadlines first. Otherwise give a name, link and deadline, or say none and the block is left out.</span></li>
-        <li><strong>Anything the sheet cannot know?</strong><span>Your own event, a postponement, city news. The opening note and housekeeping are built from this. Nothing? Say so, and those blocks come back as marked scaffolds.</span></li>
+        <li><strong>Any opportunities this week?</strong><span>Shows your <a href="../newsletter/#opportunities">opportunities file</a> and suggests two to four, nearest deadlines and most local first. No file, no issue: assembly stops until you have run the monthly opportunities.</span></li>
+        <li><strong>Anything the sheet cannot know?</strong><span>Your own event, a postponement, city news. The opening note and housekeeping are built from this. Nothing? Say so. The note is drafted from the week and the season, still marked, and housekeeping shrinks to the sign-off.</span></li>
       </ol>
     </div>
     <h3>The ten blocks, in order</h3>
@@ -267,7 +267,7 @@
       <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
       <div class="rail">
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb html" aria-hidden="true">HTML</span>
           <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.html</b><span>Web page, the one you paste from</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="issue-html">Preview</button>
@@ -275,7 +275,7 @@
           </span>
         </div>
         <div class="filerow">
-          <span class="thumb"><img src="../downloads/samples/previews/issue-p1.png" alt="" loading="lazy" /></span>
+          <span class="thumb docx" aria-hidden="true">DOCX</span>
           <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>Word document, 6 pages</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="issue">Preview</button>
@@ -328,9 +328,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -339,6 +346,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

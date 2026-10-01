@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="preload" href="../assets/fonts/catamaran-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../assets/fonts/gantari-digits.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../assets/site.css?v=14.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=15.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -51,7 +51,7 @@
     <div class="faq-stack reveal">
       <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero and check those by hand. Do not assume the city went quiet.</div></details>
       <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
-      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal on Luma, Eventbrite and the submission form. Say yes. It reads pages; it does not click.</div></details>
+      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal on Luma and Eventbrite, and on the submission form if no Airtable connector is on. The monthly opportunities run also asks, every time, before reading LinkedIn. Yes or no are both fine. It reads pages; it does not click.</div></details>
       <details class="faq"><summary>A page is asking me to prove I am human</summary><div class="body">Claude stops and tells you. Open the page yourself and paste what you see. Claude will not solve these.</div></details>
       <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The yellow rewrite lines were deleted without rewriting the blocks above them. Those three blocks are the only part readers remember.</div></details>
       <details class="faq"><summary>A reader emailed me an event</summary><div class="body">Send them the submission form link at the bottom of any issue. It shows up in the next harvest, marked submitted.</div></details>
@@ -85,9 +85,16 @@
   <div class="modal">
     <div class="modal-head">
       <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
       <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
     </div>
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
       <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
@@ -96,6 +103,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=14.3.0"></script>
+<script src="../assets/site.js?v=15.0.0"></script>
 </body>
 </html>

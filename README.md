@@ -15,9 +15,9 @@ packages, nine skills, covering a new chapter lead's launch.
 
 | Package | Kind | Contains |
 |---|---|---|
-| `ctc-chapter-setup` v1.5.0 | Skill | Nine-question setup interview, writes the settings file and launch plan |
-| `ctc-newsletter` v2.0.0 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
-| `ctc-partner-map` v2.0.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
+| `ctc-chapter-setup` v1.6.0 | Plugin, 1 skill | Eight questions in one message, writes the settings file and launch plan |
+| `ctc-newsletter` v2.5.1 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
+| `ctc-partner-map` v2.2.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
 The logo phase runs in ChatGPT rather than Claude, and the site carries the
 house prompt and the reference artwork for it.
@@ -39,7 +39,7 @@ was cut in v13; its definition of done lives on the Two-week overview page.
 | Overview | `/two-weeks/` | The plan table and what done looks like |
 | 01 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
 | 02 Install | `/install/` | The three packages, the extension, the verify prompt |
-| 03 Set up | `/set-up/` | The nine questions, the two documents |
+| 03 Set up | `/set-up/` | The eight questions, the two documents |
 | 04 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
 | 05 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
 | Partners | `/partners/` | City resources, partner map, outreach. Optional |
@@ -117,14 +117,16 @@ dividers with a left chevron. Geist Mono is kept for prompts and filenames.
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve
-- `downloads/guide/`, six screenshots of claude.ai used on the Install and
+- `downloads/guide/`, five screenshots of claude.ai used on the Install and
   Set up pages, cropped to the panel and marked with what to click. Taken
   2026-09-11; Claude's settings screens move, so re-take these when a step
   stops matching what a lead sees
 - `downloads/`, the three package zips, the five brand PNGs, and `samples/`
-  with the nine sample files plus `samples/previews/`, one render per page of
-  each sample (`<name>-p1.png`, `-p2.png`, and so on) and one screenshot of
-  that file open in Excel or Word (`<name>-open.png`)
+  with the nine sample files plus `samples/previews/`, one interactive preview
+  per sample (`<key>.html`): spreadsheets as Excel-style grids with sheet tabs,
+  Word files as Word's own HTML export. The file viewer loads them into a
+  shadow root and zooms them. Rebuild with `python tools/build_previews.py`
+  whenever a sample changes (Windows with Word for the .docx files)
 - `version.json`, version and date
 - `playbook/newsletter-chapter.md`, Chapter 8 draft for the CTC Operational Playbook
 - `TODO.md`, open items
