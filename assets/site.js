@@ -129,7 +129,7 @@ var FILES = {
     note: "The time header carries your chapter's timezone. One row per event." },
   "opportunities": { file: "Opportunities_SAMPLE.xlsx", kind: "xlsx",
     sub: "Excel workbook. Fictional Portland chapter.",
-    note: "A Closed sheet appears beside this one the first time something expires." },
+    note: "Yellow rows close within three weeks or have a date to confirm; blue rows have more time; a red cell is missing information. Expired entries move to a Closed sheet." },
   "city-resources": { file: "CTC_City_Resources_SAMPLE.xlsx", kind: "xlsx",
     sub: "Excel workbook, the city sheet and City Narratives.",
     note: "The city, Alderport, and every organization in it are fictional." },

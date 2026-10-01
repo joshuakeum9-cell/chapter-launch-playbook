@@ -2,6 +2,12 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 15.0.2
+
+The opportunities sample explains its colours. `build_queue.py` in ctc-newsletter 2.5.1 shades a row yellow (`FDF0E3`) when its deadline is 21 days or less away or is unconfirmed, blue (`DCE6F1`) otherwise, and a cell red (`F8CBCB`) when required information is missing. A key under the sample on the Newsletter page and the viewer note say so.
+
+Also fixes the Previous and Next boxes, which still showed the old six-step numbers after 14.3.0 (Newsletter's said "04 Set up" and "06 Weekly cycle"). The verifier now checks every pager number against the step order.
+
 ## 15.0.1
 
 Spreadsheet previews scroll sideways as one piece. Excel's frozen columns (City Resources freezes A to D) and the row-number column were pinned, so cells slid underneath them and looked merged. Nothing is pinned sideways now; the column letters and frozen header rows still stay on top when you scroll down.
